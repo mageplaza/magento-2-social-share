@@ -24,8 +24,49 @@
     <default>
         <socialshare>
             <general>
-                <enabled>0</enabled>
+                <enabled>1</enabled>
+                <icon_color>White</icon_color>
+                <custom_icon_color>#FFFFFF</custom_icon_color>
+                <button_color>Black</button_color>
+                <custom_button_color>#FFFFFF</custom_button_color>
+                <background_color>Custom</background_color>
+                <custom_background_color>#FFFFFF</custom_background_color>
+                <border_radius>0</border_radius>
+                <share_counter>0</share_counter>
+                <thank_you>0</thank_you>
+                <facebook>
+                    <enabled>1</enabled>
+                </facebook>
+                <twitter>
+                    <enabled>1</enabled>
+                </twitter>
+                <google>
+                    <enabled>1</enabled>
+                </google>
+                <pinterest>
+                    <enabled>1</enabled>
+                </pinterest>
+                <linkedIn>
+                    <enabled>1</enabled>
+                </linkedIn>
+                <tumblr>
+                    <enabled>1</enabled>
+                </tumblr>
+                <add_more_share>
+                    <enabled>1</enabled>
+                    <display_menu>Hover</display_menu>
+                </add_more_share>
             </general>
+            <float>
+                <style>Horizontal</style>
+                <position>Left</position>
+                <button_size>32x32</button_size>
+            </float>
+            <inline>
+                <position>Top Content</position>
+                <show_under_cart>1</show_under_cart>
+                <button_size>32x32</button_size>
+            </inline>
         </socialshare>
     </default>
 </config>

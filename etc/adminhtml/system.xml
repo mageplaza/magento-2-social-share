@@ -19,7 +19,6 @@
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
-
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
@@ -84,8 +83,11 @@
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
 
-                    <field id="image" translate="label" type="file" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/facebook</upload_dir>
+                        <base_url type="media" scope_info="1">mageplaza/socialshare/facebook</base_url>
                         <comment>If empty, default icon will be used</comment>
                     </field>
                 </group>
@@ -95,8 +97,11 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="file" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/twitter</upload_dir>
+                        <base_url type="media" scope_info="1">mageplaza/socialshare/twitter</base_url>
                         <comment>If empty, default icon will be used</comment>
                     </field>
                 </group>
@@ -106,8 +111,11 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="file" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/google</upload_dir>
+                        <base_url type="media" scope_info="1">mageplaza/socialshare/google</base_url>
                         <comment>If empty, default icon will be used</comment>
                     </field>
                 </group>
@@ -117,8 +125,11 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="file" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/pinterest</upload_dir>
+                        <base_url type="media" scope_info="1">mageplaza/socialshare/pinterest</base_url>
                         <comment>If empty, default icon will be used</comment>
                     </field>
                 </group>
@@ -128,8 +139,11 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="file" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/image</upload_dir>
+                        <base_url type="media" scope_info="1">mageplaza/socialshare/image</base_url>
                         <comment>If empty, default icon will be used</comment>
                     </field>
                 </group>
@@ -139,8 +153,11 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="file" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/tumblr</upload_dir>
+                        <base_url type="media" scope_info="1">mageplaza/socialshare/tumblr</base_url>
                         <comment>If empty, default icon will be used</comment>
                     </field>
                 </group>
