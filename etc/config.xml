@@ -25,9 +25,9 @@
         <socialshare>
             <general>
                 <enabled>1</enabled>
-                <icon_color>White</icon_color>
+                <icon_color>#ffffff</icon_color>
                 <custom_icon_color>#FFFFFF</custom_icon_color>
-                <button_color>Black</button_color>
+                <button_color>#000000</button_color>
                 <custom_button_color>#FFFFFF</custom_button_color>
                 <background_color>Custom</background_color>
                 <custom_background_color>#FFFFFF</custom_background_color>

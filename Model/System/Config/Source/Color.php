@@ -30,9 +30,9 @@ use Magento\Framework\Option\ArrayInterface;
 class Color implements ArrayInterface
 {
     const CUSTOM = "Custom";
-    const WHITE = "White";
-    const GRAY = "Gray";
-    const BLACK = "Black";
+    const WHITE = "#ffffff";
+    const GRAY = "#808080";
+    const BLACK = "#000000";
     /**
      * Return array of options as value-label pairs
      *
