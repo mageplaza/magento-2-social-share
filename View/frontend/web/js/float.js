@@ -37,9 +37,19 @@ define([
         },
 
         createSharePoint: function() {
-            var self = this;
-            var divCaptcha = $('<div class="mp-socialShare">mageplaza</div>');
-            element.append(divCaptcha);
+            var mainContent = $('#maincontent');
+            var divCaptcha = $('<div class="a2a_kit a2a_kit_size_32 a2a_default_style" style="left:0px; top:150px;">\n' +
+                '    <a class="a2a_button_facebook"></a>\n' +
+                '    <a class="a2a_button_twitter"></a>\n' +
+                '    <a class="a2a_button_google_plus"></a>\n' +
+                '    <a class="a2a_button_pinterest"></a>\n' +
+                '    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>\n' +
+                '</div>');
+            mainContent.append(divCaptcha);
+            require(['https://static.addtoany.com/menu/page.js']);
+
         }
-    })
+    });
+
+    return $.mp.socialShare;
 });
