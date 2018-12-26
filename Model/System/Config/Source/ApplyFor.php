@@ -29,9 +29,10 @@ use Magento\Framework\Option\ArrayInterface;
  */
 class ApplyFor implements ArrayInterface
 {
-    const HOME_PAGE = "Home Page";
-    const CATEGORY_PAGE = "Category Page";
-    const PRODUCT_PAGE = "Product Page";
+    const HOME_PAGE = "home_page";
+    const CATEGORY_PAGE = "category_page";
+    const PRODUCT_PAGE = "product_page";
+
     /**
      * Return array of options as value-label pairs
      *
@@ -39,10 +40,26 @@ class ApplyFor implements ArrayInterface
      */
     public function toOptionArray()
     {
+        $options = [];
+        foreach ($this->getOptionHash() as $value => $label) {
+            $options[] = [
+                'value' => $value,
+                'label' => $label
+            ];
+        }
+
+        return $options;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptionHash()
+    {
         return [
-            ['label' => __('Home Page'), 'value' => self::HOME_PAGE],
-            ['label' => __('Category Page'), 'value' => self::CATEGORY_PAGE],
-            ['label' => __('Product Page'), 'value' => self::PRODUCT_PAGE]
+            self::HOME_PAGE  => __('Home Page'),
+            self::CATEGORY_PAGE => __('Category Page'),
+            self::PRODUCT_PAGE => __('Product Page'),
         ];
     }
 }

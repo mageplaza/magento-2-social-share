@@ -20,10 +20,36 @@
  */
 
 namespace Mageplaza\SocialShare\Block;
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Template\Context;
+use Magento\Store\Model\StoreManagerInterface;
 
-class FloatDisplay extends SocialShare
+use Mageplaza\SocialShare\Helper\Data as HelperData;
+/**
+ * Class FloatDisplay
+ * @package Mageplaza\SocialShare\Block
+ */
+class FloatDisplay extends Template
 {
+    public $_helperData;
 
+    public function __construct(
+        Context $context,
+        HelperData $helperData,
+        array $data = [])
+    {
+        $this->_helperData = $helperData;
+        parent::__construct($context, $data);
+    }
+
+    public function isThisPageEnable() {
+        $currentPage = $this->getPage();
+        $allowPages = explode(',', $this->_helperData->getFloatApplyPages());
+        if(in_array($currentPage, $allowPages)) {
+            return true;
+        }
+        return false;
+    }
 
 
 }
