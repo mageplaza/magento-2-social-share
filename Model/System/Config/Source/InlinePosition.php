@@ -21,26 +21,23 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
-use Magento\Framework\Option\ArrayInterface;
-
 /**
  * Class InlinePosition
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class InlinePosition implements ArrayInterface
+class InlinePosition extends OptionArray
 {
-    const TOP_CONTENT = "Top Content";
-    const BOTTOM_CONTENT = "Bottom Content";
+    const TOP_CONTENT = "top_content";
+    const BOTTOM_CONTENT = "bottom_content";
+
     /**
-     * Return array of options as value-label pairs
-     *
-     * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
+     * @return array
      */
-    public function toOptionArray()
+    public function getOptionHash()
     {
         return [
-            ['label' => __('Top Content'), 'value' => self::TOP_CONTENT ],
-            ['label' => __('Bottom Content'), 'value' => self::BOTTOM_CONTENT ],
+            self::TOP_CONTENT  => __('Top Content'),
+            self::BOTTOM_CONTENT => __('Bottom Content'),
         ];
     }
 }

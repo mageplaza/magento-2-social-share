@@ -21,35 +21,15 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
-use Magento\Framework\Option\ArrayInterface;
-
 /**
  * Class ApplyFor
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class ApplyFor implements ArrayInterface
+class ApplyFor extends OptionArray
 {
     const HOME_PAGE = "home_page";
     const CATEGORY_PAGE = "category_page";
     const PRODUCT_PAGE = "product_page";
-
-    /**
-     * Return array of options as value-label pairs
-     *
-     * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
-     */
-    public function toOptionArray()
-    {
-        $options = [];
-        foreach ($this->getOptionHash() as $value => $label) {
-            $options[] = [
-                'value' => $value,
-                'label' => $label
-            ];
-        }
-
-        return $options;
-    }
 
     /**
      * @return array

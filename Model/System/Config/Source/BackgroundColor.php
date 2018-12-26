@@ -21,34 +21,31 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
-use Magento\Framework\Option\ArrayInterface;
-
 /**
  * Class BackgroundColor
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class BackgroundColor implements ArrayInterface
+class BackgroundColor extends OptionArray
 {
-  const CUSTOM = "Custom";
-  const NONE = "transparent";
-  const WHITE = "#FFFFFF";
-  const ORIGINAL = "#ffffff";
-  const GRAY = "#808080";
-  const BLACK = "#000000";
-  /**
-   * Return array of options as value-label pairs
-   *
-   * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
-   */
-  public function toOptionArray()
-  {
-    return [
-      ['label' => __('Custom'), 'value' => self::CUSTOM ],
-      ['label' => __('White'), 'value' => self::WHITE ],
-      ['label' => __('Default'), 'value' => self::ORIGINAL ],
-      ['label' => __('None'), 'value' => self::NONE ],
-      ['label' => __('Gray'), 'value' => self::GRAY ],
-      ['label' => __('Black'), 'value' => self::BLACK ],
-    ];
-  }
+    const CUSTOM = "Custom";
+    const NONE = "transparent";
+    const WHITE = "#FFFFFF";
+    const ORIGINAL = "#ffffff";
+    const GRAY = "#808080";
+    const BLACK = "#000000";
+
+    /**
+     * @return array
+     */
+    public function getOptionHash()
+    {
+        return [
+            self::CUSTOM  => __('Custom'),
+            self::WHITE => __('White'),
+            self::ORIGINAL => __('Default'),
+            self::NONE => __('None'),
+            self::GRAY => __('Gray'),
+            self::BLACK => __('Black'),
+        ];
+    }
 }

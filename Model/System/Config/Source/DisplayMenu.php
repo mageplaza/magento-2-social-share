@@ -21,26 +21,23 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
-use Magento\Framework\Option\ArrayInterface;
-
 /**
  * Class DisplayMenu
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class DisplayMenu implements ArrayInterface
+class DisplayMenu extends OptionArray
 {
     const ON_HOVER = "hover";
     const ON_CLICK = "click";
+
     /**
-     * Return array of options as value-label pairs
-     *
-     * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
+     * @return array
      */
-    public function toOptionArray()
+    public function getOptionHash()
     {
         return [
-            ['label' => __('Hover'), 'value' => self::ON_HOVER ],
-            ['label' => __('Click'), 'value' => self::ON_CLICK ],
+            self::ON_HOVER  => __('hover'),
+            self::ON_CLICK => __('click'),
         ];
     }
 }

@@ -32,8 +32,8 @@
                 <background_color>#FFFFFF</background_color>
                 <custom_background_color>#FFFFFF </custom_background_color>
                 <border_radius>0</border_radius>
-                <share_counter>0</share_counter>
-                <thank_you>0</thank_you>
+                <share_counter>1</share_counter>
+                <thank_you>1</thank_you>
                 <facebook>
                     <enabled>1</enabled>
                 </facebook>
@@ -60,6 +60,7 @@
             <float>
                 <style>Horizontal</style>
                 <position>Left</position>
+                <margin_top>150</margin_top>
                 <button_size>32x32</button_size>
             </float>
             <inline>

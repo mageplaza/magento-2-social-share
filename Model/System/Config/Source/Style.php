@@ -21,26 +21,23 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
-use Magento\Framework\Option\ArrayInterface;
-
 /**
  * Class Style
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class Style implements ArrayInterface
+class Style extends OptionArray
 {
-    const HORIZONTAL = "Horizontal";
-    const VERTICAL = "Vertical";
+    const HORIZONTAL = "horizontal";
+    const VERTICAL = "vertical";
+
     /**
-     * Return array of options as value-label pairs
-     *
-     * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
+     * @return array
      */
-    public function toOptionArray()
+    public function getOptionHash()
     {
         return [
-            ['label' => __('Horizontal'), 'value' => self::HORIZONTAL ],
-            ['label' => __('Vertical'), 'value' => self::VERTICAL ],
+            self::HORIZONTAL  => __('Horizontal'),
+            self::VERTICAL => __('Vertical'),
         ];
     }
 }

@@ -21,28 +21,25 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
-use Magento\Framework\Option\ArrayInterface;
-
 /**
  * Class ButtonSize
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class ButtonSize implements ArrayInterface
+class ButtonSize extends OptionArray
 {
     CONST SMALL = "16x16";
     CONST MEDIUM = "32x32";
     CONST LARGE = "64x64";
+
     /**
-     * Return array of options as value-label pairs
-     *
-     * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
+     * @return array
      */
-    public function toOptionArray()
+    public function getOptionHash()
     {
         return [
-             ['label' => "16x16", 'value' => self::SMALL],
-             ['label' => "32x32", 'value' => self::MEDIUM],
-             ['label' => "64x64", 'value' => self::LARGE],
+            self::SMALL  => __('16x16'),
+            self::MEDIUM => __('32x32'),
+            self::LARGE => __('64x64'),
         ];
     }
 }

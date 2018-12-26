@@ -75,8 +75,9 @@
                     <label>Enable Share Counter</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="thank_you" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="thank_you" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enable Thank You Popup</label>
+                    <comment>Display after customers' sharing action.</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <group id="facebook" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -85,7 +86,6 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-
                     <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
@@ -195,8 +195,9 @@
                     <label>Position</label>
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\FloatPosition</source_model>
                 </field>
-                <field id="margin_top" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="margin_top" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Margin Top</label>
+                    <comment>Specify the top margin of sharing button block. Default is 150px.</comment>
                     <validate>required-entry validate-digits validate-digits-range digits-range-0-99999</validate>
                 </field>
                 <field id="button_size" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">

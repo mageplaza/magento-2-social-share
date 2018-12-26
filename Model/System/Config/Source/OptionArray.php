@@ -21,23 +21,33 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
+use Magento\Framework\Option\ArrayInterface;
+
 /**
- * Class FloatPosition
+ * Class OptionArray
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class FloatPosition extends OptionArray
+abstract class OptionArray implements ArrayInterface
 {
-    const LEFT = "left";
-    const RIGHT = "right";
+    /**
+     * Return array of options as value-label pairs
+     *
+     * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
+     */
+    public function toOptionArray()
+    {
+        $options = [];
+        foreach ($this->getOptionHash() as $value => $label) {
+            $options[] = [
+                'value' => $value,
+                'label' => $label
+            ];
+        }
+        return $options;
+    }
 
     /**
      * @return array
      */
-    public function getOptionHash()
-    {
-        return [
-            self::LEFT  => __('Left'),
-            self::RIGHT => __('Right'),
-        ];
-    }
+    abstract public function getOptionHash();
 }

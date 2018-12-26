@@ -22,7 +22,9 @@
 namespace Mageplaza\SocialShare\Helper;
 
 use Mageplaza\Core\Helper\AbstractData;
-use Mageplaza\SocialShare\Model\System\Config\Source\Color;
+use Mageplaza\SocialShare\Model\System\Config\Source\IconColor;
+use Mageplaza\SocialShare\Model\System\Config\Source\ButtonColor;
+use Mageplaza\SocialShare\Model\System\Config\Source\BackgroundColor;
 
 /**
  * Class Data
@@ -46,7 +48,7 @@ class Data extends AbstractData
      */
     public function getIconColor($storeId = null) {
         $selectColor = $this->getConfigGeneral('icon_color', $storeId);
-        if($selectColor == Color::CUSTOM) {
+        if($selectColor == IconColor::CUSTOM) {
             return $this->getConfigGeneral('custom_icon_color', $storeId);
         }
         return $selectColor;
@@ -58,7 +60,7 @@ class Data extends AbstractData
      */
     public function getButtonColor($storeId = null) {
         $selectColor = $this->getConfigGeneral('button_color', $storeId);
-        if($selectColor == Color::CUSTOM) {
+        if($selectColor == ButtonColor::CUSTOM) {
             return $this->getConfigGeneral('custom_button_color', $storeId);
         }
         return $selectColor;
@@ -70,7 +72,7 @@ class Data extends AbstractData
      */
     public function getBackgroundColor($storeId = null) {
         $selectColor = $this->getConfigGeneral('background_color', $storeId);
-        if($selectColor == Color::CUSTOM) {
+        if($selectColor == BackgroundColor::CUSTOM) {
             return $this->getConfigGeneral('custom_background_color', $storeId);
         }
         return $selectColor;
