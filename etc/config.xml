@@ -54,16 +54,18 @@
                 </tumblr>
                 <add_more_share>
                     <enabled>1</enabled>
-                    <display_menu>Hover</display_menu>
+                    <display_menu>hover</display_menu>
                 </add_more_share>
             </general>
             <float>
-                <style>Horizontal</style>
-                <position>Left</position>
+                <apply_for>home_page</apply_for>
+                <style>horizontal</style>
+                <position>left</position>
                 <margin_top>150</margin_top>
                 <button_size>32x32</button_size>
             </float>
             <inline>
+                <apply_for>home_page</apply_for>
                 <position>Top Content</position>
                 <show_under_cart>1</show_under_cart>
                 <button_size>32x32</button_size>
