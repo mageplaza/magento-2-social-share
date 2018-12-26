@@ -30,7 +30,7 @@
                 <button_color>#ffffff</button_color>
                 <custom_button_color>#FFFFFF</custom_button_color>
                 <background_color>#FFFFFF</background_color>
-                <custom_background_color>#FFFFFF</custom_background_color>
+                <custom_background_color>#FFFFFF </custom_background_color>
                 <border_radius>0</border_radius>
                 <share_counter>0</share_counter>
                 <thank_you>0</thank_you>

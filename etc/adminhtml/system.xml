@@ -68,7 +68,7 @@
                 </field>
                 <field id="border_radius" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Border Radius</label>
-                    <comment>%. From 0 - 50%</comment>
+                    <comment>The unit is %, ranging from 0% to 50%.</comment>
                     <validate>required-entry validate-digits validate-digits-range digits-range-0-50</validate>
                 </field>
                 <field id="share_counter" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
@@ -91,7 +91,7 @@
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/facebook</upload_dir>
                         <base_url type="media" scope_info="1">mageplaza/socialshare/facebook</base_url>
-                        <comment>If empty, default icon will be used</comment>
+                        <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>
                 <group id="twitter" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -105,7 +105,7 @@
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/twitter</upload_dir>
                         <base_url type="media" scope_info="1">mageplaza/socialshare/twitter</base_url>
-                        <comment>If empty, default icon will be used</comment>
+                        <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>
                 <group id="google" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -119,7 +119,7 @@
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/google</upload_dir>
                         <base_url type="media" scope_info="1">mageplaza/socialshare/google</base_url>
-                        <comment>If empty, default icon will be used</comment>
+                        <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>
                 <group id="pinterest" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -133,7 +133,7 @@
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/pinterest</upload_dir>
                         <base_url type="media" scope_info="1">mageplaza/socialshare/pinterest</base_url>
-                        <comment>If empty, default icon will be used</comment>
+                        <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>
                 <group id="linkedIn" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -147,7 +147,7 @@
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/image</upload_dir>
                         <base_url type="media" scope_info="1">mageplaza/socialshare/image</base_url>
-                        <comment>If empty, default icon will be used</comment>
+                        <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>
                 <group id="tumblr" translate="label" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -161,7 +161,7 @@
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/tumblr</upload_dir>
                         <base_url type="media" scope_info="1">mageplaza/socialshare/tumblr</base_url>
-                        <comment>If empty, default icon will be used</comment>
+                        <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>
                 <group id="add_more_share" translate="label" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1" >
@@ -171,11 +171,11 @@
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
                     <field id="display_menu" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                        <label>Display Menu On</label>
+                        <label>Display Menu Type</label>
                         <source_model>Mageplaza\SocialShare\Model\System\Config\Source\DisplayMenu</source_model>
                     </field>
                     <field id="number_service" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                        <label>Number Of Services</label>
+                        <label>Number of Services</label>
                         <validate>required-entry validate-digits validate-digits-range digits-range-0-400</validate>
                     </field>
                 </group>
@@ -199,9 +199,10 @@
                     <label>Margin Top</label>
                     <validate>required-entry validate-digits validate-digits-range digits-range-0-99999</validate>
                 </field>
-                <field id="button_size" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="button_size" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Button Size</label>
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\ButtonSize</source_model>
+                    <comment>32x32 px button size is recommended.</comment>
                 </field>
             </group>
 
@@ -219,9 +220,10 @@
                     <label>Show Under Add To Cart on Product Detail Page</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="button_size" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="button_size" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Button Size</label>
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\ButtonSize</source_model>
+                    <comment>32x32 px button size is recommended.</comment>
                 </field>
             </group>
         </section>
