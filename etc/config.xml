@@ -25,11 +25,11 @@
         <socialshare>
             <general>
                 <enabled>1</enabled>
-                <icon_color>#ffffff</icon_color>
+                <icon_color>#FFFFFF</icon_color>
                 <custom_icon_color>#FFFFFF</custom_icon_color>
-                <button_color>#000000</button_color>
+                <button_color>#ffffff</button_color>
                 <custom_button_color>#FFFFFF</custom_button_color>
-                <background_color>Custom</background_color>
+                <background_color>#FFFFFF</background_color>
                 <custom_background_color>#FFFFFF</custom_background_color>
                 <border_radius>0</border_radius>
                 <share_counter>0</share_counter>

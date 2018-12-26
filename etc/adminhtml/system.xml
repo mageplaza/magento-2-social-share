@@ -33,9 +33,10 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[Select <strong>Yes</strong> to enable this module]]></comment>
                 </field>
-                <field id="icon_color" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="icon_color" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Icon Color</label>
-                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\Color</source_model>
+                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\IconColor</source_model>
+                    <comment>Only apply for default icon</comment>
                 </field>
                 <field id="custom_icon_color"  type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <validate>jscolor {hash:true,refine:false}</validate>
@@ -43,9 +44,10 @@
                         <field id="icon_color">Custom</field>
                     </depends>
                 </field>
-                <field id="button_color" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="button_color" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Button Color</label>
-                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\Color</source_model>
+                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\ButtonColor</source_model>
+                    <comment>Only apply for default icon</comment>
                 </field>
                 <field id="custom_button_color"  type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <validate>jscolor {hash:true,refine:false}</validate>
@@ -53,9 +55,10 @@
                         <field id="button_color">Custom</field>
                     </depends>
                 </field>
-                <field id="background_color" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="background_color" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Background Color</label>
-                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\Color</source_model>
+                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\BackgroundColor</source_model>
+                    <comment>Only apply for default icon</comment>
                 </field>
                 <field id="custom_background_color"  type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <validate>jscolor {hash:true,refine:false}</validate>

@@ -24,27 +24,29 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
 use Magento\Framework\Option\ArrayInterface;
 
 /**
- * Class Color
+ * Class ButtonColor
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class Color implements ArrayInterface
+class ButtonColor implements ArrayInterface
 {
-    const CUSTOM = "Custom";
-    const WHITE = "#ffffff";
-    const GRAY = "#808080";
-    const BLACK = "#000000";
-    /**
-     * Return array of options as value-label pairs
-     *
-     * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
-     */
-    public function toOptionArray()
-    {
-        return [
-            ['label' => __('Custom'), 'value' => self::CUSTOM ],
-            ['label' => __('White'), 'value' => self::WHITE ],
-            ['label' => __('Gray'), 'value' => self::GRAY ],
-            ['label' => __('Black'), 'value' => self::BLACK ],
-        ];
-    }
+  const CUSTOM = "Custom";
+  const WHITE = "#FFFFFF";
+  const ORIGINAL = "#ffffff";
+  const GRAY = "#808080";
+  const BLACK = "#000000";
+  /**
+   * Return array of options as value-label pairs
+   *
+   * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
+   */
+  public function toOptionArray()
+  {
+    return [
+      ['label' => __('Default'), 'value' => self::ORIGINAL ],
+      ['label' => __('White'), 'value' => self::WHITE ],
+      ['label' => __('Black'), 'value' => self::BLACK ],
+      ['label' => __('Gray'), 'value' => self::GRAY ],
+      ['label' => __('Custom'), 'value' => self::CUSTOM ],
+    ];
+  }
 }
