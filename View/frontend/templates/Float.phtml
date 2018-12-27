@@ -1,18 +1,40 @@
 <?php
 /**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialShare
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+
+<?php
+/**
  * @var \Mageplaza\SocialShare\Block\FloatDisplay $block
  */
 ?>
 
-<?php if($block->isThisPageEnable()):?>
-<div><b>Float Bottom</b></div>
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-  <a class="a2a_button_facebook"></a>
-  <a class="a2a_button_twitter"></a>
-  <a class="a2a_button_google_plus"></a>
-  <a class="a2a_button_pinterest"></a>
-  <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-</div>
+<?php if ($block->isEnable() &&  $block->isThisPageEnable()): ?>
+    <div><b>Float Bottom</b></div>
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_twitter"></a>
+        <a class="a2a_button_google_plus"></a>
+        <a class="a2a_button_pinterest"></a>
+        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+    </div>
 
-<script type="text/javascript">require(['https://static.addtoany.com/menu/page.js']);</script>
+    <script type="text/javascript">require(['https://static.addtoany.com/menu/page.js']);</script>
 <?php endif; ?>

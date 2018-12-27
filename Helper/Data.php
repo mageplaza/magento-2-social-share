@@ -35,7 +35,12 @@ class Data extends AbstractData
     const CONFIG_MODULE_PATH = 'socialshare';
     const CONFIG_FLOAT = 'socialshare/float/';
     const CONFIG_INLINE = 'socialshare/inline/';
-
+    const CONFIG_FACEBOOK = '/general/facebook/';
+    const CONFIG_GOOGLE = '/general/google';
+    const CONFIG_PINTEREST = '/general/pinterest/';
+    const CONFIG_LINKEDIN = '/general/linkedIn/';
+    const CONFIG_TUMBLR = '/general/tumblr/';
+    const CONFIG_MORE = '/general/add_more_share/';
     /*
      * //////////////////////////////////////////////////
      * General Configuration
@@ -46,9 +51,10 @@ class Data extends AbstractData
      * @param null $storeId
      * @return mixed
      */
-    public function getIconColor($storeId = null) {
+    public function getIconColor($storeId = null)
+    {
         $selectColor = $this->getConfigGeneral('icon_color', $storeId);
-        if($selectColor == IconColor::CUSTOM) {
+        if ($selectColor == IconColor::CUSTOM) {
             return $this->getConfigGeneral('custom_icon_color', $storeId);
         }
         return $selectColor;
@@ -58,9 +64,10 @@ class Data extends AbstractData
      * @param null $storeId
      * @return mixed
      */
-    public function getButtonColor($storeId = null) {
+    public function getButtonColor($storeId = null)
+    {
         $selectColor = $this->getConfigGeneral('button_color', $storeId);
-        if($selectColor == ButtonColor::CUSTOM) {
+        if ($selectColor == ButtonColor::CUSTOM) {
             return $this->getConfigGeneral('custom_button_color', $storeId);
         }
         return $selectColor;
@@ -70,9 +77,10 @@ class Data extends AbstractData
      * @param null $storeId
      * @return mixed
      */
-    public function getBackgroundColor($storeId = null) {
+    public function getBackgroundColor($storeId = null)
+    {
         $selectColor = $this->getConfigGeneral('background_color', $storeId);
-        if($selectColor == BackgroundColor::CUSTOM) {
+        if ($selectColor == BackgroundColor::CUSTOM) {
             return $this->getConfigGeneral('custom_background_color', $storeId);
         }
         return $selectColor;
@@ -82,7 +90,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return mixed
      */
-    public function getBorderRadius($storeId = null) {
+    public function getBorderRadius($storeId = null)
+    {
         return $this->getConfigGeneral('border_radius', $storeId);
     }
 
@@ -90,7 +99,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return mixed
      */
-    public function isShareCounter($storeId = null) {
+    public function isShareCounter($storeId = null)
+    {
         return $this->getConfigGeneral('share_counter', $storeId);
     }
 
@@ -98,7 +108,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return mixed
      */
-    public function isThankYouPopup($storeId = null) {
+    public function isThankYouPopup($storeId = null)
+    {
         return $this->getConfigGeneral('thank_you', $storeId);
     }
 
@@ -106,104 +117,117 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function isFacebook($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/facebook/enabled', $storeId);
+    public function isFacebook($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_FACEBOOK . 'enabled', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function getFacebookImage($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/facebook/image', $storeId);
+    public function getFacebookImage($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_FACEBOOK . '/image', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function isGoogle($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/google/enabled', $storeId);
+    public function isGoogle($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_GOOGLE . 'enabled', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function getGoogleImage($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/google/image', $storeId);
+    public function getGoogleImage($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_GOOGLE . 'image', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function isPinterest($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/pinterest/enabled', $storeId);
+    public function isPinterest($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_PINTEREST . 'enabled', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function getPinterestImage($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/pinterest/image', $storeId);
+    public function getPinterestImage($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_PINTEREST . 'image', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function isLinkedIn($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/linkedIn/enabled', $storeId);
+    public function isLinkedIn($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_LINKEDIN . 'enabled', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function getLinkedInImage($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/linkedIn/image', $storeId);
+    public function getLinkedInImage($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_LINKEDIN . 'image', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function isTumblr($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/tumblr/enabled', $storeId);
+    public function isTumblr($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_TUMBLR . 'enabled', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function getTumblrImage($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/tumblr/image', $storeId);
+    public function getTumblrImage($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_TUMBLR . 'image', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function isAddMoreShare($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/add_more_share/enabled', $storeId);
+    public function isAddMoreShare($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'enabled', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function getDisplayMenu($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/add_more_share/display_menu', $storeId);
+    public function getDisplayMenu($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'display_menu', $storeId);
     }
 
     /**
      * @param null $storeId
      * @return array|mixed
      */
-    public function getNumberOfServices($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/add_more_share/number_service', $storeId);
+    public function getNumberOfServices($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'number_service', $storeId);
     }
 
     /*
@@ -215,7 +239,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function getFloatApplyPages($storeId = null) {
+    public function getFloatApplyPages($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'apply_for', $storeId);
     }
 
@@ -223,7 +248,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function getFloatStyle($storeId = null) {
+    public function getFloatStyle($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'style', $storeId);
     }
 
@@ -231,7 +257,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function getFloatPosition($storeId = null) {
+    public function getFloatPosition($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'position', $storeId);
     }
 
@@ -239,7 +266,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function getFloatMarginTop($storeId = null) {
+    public function getFloatMarginTop($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'margin_top', $storeId);
     }
 
@@ -247,7 +275,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function getFloatButtonSize($storeId = null) {
+    public function getFloatButtonSize($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'button_size', $storeId);
     }
 
@@ -260,7 +289,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function getInlineApplyPages($storeId = null) {
+    public function getInlineApplyPages($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_INLINE . 'apply_for', $storeId);
     }
 
@@ -268,7 +298,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function getInlinePosition($storeId = null) {
+    public function getInlinePosition($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_INLINE . 'position', $storeId);
     }
 
@@ -276,7 +307,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function isShowUnderCart($storeId = null) {
+    public function isShowUnderCart($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_INLINE . 'show_under_cart', $storeId);
     }
 
@@ -284,7 +316,8 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
-    public function getInlineButtonSize($storeId = null) {
+    public function getInlineButtonSize($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_INLINE . 'button_size', $storeId);
     }
 }
