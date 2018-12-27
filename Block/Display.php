@@ -24,9 +24,6 @@ namespace Mageplaza\SocialShare\Block;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 
-use Mageplaza\SocialShare\Model\System\Config\Source\Style;
-use Mageplaza\SocialShare\Model\System\Config\Source\FloatPosition;
-use Mageplaza\SocialShare\Model\System\Config\Source\ButtonSize;
 use Mageplaza\SocialShare\Helper\Data as HelperData;
 
 /**
@@ -56,7 +53,22 @@ abstract class Display extends Template
     public function isEnable()
     {
         $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isEnabled($storeId)) {
+        if ($this->_helperData->isEnabled($storeId)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @return bool
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function isThisPageEnable()
+    {
+        $thisPage = $this->getPage();
+        $storeId = $this->_storeManager->getStore()->getId();
+        $allowPages = explode(',', $this->_helperData->getFloatApplyPages($storeId));
+        if (in_array($thisPage, $allowPages)) {
             return true;
         }
         return false;
@@ -66,7 +78,8 @@ abstract class Display extends Template
      * @return mixed
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getIconColor() {
+    public function getIconColor()
+    {
         $storeId = $this->_storeManager->getStore()->getId();
         return $this->_helperData->getIconColor($storeId);
     }
@@ -75,7 +88,8 @@ abstract class Display extends Template
      * @return mixed
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getButtonColor() {
+    public function getButtonColor()
+    {
         $storeId = $this->_storeManager->getStore()->getId();
         return $this->_helperData->getButtonColor($storeId);
     }
@@ -84,17 +98,19 @@ abstract class Display extends Template
      * @return mixed
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getBackgroundColor() {
+    public function getBackgroundColor()
+    {
         $storeId = $this->_storeManager->getStore()->getId();
         $color = $this->_helperData->getBackgroundColor($storeId);
-        return "background: " .$color. ";";
+        return "background: " . $color . ";";
     }
 
     /**
      * @return mixed
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getBorderRadius() {
+    public function getBorderRadius()
+    {
         $storeId = $this->_storeManager->getStore()->getId();
         return $this->_helperData->getBorderRadius($storeId) . "%";
     }
@@ -103,9 +119,10 @@ abstract class Display extends Template
      * @return string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getShareCounter() {
+    public function getShareCounter()
+    {
         $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isShareCounter($storeId)) {
+        if ($this->_helperData->isShareCounter($storeId)) {
             return "a2a_counter";
         }
         return "";
@@ -115,9 +132,10 @@ abstract class Display extends Template
      * @return string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getThankYou() {
+    public function getThankYou()
+    {
         $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isThankYouPopup($storeId)) {
+        if ($this->_helperData->isThankYouPopup($storeId)) {
             return "true";
         }
         return "false";

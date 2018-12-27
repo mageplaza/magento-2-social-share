@@ -25,47 +25,35 @@
  * @var \Mageplaza\SocialShare\Block\FloatDisplay $block
  */
 ?>
-
-<?php
-//    var_dump($block->getFloatMargin("top"));
-//    var_dump($block->isVerticalStyle($block->getFloatStyle()));
-//    die('123');
-
-?>
-
-
-<style type="text/css">
-    .mp_social_share_float {
-        <?php if($block->isVerticalStyle($block->getFloatStyle())):?>
-            <?= $block->getFloatMargin("top")?>
-        <?php endif;?>
-        <?= $block->getFloatPosition()?>
-        <?= $block->getBackgroundColor()?>
-    }
-    <?php if(!$block->isVerticalStyle($block->getFloatStyle())):?>
-        .a2a_floating_style.a2a_default_style {
-            <?= $block->getFloatMargin("bottom")?>
+    <style type="text/css">
+        .mp_social_share_float {
+        <?php if($block->isVerticalStyle($block->getFloatStyle())):?><?= $block->getFloatMargin("top")?><?php endif;?><?= $block->getFloatPosition()?><?= $block->getBackgroundColor()?>
         }
-    <?php endif;?>
-    .a2a_svg, .a2a_count {
-        border-radius: <?= $block->getBorderRadius()?> !important;
-    }
 
-</style>
+        <?php if(!$block->isVerticalStyle($block->getFloatStyle())):?>
+        .a2a_floating_style.a2a_default_style {
+        <?= $block->getFloatMargin("bottom")?>
+        }
 
-<?php if ($block->isEnable() &&  $block->isThisPageEnable()): ?>
-    <div class="a2a_kit a2a_floating_style mp_social_share_float <?= $block->getFloatButtonSize()?> <?= $block->getFloatStyle()?>">
-        <a class="a2a_button_facebook <?= $block->getShareCounter()?>"></a>
+        <?php endif;?>
+        .a2a_svg, .a2a_count {
+            border-radius: <?= $block->getBorderRadius()?> !important;
+        }
+
+    </style>
+
+<?php if ($block->isEnable() && $block->isThisPageEnable()): ?>
+    <div
+        class="a2a_kit a2a_floating_style mp_social_share_float <?= $block->getFloatButtonSize() ?> <?= $block->getFloatStyle() ?>">
+        <a class="a2a_button_facebook <?= $block->getShareCounter() ?>"></a>
         <a class="a2a_button_twitter"></a>
         <a class="a2a_button_google_plus"></a>
-        <a class="a2a_button_pinterest <?= $block->getShareCounter()?>"></a>
+        <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>"></a>
         <a class="a2a_button_linkedin"></a>
-        <a class="a2a_button_tumblr <?= $block->getShareCounter()?>"></a>
+        <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>"></a>
         <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
     </div>
-
     <script type="text/javascript">require(['https://static.addtoany.com/menu/page.js']);</script>
-
     <script type="text/javascript">
         var a2a_config = a2a_config || {};
         a2a_config.icon_color = "<?= $block->getButtonColor()?>,<?= $block->getIconColor()?>";

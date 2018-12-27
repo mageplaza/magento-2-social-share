@@ -20,22 +20,43 @@
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <!--<referenceContainer name="content">-->
-            <!--<block class="Mageplaza\SocialShare\Block\Float" name="mp.SocialShare.InlineTop" template="Mageplaza_SocialShare::InlineTop.phtml" before="-"/>-->
-        <!--</referenceContainer>-->
-
-        <!--<referenceContainer name="content">-->
-            <!--<referenceContainer name="product.info.main">-->
-                <!--<block class="Mageplaza\SocialShare\Block\Float" name="mp.SocialShare.InlineCart" template="Mageplaza_SocialShare::InlineCart.phtml"/>-->
-            <!--</referenceContainer>-->
-        <!--</referenceContainer>-->
-
-        <referenceContainer name="content.aside">
-            <block class="Mageplaza\SocialShare\Block\FloatDisplay" name="mp.SocialShare.Float" template="Mageplaza_SocialShare::Float.phtml">
+        <referenceContainer name="content">
+            <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineTop"
+                   template="Mageplaza_SocialShare::Inline.phtml" before="-">
                 <arguments>
                     <argument name="page" xsi:type="string">product_page</argument>
+                    <argument name="position" xsi:type="string">top_content</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.main">
+                <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineCart"
+                       template="Mageplaza_SocialShare::Inline.phtml">
+                    <arguments>
+                        <argument name="page" xsi:type="string">under_cart</argument>
+                        <argument name="position" xsi:type="string">under_cart</argument>
+                    </arguments>
+                </block>
+            </referenceContainer>
+        </referenceContainer>
+
+        <referenceContainer name="content.aside">
+            <block class="Mageplaza\SocialShare\Block\FloatDisplay" name="mp.SocialShare.Float"
+                   template="Mageplaza_SocialShare::Float.phtml">
+                <arguments>
+                    <argument name="page" xsi:type="string">product_page</argument>
+                </arguments>
+            </block>
+            <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineBottom"
+                   template="Mageplaza_SocialShare::Inline.phtml" after="-">
+                <arguments>
+                    <argument name="page" xsi:type="string">product_page</argument>
+                    <argument name="position" xsi:type="string">bottom_content</argument>
                 </arguments>
             </block>
         </referenceContainer>

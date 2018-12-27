@@ -30,7 +30,6 @@ use Mageplaza\SocialShare\Model\System\Config\Source\ButtonSize;
  */
 class FloatDisplay extends Display
 {
-
     /**
      * @return bool
      * @throws \Magento\Framework\Exception\NoSuchEntityException
