@@ -23,7 +23,6 @@ namespace Mageplaza\SocialShare\Block;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
-use Magento\Store\Model\StoreManagerInterface;
 
 use Mageplaza\SocialShare\Model\System\Config\Source\Style;
 use Mageplaza\SocialShare\Model\System\Config\Source\FloatPosition;
@@ -41,20 +40,12 @@ class FloatDisplay extends Template
      */
     protected $_helperData;
 
-    /**
-     * @var StoreManagerInterface
-     */
-    protected $_storeManager;
-
-
     public function __construct(
         Context $context,
         HelperData $helperData,
-        StoreManagerInterface $storeManager,
         array $data = [])
     {
         $this->_helperData = $helperData;
-        $this->_storeManager = $storeManager;
         parent::__construct($context, $data);
     }
 
@@ -100,6 +91,17 @@ class FloatDisplay extends Template
     }
 
     /**
+     * @param $floatStyle
+     * @return bool
+     */
+    public function isVerticalStyle($floatStyle) {
+        if($floatStyle == "a2a_vertical_style") {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * @return string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
@@ -134,13 +136,20 @@ class FloatDisplay extends Template
     }
 
     /**
+     * @param $type
      * @return string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getFloatMarginTop() {
+    public function getFloatMargin($type) {
         $storeId = $this->_storeManager->getStore()->getId();
+        if($type == "bottom") {
+            $floatMarginBottom = $this->_helperData->getFloatMarginBottom($storeId);
+            return "bottom: " . $floatMarginBottom ."px;";
+        }
         $floatMarginTop = $this->_helperData->getFloatMarginTop($storeId);
         return "top: " . $floatMarginTop ."px;";
+
+
     }
 
 

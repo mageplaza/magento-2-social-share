@@ -59,14 +59,15 @@
             </general>
             <float>
                 <apply_for>home_page</apply_for>
-                <style>horizontal</style>
+                <style>vertical</style>
                 <position>left</position>
                 <margin_top>150</margin_top>
+                <margin_bottom>0</margin_bottom>
                 <button_size>32x32</button_size>
             </float>
             <inline>
                 <apply_for>home_page</apply_for>
-                <position>Top Content</position>
+                <position>bottom_content</position>
                 <show_under_cart>1</show_under_cart>
                 <button_size>32x32</button_size>
             </inline>

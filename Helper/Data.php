@@ -270,6 +270,14 @@ class Data extends AbstractData
     {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'margin_top', $storeId);
     }
+    /**
+     * @param null $storeId
+     * @return array|mixed
+     */
+    public function getFloatMarginBottom($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_FLOAT . 'margin_bottom', $storeId);
+    }
 
     /**
      * @param null $storeId

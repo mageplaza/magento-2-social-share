@@ -199,6 +199,17 @@
                     <label>Margin Top</label>
                     <comment>Specify the top margin of sharing button block. Default is 150px.</comment>
                     <validate>required-entry validate-digits validate-digits-range digits-range-0-99999</validate>
+                    <depends>
+                        <field id="style">vertical</field>
+                    </depends>
+                </field>
+                <field id="margin_bottom" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Margin Bottom</label>
+                    <comment>Specify the top margin of sharing button block. Default is 0px.</comment>
+                    <validate>required-entry validate-digits validate-digits-range digits-range-0-99999</validate>
+                    <depends>
+                        <field id="style">horizontal</field>
+                    </depends>
                 </field>
                 <field id="button_size" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Button Size</label>

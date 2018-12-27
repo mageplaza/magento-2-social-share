@@ -23,7 +23,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <!--<referenceContainer name="columns.top">-->
-            <!--<block class="Mageplaza\SocialShare\Block\FloatDisplay" name="mp.SocialShare.InlineTop" template="Mageplaza_SocialShare::InlineTop.phtml"/>-->
+            <!--<block class="Mageplaza\SocialShare\Block\Float" name="mp.SocialShare.InlineTop" template="Mageplaza_SocialShare::InlineTop.phtml"/>-->
         <!--</referenceContainer>-->
         <referenceContainer name="content">
             <block class="Mageplaza\SocialShare\Block\FloatDisplay" name="mp.SocialShare.Float" template="Mageplaza_SocialShare::Float.phtml">
