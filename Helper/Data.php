@@ -36,7 +36,7 @@ class Data extends AbstractData
     const CONFIG_FLOAT = 'socialshare/float/';
     const CONFIG_INLINE = 'socialshare/inline/';
     const CONFIG_FACEBOOK = '/general/facebook/';
-    const CONFIG_GOOGLE = '/general/google';
+    const CONFIG_GOOGLE = '/general/google/';
     const CONFIG_PINTEREST = '/general/pinterest/';
     const CONFIG_LINKEDIN = '/general/linkedIn/';
     const CONFIG_TUMBLR = '/general/tumblr/';
@@ -128,7 +128,7 @@ class Data extends AbstractData
      */
     public function getFacebookImage($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_FACEBOOK . '/image', $storeId);
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_FACEBOOK . 'image', $storeId);
     }
 
     /**

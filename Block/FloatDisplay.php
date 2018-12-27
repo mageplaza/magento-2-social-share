@@ -25,6 +25,9 @@ use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Store\Model\StoreManagerInterface;
 
+use Mageplaza\SocialShare\Model\System\Config\Source\Style;
+use Mageplaza\SocialShare\Model\System\Config\Source\FloatPosition;
+use Mageplaza\SocialShare\Model\System\Config\Source\ButtonSize;
 use Mageplaza\SocialShare\Helper\Data as HelperData;
 
 /**
@@ -81,6 +84,63 @@ class FloatDisplay extends Template
             return true;
         }
         return false;
+    }
+
+    /**
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getFloatStyle() {
+        $storeId = $this->_storeManager->getStore()->getId();
+        $floatStyle = $this->_helperData->getFloatStyle($storeId);
+        if($floatStyle == Style::VERTICAL) {
+            return "a2a_vertical_style";
+        }
+        return "a2a_default_style";
+    }
+
+    /**
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getFloatPosition() {
+        $storeId = $this->_storeManager->getStore()->getId();
+        $floatPosition = $this->_helperData->getFloatPosition($storeId);
+        if($floatPosition == FloatPosition::LEFT) {
+            return "left: 0px;";
+        }
+        return "right: 0px;";
+    }
+
+    /**
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getFloatButtonSize() {
+        $storeId = $this->_storeManager->getStore()->getId();
+        $floatSize = $this->_helperData->getFloatButtonSize($storeId);
+        switch ($floatSize) {
+            case ButtonSize::SMALL :
+                return "a2a_kit_size_16";
+                break;
+            case ButtonSize::MEDIUM :
+                return "a2a_kit_size_32";
+                break;
+            case ButtonSize::LARGE :
+                return "a2a_kit_size_64";
+                break;
+        }
+        return "a2a_kit_size_32";
+    }
+
+    /**
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getFloatMarginTop() {
+        $storeId = $this->_storeManager->getStore()->getId();
+        $floatMarginTop = $this->_helperData->getFloatMarginTop($storeId);
+        return "top: " . $floatMarginTop ."px;";
     }
 
 
