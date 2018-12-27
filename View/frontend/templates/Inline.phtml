@@ -35,7 +35,7 @@
 
     .mp_social_share_inline_container {
         position: relative;
-    <?= $block->getContainerHeight($block->getInlineButtonSize())?>
+    <?= $block->getContainerHeight()?>
     }
 </style>
 
@@ -43,19 +43,96 @@
     <?php if ($block->isThisPageEnable() && $block->isThisPositionEnable()): ?>
         <div class="mp_social_share_inline_container">
             <div class="a2a_kit a2a_default_style mp_social_share_inline <?= $block->getInlineButtonSize() ?>">
-                <a class="a2a_button_facebook <?= $block->getShareCounter() ?>"></a>
-                <a class="a2a_button_twitter"></a>
-                <a class="a2a_button_google_plus"></a>
-                <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>"></a>
-                <a class="a2a_button_linkedin"></a>
-                <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>"></a>
-                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                <?php if ($block->isEnableFacebook()): ?>
+                    <?php if ($block->isImageEnable("facebook")): ?>
+                        <a class="a2a_button_facebook <?= $block->getShareCounter() ?>">
+                            <img src="<?= $block->getImageUrl('facebook') ?>" <?= $block->setImageSize()?> alt="Facebook">
+                        </a>
+                    <?php else: ?>
+                        <a class="a2a_button_facebook <?= $block->getShareCounter() ?>"></a>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if ($block->isEnableTwitter()): ?>
+                    <?php if ($block->isImageEnable('twitter')): ?>
+                        <a class="a2a_button_twitter">
+                            <img src="<?= $block->getImageUrl('twitter') ?>" <?= $block->setImageSize()?> alt="Twitter">
+                        </a>
+                    <?php else: ?>
+                        <a class="a2a_button_twitter"></a>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if ($block->isEnableGoogle()): ?>
+                    <?php if ($block->isImageEnable('google_plus')): ?>
+                        <a class="a2a_button_google_plus">
+                            <img src="<?= $block->getImageUrl('google_plus') ?>" <?= $block->setImageSize()?> alt="Google_Plus">
+                        </a>
+                    <?php else: ?>
+                        <a class="a2a_button_google_plus"></a>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if ($block->isEnablePinterest()): ?>
+                    <?php if ($block->isImageEnable('pinterest')): ?>
+                        <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>">
+                            <img src="<?= $block->getImageUrl('pinterest') ?>" <?= $block->setImageSize()?> alt="Pinterest">
+                        </a>
+                    <?php else: ?>
+                        <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>"></a>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if ($block->isEnableLinkedIn()): ?>
+                    <?php if ($block->isImageEnable('linkedin')): ?>
+                        <a class="a2a_button_linkedin">
+                            <img src="<?= $block->getImageUrl('linkedin') ?>" <?= $block->setImageSize()?> alt="LinkedIn">
+                        </a>
+                    <?php else: ?>
+                        <a class="a2a_button_linkedin"></a>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if ($block->isEnableTumblr()): ?>
+                    <?php if ($block->isImageEnable('tumblr')): ?>
+                        <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>">
+                            <img src="<?= $block->getImageUrl('tumblr') ?>" <?= $block->setImageSize()?> alt="Tumblr">
+                        </a>
+                    <?php else: ?>
+                        <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>"></a>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if ($block->isEnableAddMoreShare()): ?>
+                    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                <?php endif; ?>
             </div>
         </div>
+
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Mageplaza_SocialShare/js/config": {
+                    "invisibleKey": "<?= /* @escapeNotVerified */
+            $block->getInvisibleKey() ?>",
+                    "language": "<?= /* @escapeNotVerified */
+            $block->getLanguageCode() ?>",
+                    "position": "<?= /* @escapeNotVerified */
+            $block->getPositionFrontend() ?>",
+                    "theme": "<?= /* @escapeNotVerified */
+            $block->getThemeFrontend() ?>",
+                    "forms": <?= $block->getForms() ?>
+                }
+            }
+        }
+
+    </script>
+
         <script type="text/javascript">require(['https://static.addtoany.com/menu/page.js']);</script>
         <script type="text/javascript">
             var a2a_config = a2a_config || {};
             a2a_config.icon_color = "<?= $block->getButtonColor()?>,<?= $block->getIconColor()?>";
+            a2a_config.num_services = <?= $block->getNumberOfService();?>;
+            a2a_config.onclick = 0;
             a2a_config.thanks = {
                 postShare: <?= $block->getThankYou()?>
             };

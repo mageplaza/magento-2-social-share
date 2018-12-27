@@ -24,6 +24,8 @@ namespace Mageplaza\SocialShare\Controller\HelperData;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ResponseInterface;
+use Magento\Store\Model\StoreManagerInterface;
+
 use Mageplaza\SocialShare\Helper\Data as HelperData;
 /**
  * Class Index
@@ -32,13 +34,17 @@ use Mageplaza\SocialShare\Helper\Data as HelperData;
 class Index extends Action
 {
     protected $_helperData;
+    protected $_storeManager;
 
     public function __construct(
         Context $context,
-        HelperData $helperData
+        HelperData $helperData,
+        StoreManagerInterface $storeManager
     )
     {
         $this->_helperData = $helperData;
+        $this->_storeManager = $storeManager;
+
         parent::__construct($context);
     }
 
@@ -76,6 +82,14 @@ class Index extends Action
         echo "Facebook Image - " . $this->_helperData->getFacebookImage();
         echo "<br>";
 
+        echo "<h3>Twitter</h3>";
+
+        echo "Twitter Enable - " . $this->_helperData->isTwitter();
+        echo "<br>";
+
+        echo "Twitter Image - " . $this->_helperData->getTwitterImage();
+        echo "<br>";
+
         echo "<h3>Google</h3>";
 
         echo "Google Enable - " . $this->_helperData->isGoogle();
@@ -108,6 +122,9 @@ class Index extends Action
         echo "Tumblr Image - " . $this->_helperData->getTumblrImage();
         echo "<br>";
 
+
+        echo "<h3>Disable Service</h3>";
+        echo implode(",",$this->_helperData->getDisableService());
 
 
         echo "<h3>Add More Share</h3>";
@@ -150,5 +167,7 @@ class Index extends Action
 
         echo "Button Size - " . $this->_helperData->getInlineButtonSize();
         echo "<br>";
+        $baseUrl = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+        var_dump($baseUrl . 'mageplaza/socialshare/facebook/'. $this->_helperData->getFacebookImage());
     }
 }

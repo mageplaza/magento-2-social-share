@@ -145,8 +145,8 @@
                     <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
-                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/image</upload_dir>
-                        <base_url type="media" scope_info="1">mageplaza/socialshare/image</base_url>
+                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/linkedIn</upload_dir>
+                        <base_url type="media" scope_info="1">mageplaza/socialshare/linkedIn</base_url>
                         <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>

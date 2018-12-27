@@ -36,6 +36,7 @@ class Data extends AbstractData
     const CONFIG_FLOAT = 'socialshare/float/';
     const CONFIG_INLINE = 'socialshare/inline/';
     const CONFIG_FACEBOOK = '/general/facebook/';
+    const CONFIG_TWITTER = '/general/twitter/';
     const CONFIG_GOOGLE = '/general/google/';
     const CONFIG_PINTEREST = '/general/pinterest/';
     const CONFIG_LINKEDIN = '/general/linkedIn/';
@@ -135,6 +136,22 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
+    public function isTwitter($storeId = null) {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_TWITTER . 'enabled', $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return array|mixed
+     */
+    public function getTwitterImage($storeId = null) {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_TWITTER . 'image', $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return array|mixed
+     */
     public function isGoogle($storeId = null)
     {
         return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_GOOGLE . 'enabled', $storeId);
@@ -228,6 +245,30 @@ class Data extends AbstractData
     public function getNumberOfServices($storeId = null)
     {
         return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'number_service', $storeId);
+    }
+
+    public function getDisableService($storeId = null ) {
+        $disableServices = [];
+        if(!$this->isFacebook($storeId)) {
+            array_push($disableServices, '"facebook"');
+        }
+        if(!$this->isTwitter($storeId)) {
+            array_push($disableServices, '"twitter"');
+        }
+        if(!$this->isGoogle($storeId)) {
+            array_push($disableServices, '"google_plus"');
+        }
+        if(!$this->isPinterest($storeId)) {
+            array_push($disableServices, '"pinterest"');
+        }
+        if(!$this->isLinkedIn($storeId)) {
+            array_push($disableServices, '"linkedin"');
+        }
+        if(!$this->isTumblr($storeId)) {
+            array_push($disableServices, '"tumblr"');
+        }
+        return $disableServices;
+
     }
 
     /*

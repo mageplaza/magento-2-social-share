@@ -102,19 +102,41 @@ class InlineDisplay extends Display
         return "a2a_kit_size_32";
     }
 
-    public function getContainerHeight($buttonSize)
+    public function getContainerHeight()
     {
-        switch ($buttonSize) {
-            case "a2a_kit_size_16" :
+        $storeId = $this->_storeManager->getStore()->getId();
+        $inlineSize = $this->_helperData->getInlineButtonSize($storeId);
+        switch ($inlineSize) {
+            case ButtonSize::SMALL :
                 return "height: 25px";
                 break;
-            case "a2a_kit_size_32" :
+            case ButtonSize::MEDIUM :
                 return "height: 40px";
                 break;
-            case "a2a_kit_size_64" :
+            case ButtonSize::LARGE :
                 return "height: 75px";
                 break;
         }
         return "height: 50px";
+    }
+
+    /**
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function setImageSize() {
+        $storeId = $this->_storeManager->getStore()->getId();
+        $inlineSize = $this->_helperData->getInlineButtonSize($storeId);
+        switch ($inlineSize) {
+            case ButtonSize::SMALL :
+                return 'width="16" height="16"';
+                break;
+            case ButtonSize::MEDIUM :
+                return 'width="32" height="32"';
+                break;
+            case ButtonSize::LARGE :
+                return 'width="64" height="64"';
+                break;
+        }
     }
 }

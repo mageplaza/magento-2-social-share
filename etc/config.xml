@@ -55,6 +55,7 @@
                 <add_more_share>
                     <enabled>1</enabled>
                     <display_menu>hover</display_menu>
+                    <number_service>8</number_service>
                 </add_more_share>
             </general>
             <float>
