@@ -29,7 +29,7 @@ class ButtonColor extends OptionArray
 {
     const CUSTOM = "Custom";
     const WHITE = "#FFFFFF";
-    const ORIGINAL = "#ffffff";
+    const ORIGINAL = "unset";
     const GRAY = "#808080";
     const BLACK = "#000000";
 

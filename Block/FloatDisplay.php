@@ -21,46 +21,15 @@
 
 namespace Mageplaza\SocialShare\Block;
 
-use Magento\Framework\View\Element\Template;
-use Magento\Framework\View\Element\Template\Context;
-
 use Mageplaza\SocialShare\Model\System\Config\Source\Style;
 use Mageplaza\SocialShare\Model\System\Config\Source\FloatPosition;
 use Mageplaza\SocialShare\Model\System\Config\Source\ButtonSize;
-use Mageplaza\SocialShare\Helper\Data as HelperData;
-
 /**
  * Class FloatDisplay
  * @package Mageplaza\SocialShare\Block
  */
-class FloatDisplay extends Template
+class FloatDisplay extends Display
 {
-    /**
-     * @var HelperData
-     */
-    protected $_helperData;
-
-    public function __construct(
-        Context $context,
-        HelperData $helperData,
-        array $data = [])
-    {
-        $this->_helperData = $helperData;
-        parent::__construct($context, $data);
-    }
-
-    /**
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function isEnable()
-    {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isEnabled($storeId)) {
-            return true;
-        }
-        return false;
-    }
 
     /**
      * @return bool
@@ -148,9 +117,5 @@ class FloatDisplay extends Template
         }
         $floatMarginTop = $this->_helperData->getFloatMarginTop($storeId);
         return "top: " . $floatMarginTop ."px;";
-
-
     }
-
-
 }
