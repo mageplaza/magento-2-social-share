@@ -112,21 +112,14 @@
         {
             "*": {
                 "Mageplaza_SocialShare/js/config": {
+                    "buttonColor": "<?= $block->getButtonColor() ?>",
+                    "iconColor": "<?= $block->getIconColor() ?>",
+                    "click": "<?= 1 ?>",
+                    "popUp": "<?= $block->getThankYou() ?>",
+                    "service": "<?= $block->getNumberOfService()?>"
                 }
             }
         }
-
-    </script>
-
-        <script type="text/javascript">require(['https://static.addtoany.com/menu/page.js']);</script>
-        <script type="text/javascript">
-            var a2a_config = a2a_config || {};
-            a2a_config.icon_color = "<?= $block->getButtonColor()?>,<?= $block->getIconColor()?>";
-            a2a_config.num_services = <?= $block->getNumberOfService();?>;
-            a2a_config.onclick = 0;
-            a2a_config.thanks = {
-                postShare: <?= $block->getThankYou()?>
-            };
         </script>
     <?php endif; ?>
 <?php endif; ?>

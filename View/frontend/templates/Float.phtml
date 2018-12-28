@@ -45,34 +45,79 @@
 <?php if ($block->isEnable() && $block->isThisPageEnable()): ?>
     <div class="a2a_kit a2a_floating_style mp_social_share_float <?= $block->getFloatButtonSize() ?> <?= $block->getFloatStyle() ?>">
         <?php if ($block->isEnableFacebook()): ?>
-            <a class="a2a_button_facebook <?= $block->getShareCounter() ?>"></a>
+            <?php if ($block->isImageEnable("facebook")): ?>
+                <a class="a2a_button_facebook <?= $block->getShareCounter() ?>">
+                    <img src="<?= $block->getImageUrl('facebook') ?>" <?= $block->setImageSize()?> alt="Facebook">
+                </a>
+            <?php else: ?>
+                <a class="a2a_button_facebook <?= $block->getShareCounter() ?>"></a>
+            <?php endif; ?>
         <?php endif; ?>
+
         <?php if ($block->isEnableTwitter()): ?>
-            <a class="a2a_button_twitter"></a>
+            <?php if ($block->isImageEnable('twitter')): ?>
+                <a class="a2a_button_twitter">
+                    <img src="<?= $block->getImageUrl('twitter') ?>" <?= $block->setImageSize()?> alt="Twitter">
+                </a>
+            <?php else: ?>
+                <a class="a2a_button_twitter"></a>
+            <?php endif; ?>
         <?php endif; ?>
+
         <?php if ($block->isEnableGoogle()): ?>
-            <a class="a2a_button_google_plus"></a>
+            <?php if ($block->isImageEnable('google_plus')): ?>
+                <a class="a2a_button_google_plus">
+                    <img src="<?= $block->getImageUrl('google_plus') ?>" <?= $block->setImageSize()?> alt="Google_Plus">
+                </a>
+            <?php else: ?>
+                <a class="a2a_button_google_plus"></a>
+            <?php endif; ?>
         <?php endif; ?>
+
         <?php if ($block->isEnablePinterest()): ?>
-            <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>"></a>
+            <?php if ($block->isImageEnable('pinterest')): ?>
+                <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>">
+                    <img src="<?= $block->getImageUrl('pinterest') ?>" <?= $block->setImageSize()?> alt="Pinterest">
+                </a>
+            <?php else: ?>
+                <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>"></a>
+            <?php endif; ?>
         <?php endif; ?>
+
         <?php if ($block->isEnableLinkedIn()): ?>
-            <a class="a2a_button_linkedin"></a>
+            <?php if ($block->isImageEnable('linkedin')): ?>
+                <a class="a2a_button_linkedin">
+                    <img src="<?= $block->getImageUrl('linkedin') ?>" <?= $block->setImageSize()?> alt="LinkedIn">
+                </a>
+            <?php else: ?>
+                <a class="a2a_button_linkedin"></a>
+            <?php endif; ?>
         <?php endif; ?>
+
         <?php if ($block->isEnableTumblr()): ?>
-            <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>"></a>
+            <?php if ($block->isImageEnable('tumblr')): ?>
+                <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>">
+                    <img src="<?= $block->getImageUrl('tumblr') ?>" <?= $block->setImageSize()?> alt="Tumblr">
+                </a>
+            <?php else: ?>
+                <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>"></a>
+            <?php endif; ?>
         <?php endif; ?>
         <?php if ($block->isEnableAddMoreShare()): ?>
             <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
         <?php endif; ?>
     </div>
-    <script type="text/javascript">require(['https://static.addtoany.com/menu/page.js']);</script>
-    <script type="text/javascript">
-        var a2a_config = a2a_config || {};
-        a2a_config.icon_color = "<?= $block->getButtonColor()?>,<?= $block->getIconColor()?>";
-        a2a_config.thanks = {
-            postShare: <?= $block->getThankYou()?>
-        };
-        a2a_config.exclude_services = <?= $block->getDisabledServices()?>;
-    </script>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Mageplaza_SocialShare/js/config": {
+                    "buttonColor": "<?= $block->getButtonColor() ?>",
+                    "iconColor": "<?= $block->getIconColor() ?>",
+                    "click": "<?= 1 ?>",
+                    "popUp": "<?= $block->getThankYou() ?>",
+                    "service": "<?= $block->getNumberOfService()?>"
+                }
+            }
+        }
+        </script>
 <?php endif; ?>
