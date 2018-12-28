@@ -1,26 +1,41 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialShare
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="content">
-            <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineTop" template="Mageplaza_SocialShare::Inline.phtml" before="-">
+            <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineTop" template="Mageplaza_SocialShare::displayinline.phtml" before="-">
                 <arguments>
                     <argument name="page" xsi:type="string">home_page</argument>
                     <argument name="position" xsi:type="string">top_content</argument>
                 </arguments>
             </block>
-            <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineBottom" template="Mageplaza_SocialShare::Inline.phtml" after="-">
+            <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineBottom" template="Mageplaza_SocialShare::displayinline.phtml" after="-">
                 <arguments>
                     <argument name="page" xsi:type="string">home_page</argument>
                     <argument name="position" xsi:type="string">bottom_content</argument>
                 </arguments>
             </block>
-            <block class="Mageplaza\SocialShare\Block\FloatDisplay" name="mp.SocialShare.Float" template="Mageplaza_SocialShare::Float.phtml" after="-">
+            <block class="Mageplaza\SocialShare\Block\FloatDisplay" name="mp.SocialShare.Float" template="Mageplaza_SocialShare::displayfloat.phtml" after="-">
                 <arguments>
                     <argument name="page" xsi:type="string">home_page</argument>
                 </arguments>

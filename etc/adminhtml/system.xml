@@ -55,10 +55,9 @@
                         <field id="button_color">Custom</field>
                     </depends>
                 </field>
-                <field id="background_color" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="background_color" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Background Color</label>
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\BackgroundColor</source_model>
-                    <comment>Only apply for default icon</comment>
                 </field>
                 <field id="custom_background_color"  type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <validate>jscolor {hash:true,refine:false}</validate>
@@ -184,6 +183,9 @@
                     <field id="number_service" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Number of Services</label>
                         <validate>required-entry validate-digits validate-digits-range digits-range-0-400</validate>
+                        <depends>
+                            <field id="full_menu">0</field>
+                        </depends>
                     </field>
                 </group>
             </group>

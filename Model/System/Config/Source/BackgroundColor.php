@@ -30,7 +30,6 @@ class BackgroundColor extends OptionArray
     const CUSTOM = "Custom";
     const NONE = "transparent";
     const WHITE = "#FFFFFF";
-    const ORIGINAL = "#ffffff";
     const GRAY = "#808080";
     const BLACK = "#000000";
 
@@ -42,7 +41,6 @@ class BackgroundColor extends OptionArray
         return [
             self::CUSTOM  => __('Custom'),
             self::WHITE => __('White'),
-            self::ORIGINAL => __('Default'),
             self::NONE => __('None'),
             self::GRAY => __('Gray'),
             self::BLACK => __('Black'),
