@@ -25,7 +25,7 @@ use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\UrlInterface;
 use Mageplaza\SocialShare\Helper\Data as HelperData;
-
+use Mageplaza\SocialShare\Model\System\Config\Source\DisplayMenu;
 /**
  * Class Display
  * @package Mageplaza\SocialShare\Block
@@ -325,5 +325,19 @@ abstract class Display extends Template
         return $this->_helperData->getNumberOfServices($storeId);
     }
 
-
+    /**
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getMenuType() {
+        $storeId = $this->_storeManager->getStore()->getId();
+        $menuType = $this->_helperData->getDisplayMenu($storeId);
+        if($menuType == DisplayMenu::ON_CLICK) {
+            if($this->_helperData->isFullMenuOnClick($storeId)) {
+                return "2";
+            }
+            return "1";
+        }
+        return "0";
+    }
 }

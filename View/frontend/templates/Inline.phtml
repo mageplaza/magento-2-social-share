@@ -114,7 +114,7 @@
                 "Mageplaza_SocialShare/js/config": {
                     "buttonColor": "<?= $block->getButtonColor() ?>",
                     "iconColor": "<?= $block->getIconColor() ?>",
-                    "click": "<?= 1 ?>",
+                    "click": "<?= $block->getMenuType()?>",
                     "popUp": "<?= $block->getThankYou() ?>",
                     "service": "<?= $block->getNumberOfService()?>"
                 }

@@ -247,6 +247,15 @@ class Data extends AbstractData
         return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'number_service', $storeId);
     }
 
+    /**
+     * @param null $storeId
+     * @return array|mixed
+     */
+    public function isFullMenuOnClick($storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'full_menu', $storeId);
+    }
+
     public function getDisableService($storeId = null ) {
         $disableServices = [];
         if(!$this->isFacebook($storeId)) {
