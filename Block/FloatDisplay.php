@@ -117,4 +117,24 @@ class FloatDisplay extends Display
         $floatMarginTop = $this->_helperData->getFloatMarginTop($storeId);
         return "top: " . $floatMarginTop ."px;";
     }
+
+    /**
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function setImageSize() {
+        $storeId = $this->_storeManager->getStore()->getId();
+        $floatSize = $this->_helperData->getFloatButtonSize($storeId);
+        switch ($floatSize) {
+            case ButtonSize::SMALL :
+                return 'width="16" height="16"';
+                break;
+            case ButtonSize::MEDIUM :
+                return 'width="32" height="32"';
+                break;
+            case ButtonSize::LARGE :
+                return 'width="64" height="64"';
+                break;
+        }
+    }
 }
