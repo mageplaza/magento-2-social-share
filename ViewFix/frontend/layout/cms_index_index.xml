@@ -22,7 +22,7 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="content">
+        <referenceContainer name="content">
             <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineTop" template="Mageplaza_SocialShare::displayinline.phtml" before="-">
                 <arguments>
                     <argument name="page" xsi:type="string">home_page</argument>
@@ -40,6 +40,6 @@
                     <argument name="page" xsi:type="string">home_page</argument>
                 </arguments>
             </block>
-        </referenceBlock>
+        </referenceContainer>
     </body>
 </page>
