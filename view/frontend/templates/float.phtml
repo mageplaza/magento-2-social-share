@@ -43,11 +43,12 @@
     </style>
 
 <?php if ($block->isEnable() && $block->isThisPageEnable()): ?>
-    <div class="a2a_kit a2a_floating_style mp_social_share_float <?= $block->getFloatButtonSize() ?> <?= $block->getFloatStyle() ?>">
+    <div
+        class="a2a_kit a2a_floating_style mp_social_share_float <?= $block->getFloatButtonSize() ?> <?= $block->getFloatStyle() ?>">
         <?php if ($block->isEnableFacebook()): ?>
             <?php if ($block->isImageEnable("facebook")): ?>
                 <a class="a2a_button_facebook <?= $block->getShareCounter() ?>">
-                    <img src="<?= $block->getImageUrl('facebook') ?>" <?= $block->setImageSize()?> alt="Facebook">
+                    <img src="<?= $block->getImageUrl('facebook') ?>" <?= $block->setImageSize() ?> alt="Facebook">
                 </a>
             <?php else: ?>
                 <a class="a2a_button_facebook <?= $block->getShareCounter() ?>"></a>
@@ -57,7 +58,7 @@
         <?php if ($block->isEnableTwitter()): ?>
             <?php if ($block->isImageEnable('twitter')): ?>
                 <a class="a2a_button_twitter">
-                    <img src="<?= $block->getImageUrl('twitter') ?>" <?= $block->setImageSize()?> alt="Twitter">
+                    <img src="<?= $block->getImageUrl('twitter') ?>" <?= $block->setImageSize() ?> alt="Twitter">
                 </a>
             <?php else: ?>
                 <a class="a2a_button_twitter"></a>
@@ -67,7 +68,8 @@
         <?php if ($block->isEnableGoogle()): ?>
             <?php if ($block->isImageEnable('google_plus')): ?>
                 <a class="a2a_button_google_plus">
-                    <img src="<?= $block->getImageUrl('google_plus') ?>" <?= $block->setImageSize()?> alt="Google_Plus">
+                    <img src="<?= $block->getImageUrl('google_plus') ?>" <?= $block->setImageSize() ?>
+                         alt="Google_Plus">
                 </a>
             <?php else: ?>
                 <a class="a2a_button_google_plus"></a>
@@ -77,7 +79,7 @@
         <?php if ($block->isEnablePinterest()): ?>
             <?php if ($block->isImageEnable('pinterest')): ?>
                 <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>">
-                    <img src="<?= $block->getImageUrl('pinterest') ?>" <?= $block->setImageSize()?> alt="Pinterest">
+                    <img src="<?= $block->getImageUrl('pinterest') ?>" <?= $block->setImageSize() ?> alt="Pinterest">
                 </a>
             <?php else: ?>
                 <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>"></a>
@@ -87,7 +89,7 @@
         <?php if ($block->isEnableLinkedIn()): ?>
             <?php if ($block->isImageEnable('linkedin')): ?>
                 <a class="a2a_button_linkedin">
-                    <img src="<?= $block->getImageUrl('linkedin') ?>" <?= $block->setImageSize()?> alt="LinkedIn">
+                    <img src="<?= $block->getImageUrl('linkedin') ?>" <?= $block->setImageSize() ?> alt="LinkedIn">
                 </a>
             <?php else: ?>
                 <a class="a2a_button_linkedin"></a>
@@ -97,7 +99,7 @@
         <?php if ($block->isEnableTumblr()): ?>
             <?php if ($block->isImageEnable('tumblr')): ?>
                 <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>">
-                    <img src="<?= $block->getImageUrl('tumblr') ?>" <?= $block->setImageSize()?> alt="Tumblr">
+                    <img src="<?= $block->getImageUrl('tumblr') ?>" <?= $block->setImageSize() ?> alt="Tumblr">
                 </a>
             <?php else: ?>
                 <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>"></a>
@@ -113,11 +115,12 @@
                 "Mageplaza_SocialShare/js/config": {
                     "buttonColor": "<?= $block->getButtonColor() ?>",
                     "iconColor": "<?= $block->getIconColor() ?>",
-                    "click": "<?= $block->getMenuType()?>",
+                    "click": "<?= $block->getMenuType() ?>",
                     "popUp": "<?= $block->getThankYou() ?>",
-                    "service": "<?= $block->getNumberOfService()?>"
+                    "service": "<?= $block->getNumberOfService() ?>"
                 }
             }
         }
-        </script>
+
+    </script>
 <?php endif; ?>
