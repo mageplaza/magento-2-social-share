@@ -28,25 +28,21 @@
 
 <style type="text/css">
     .mp_social_share_inline {
-        position: absolute;
-        padding: 5px 0px;
-        right: 0px;
-    }
-
-    .mp_social_share_inline_container {
-        position: relative;
-    <?= $block->getContainerHeight()?>
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 15px;
     }
 </style>
 
 <?php if ($block->isEnable()): ?>
     <?php if ($block->isThisPageEnable() && $block->isThisPositionEnable()): ?>
-        <div class="mp_social_share_inline_container">
-            <div class="a2a_kit a2a_default_style mp_social_share_inline <?= $block->getInlineButtonSize() ?>">
+        <div class="mp_social_share_inline">
+            <div class="a2a_kit a2a_default_style <?= $block->getInlineButtonSize() ?>">
                 <?php if ($block->isEnableService('facebook')): ?>
                     <?php if ($block->isImageEnable('facebook')): ?>
                         <a class="a2a_button_facebook <?= $block->getShareCounter() ?>">
-                            <img src="<?= $block->getImageUrl('facebook') ?>" <?= $block->setImageSize()?> alt="Facebook">
+                            <img src="<?= $block->getImageUrl('facebook') ?>" <?= $block->setImageSize() ?>
+                                 alt="Facebook">
                         </a>
                     <?php else: ?>
                         <a class="a2a_button_facebook <?= $block->getShareCounter() ?>"></a>
@@ -56,7 +52,8 @@
                 <?php if ($block->isEnableService('twitter')): ?>
                     <?php if ($block->isImageEnable('twitter')): ?>
                         <a class="a2a_button_twitter">
-                            <img src="<?= $block->getImageUrl('twitter') ?>" <?= $block->setImageSize()?> alt="Twitter">
+                            <img src="<?= $block->getImageUrl('twitter') ?>" <?= $block->setImageSize() ?>
+                                 alt="Twitter">
                         </a>
                     <?php else: ?>
                         <a class="a2a_button_twitter"></a>
@@ -66,7 +63,8 @@
                 <?php if ($block->isEnableService('google_plus')): ?>
                     <?php if ($block->isImageEnable('google_plus')): ?>
                         <a class="a2a_button_google_plus">
-                            <img src="<?= $block->getImageUrl('google_plus') ?>" <?= $block->setImageSize()?> alt="Google_Plus">
+                            <img src="<?= $block->getImageUrl('google_plus') ?>" <?= $block->setImageSize() ?>
+                                 alt="Google_Plus">
                         </a>
                     <?php else: ?>
                         <a class="a2a_button_google_plus"></a>
@@ -76,7 +74,8 @@
                 <?php if ($block->isEnableService('pinterest')): ?>
                     <?php if ($block->isImageEnable('pinterest')): ?>
                         <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>">
-                            <img src="<?= $block->getImageUrl('pinterest') ?>" <?= $block->setImageSize()?> alt="Pinterest">
+                            <img src="<?= $block->getImageUrl('pinterest') ?>" <?= $block->setImageSize() ?>
+                                 alt="Pinterest">
                         </a>
                     <?php else: ?>
                         <a class="a2a_button_pinterest <?= $block->getShareCounter() ?>"></a>
@@ -86,7 +85,8 @@
                 <?php if ($block->isEnableService('linkedin')): ?>
                     <?php if ($block->isImageEnable('linkedin')): ?>
                         <a class="a2a_button_linkedin">
-                            <img src="<?= $block->getImageUrl('linkedin') ?>" <?= $block->setImageSize()?> alt="LinkedIn">
+                            <img src="<?= $block->getImageUrl('linkedin') ?>" <?= $block->setImageSize() ?>
+                                 alt="LinkedIn">
                         </a>
                     <?php else: ?>
                         <a class="a2a_button_linkedin"></a>
@@ -96,14 +96,14 @@
                 <?php if ($block->isEnableService('tumblr')): ?>
                     <?php if ($block->isImageEnable('tumblr')): ?>
                         <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>">
-                            <img src="<?= $block->getImageUrl('tumblr') ?>" <?= $block->setImageSize()?> alt="Tumblr">
+                            <img src="<?= $block->getImageUrl('tumblr') ?>" <?= $block->setImageSize() ?> alt="Tumblr">
                         </a>
                     <?php else: ?>
                         <a class="a2a_button_tumblr <?= $block->getShareCounter() ?>"></a>
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php if ($block->isEnableService('add_more_share')): ?>
-                    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                    <a class="a2a_dd <?= $block->getShareCounter() ?>" href="https://www.addtoany.com/share"></a>
                 <?php endif; ?>
             </div>
         </div>
@@ -114,12 +114,13 @@
                 "Mageplaza_SocialShare/js/config": {
                     "buttonColor": "<?= $block->getButtonColor() ?>",
                     "iconColor": "<?= $block->getIconColor() ?>",
-                    "click": "<?= $block->getMenuType()?>",
+                    "click": "<?= $block->getMenuType() ?>",
                     "popUp": "<?= $block->getThankYou() ?>",
-                    "service": "<?= $block->getNumberOfService()?>"
+                    "service": "<?= $block->getNumberOfService() ?>"
                 }
             }
         }
+
         </script>
     <?php endif; ?>
 <?php endif; ?>

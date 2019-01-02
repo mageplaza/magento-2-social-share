@@ -106,7 +106,7 @@
             <?php endif; ?>
         <?php endif; ?>
         <?php if ($block->isEnableService('add_more_share')): ?>
-            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a class="a2a_dd <?= $block->getShareCounter() ?>" href="https://www.addtoany.com/share"></a>
         <?php endif; ?>
     </div>
     <script type="text/x-magento-init">
