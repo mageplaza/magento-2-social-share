@@ -143,85 +143,48 @@ abstract class Display extends Template
     }
 
     /**
+     * @param $service
      * @return bool
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function isEnableFacebook() {
+    public function isEnableService($service) {
         $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isFacebook($storeId)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function isEnableTwitter() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isTwitter($storeId)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function isEnableGoogle() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isGoogle($storeId)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function isEnablePinterest() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isPinterest($storeId)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function isEnableLinkedIn() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isLinkedIn($storeId)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function isEnableAddMoreShare() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isAddMoreShare($storeId)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function isEnableTumblr() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if($this->_helperData->isTumblr($storeId)) {
-            return true;
+        switch ($service) {
+            case "facebook":
+                if($this->_helperData->isFacebook($storeId)) {
+                    return true;
+                }
+                break;
+            case 'twitter':
+                if($this->_helperData->isTwitter($storeId)) {
+                    return true;
+                }
+                break;
+            case 'google_plus':
+                if($this->_helperData->isGoogle($storeId)) {
+                    return true;
+                }
+                break;
+            case 'pinterest':
+                if($this->_helperData->isPinterest($storeId)) {
+                    return true;
+                }
+                break;
+            case 'linkedin':
+                if($this->_helperData->isLinkedIn($storeId)) {
+                    return true;
+                }
+                break;
+            case 'tumblr':
+                if($this->_helperData->isTumblr($storeId)) {
+                    return true;
+                }
+                break;
+            case 'add_more_share':
+                if($this->_helperData->isAddMoreShare($storeId)) {
+                    return true;
+                }
+                break;
         }
         return false;
     }
