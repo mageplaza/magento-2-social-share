@@ -182,7 +182,7 @@
                     </field>
                     <field id="number_service" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Number of Services</label>
-                        <validate>required-entry validate-digits validate-digits-range digits-range-0-400</validate>
+                        <validate>required-entry validate-digits validate-digits-range digits-range-1-400</validate>
                         <depends>
                             <field id="full_menu">0</field>
                         </depends>
@@ -207,7 +207,7 @@
                 <field id="margin_top" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Margin Top</label>
                     <comment>Specify the top margin of sharing button block. Default is 150px.</comment>
-                    <validate>required-entry validate-digits validate-digits-range digits-range-0-99999</validate>
+                    <validate>required-entry validate-digits validate-digits-range digits-range-0-1000</validate>
                     <depends>
                         <field id="style">vertical</field>
                     </depends>
@@ -215,7 +215,7 @@
                 <field id="margin_bottom" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Margin Bottom</label>
                     <comment>Specify the bottom margin of sharing button block. Default is 0px.</comment>
-                    <validate>required-entry validate-digits validate-digits-range digits-range-0-99999</validate>
+                    <validate>required-entry validate-digits validate-digits-range digits-range-0-1000</validate>
                     <depends>
                         <field id="style">horizontal</field>
                     </depends>
