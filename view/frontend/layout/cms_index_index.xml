@@ -23,23 +23,24 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineTop" template="Mageplaza_SocialShare::inline.phtml" before="-">
+            <block class="Mageplaza\SocialShare\Block\SocialShare" name="mp.SocialShare.InlineTop" template="Mageplaza_SocialShare::socialshare.phtml" before="-">
                 <arguments>
                     <argument name="page" xsi:type="string">home_page</argument>
                     <argument name="position" xsi:type="string">top_content</argument>
                     <argument name="type" xsi:type="string">inline</argument>
                 </arguments>
             </block>
-            <block class="Mageplaza\SocialShare\Block\InlineDisplay" name="mp.SocialShare.InlineBottom" template="Mageplaza_SocialShare::inline.phtml" after="-">
+            <block class="Mageplaza\SocialShare\Block\SocialShare" name="mp.SocialShare.InlineBottom" template="Mageplaza_SocialShare::socialshare.phtml" after="-">
                 <arguments>
                     <argument name="page" xsi:type="string">home_page</argument>
                     <argument name="position" xsi:type="string">bottom_content</argument>
                     <argument name="type" xsi:type="string">inline</argument>
                 </arguments>
             </block>
-            <block class="Mageplaza\SocialShare\Block\FloatDisplay" name="mp.SocialShare.Float" template="Mageplaza_SocialShare::float.phtml" after="-">
+            <block class="Mageplaza\SocialShare\Block\SocialShare" name="mp.SocialShare.Float" template="Mageplaza_SocialShare::socialshare.phtml" after="-">
                 <arguments>
                     <argument name="page" xsi:type="string">home_page</argument>
+                    <argument name="position" xsi:type="string">float_position</argument>
                     <argument name="type" xsi:type="string">float</argument>
                 </arguments>
             </block>

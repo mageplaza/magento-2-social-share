@@ -26,7 +26,9 @@ use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\UrlInterface;
 use Mageplaza\SocialShare\Helper\Data as HelperData;
 use Mageplaza\SocialShare\Model\System\Config\Source\DisplayMenu;
-
+use Mageplaza\SocialShare\Model\System\Config\Source\Style;
+use Mageplaza\SocialShare\Model\System\Config\Source\FloatPosition;
+use Mageplaza\SocialShare\Model\System\Config\Source\ButtonSize;
 class SocialShare extends Template
 {
     /**
@@ -293,10 +295,48 @@ class SocialShare extends Template
     }
 
     /**
+     * @return string
+     */
+    public function getDisplayType() {
+        $type = $this->getType();
+        if($type == 'float') {
+            return 'a2a_floating_style mp_social_share_float';
+
+        }
+        if($type == 'inline') {
+            return 'a2a_default_style';
+        }
+        return null;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDisplayInline() {
+        $type = $this->getType();
+        if($type == 'inline') {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param $displayType
+     * @return string|null
+     */
+    public function getContainerClass($displayType) {
+        if($displayType == 'a2a_default_style') {
+            return "mp_social_share_inline";
+        }
+        return null;
+    }
+
+    /**
      * /////////////////////////////////////////////////////////////
      * Float and Inline Configuration
      * ////////////////////////////////////////////////////////////
      */
+
     /**
      * @return bool
      * @throws \Magento\Framework\Exception\NoSuchEntityException
@@ -304,5 +344,176 @@ class SocialShare extends Template
     public function isThisPageEnable()
     {
         $storeId = $this->_storeManager->getStore()->getId();
+        $type = $this->getType();
+        $thisPage = $this->getPage();
+        $allowPages = null;
+        if($type == 'inline') {
+            $allowPages = explode(',', $this->_helperData->getInlineApplyPages($storeId));
+            if ($this->isShowUnderCart()) {
+                array_push($allowPages, "under_cart");
+            }
+            if (in_array($thisPage, $allowPages)) {
+                return true;
+            }
+        }
+        if($type == 'float') {
+            $allowPages = explode(',', $this->_helperData->getFloatApplyPages($storeId));
+            if (in_array($thisPage, $allowPages)) {
+                return true;
+            }
+        }
+        return false;
     }
+
+    /**
+     * @return bool
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function isShowUnderCart()
+    {
+        $storeId = $this->_storeManager->getStore()->getId();
+        if ($this->_helperData->isShowUnderCart($storeId)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @return bool
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function isThisPositionEnable()
+    {
+        $thisPosition = $this->getPosition();
+        $storeId = $this->_storeManager->getStore()->getId();
+        $positionArray = [];
+        if($thisPosition == "float_position") {
+            return true;
+        }else {
+            $selectPosition = $this->_helperData->getInlinePosition($storeId);
+            array_push($positionArray, $selectPosition);
+            if ($this->isShowUnderCart()) {
+                array_push($positionArray, "under_cart");
+            }
+            if (in_array($thisPosition, $positionArray)) {
+                return true;
+            }
+            return false;
+        }
+    }
+
+    /**
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getButtonSize() {
+        $type = $this->getType();
+        $storeId = $this->_storeManager->getStore()->getId();
+        if($type == 'inline') {
+            $inlineSize = $this->_helperData->getInlineButtonSize($storeId);
+            return $this->setButtonSize($inlineSize);
+        }
+        if($type == 'float') {
+            $floatSize = $this->_helperData->getFloatButtonSize($storeId);
+            return $this->setButtonSize($floatSize);
+        }
+    }
+
+    /**
+     * @param $buttonSize
+     * @return string
+     */
+    public function setImageSize($buttonSize) {
+        switch ($buttonSize) {
+            case ButtonSize::SMALL :
+                return 'width="16" height="16"';
+                break;
+            case ButtonSize::MEDIUM :
+                return 'width="32" height="32"';
+                break;
+            case ButtonSize::LARGE :
+                return 'width="64" height="64"';
+                break;
+            default:
+                return 'width="32" height="32"';
+                break;
+        }
+    }
+
+    /**
+     * @param $buttonSize
+     * @return string
+     */
+    public function setButtonSize($buttonSize) {
+        switch ($buttonSize) {
+            case ButtonSize::SMALL :
+                return "a2a_kit_size_16";
+                break;
+            case ButtonSize::MEDIUM :
+                return "a2a_kit_size_32";
+                break;
+            case ButtonSize::LARGE :
+                return "a2a_kit_size_64";
+                break;
+            default:
+                return "a2a_kit_size_32";
+                break;
+        }
+    }
+
+    /**
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getFloatStyle() {
+        if(!$this->isDisplayInline()) {
+            $storeId = $this->_storeManager->getStore()->getId();
+            $floatStyle = $this->_helperData->getFloatStyle($storeId);
+            if($floatStyle == Style::VERTICAL) {
+                return "a2a_vertical_style";
+            }
+            return "a2a_default_style";
+        }
+        return null;
+    }
+
+    /**
+     * @param $floatStyle
+     * @return bool
+     */
+    public function isVerticalStyle($floatStyle) {
+        if($floatStyle == "a2a_vertical_style") {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getFloatPosition() {
+        $storeId = $this->_storeManager->getStore()->getId();
+        $floatPosition = $this->_helperData->getFloatPosition($storeId);
+        if ($floatPosition == FloatPosition::LEFT) {
+            return "left: 0px;";
+        }
+        return "right: 0px;";
+    }
+
+    /**
+     * @param $type
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getFloatMargin($type) {
+        $storeId = $this->_storeManager->getStore()->getId();
+        if($type == "bottom") {
+            $floatMarginBottom = $this->_helperData->getFloatMarginBottom($storeId);
+            return "bottom: " . $floatMarginBottom ."px;";
+        }
+        $floatMarginTop = $this->_helperData->getFloatMarginTop($storeId);
+        return "top: " . $floatMarginTop ."px;";
+    }
+
+
 }
