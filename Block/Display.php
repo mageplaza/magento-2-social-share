@@ -60,21 +60,6 @@ abstract class Display extends Template
     }
 
     /**
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function isThisPageEnable()
-    {
-        $thisPage = $this->getPage();
-        $storeId = $this->_storeManager->getStore()->getId();
-        $allowPages = explode(',', $this->_helperData->getFloatApplyPages($storeId));
-        if (in_array($thisPage, $allowPages)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * @return mixed
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
