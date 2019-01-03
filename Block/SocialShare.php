@@ -424,13 +424,13 @@ class SocialShare extends Template
      */
     public function setImageSize($buttonSize) {
         switch ($buttonSize) {
-            case ButtonSize::SMALL :
+            case "a2a_kit_size_16" :
                 return 'width="16" height="16"';
                 break;
-            case ButtonSize::MEDIUM :
+            case "a2a_kit_size_32" :
                 return 'width="32" height="32"';
                 break;
-            case ButtonSize::LARGE :
+            case "a2a_kit_size_64" :
                 return 'width="64" height="64"';
                 break;
             default:
