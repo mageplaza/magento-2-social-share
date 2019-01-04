@@ -24,17 +24,16 @@
  */
 ?>
 
-<?php
-
-?>
-
-
 <?php if($block->isEnable()):?>
     <style type="text/css">
         .a2a_svg, .a2a_count {
             border-radius: <?=$block->getBorderRadius()?> !important;
         }
-
+        @media only screen and (min-width: 430px) {
+            .page-header {
+                z-index: 1;
+            }
+        }
         <?php if($block->isDisplayInline()):?>
             .mp_social_share_inline {
                 display: flex;
@@ -48,7 +47,7 @@
                 <?php endif;?>
                 <?=$block->getFloatPosition()?>
                 <?=$block->getBackgroundColor()?>
-                z-index: 89;
+                z-index: 10;
             }
             <?php if(!$block->isVerticalStyle($block->getFloatStyle())):?>
                 .a2a_floating_style.a2a_default_style { <?=$block->getFloatMargin("bottom")?> }
