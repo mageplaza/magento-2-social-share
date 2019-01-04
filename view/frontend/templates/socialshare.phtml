@@ -30,10 +30,15 @@
             border-radius: <?=$block->getBorderRadius()?> !important;
         }
         <?php if($block->isDisplayInline()):?>
-            .mp_social_share_inline {
+            .mp_social_share_inline, .mp_social_share_inline_under_cart {
                 display: flex;
-                justify-content: flex-end;
                 padding-bottom: 15px;
+            }
+            .mp_social_share_inline {
+                justify-content: flex-end;
+            }
+            .mp_social_share_inline_under_cart {
+                justify-content: flex-start;
             }
         <?php else: ?>
             .mp_social_share_float {

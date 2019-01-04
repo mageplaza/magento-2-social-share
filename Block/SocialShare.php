@@ -301,7 +301,6 @@ class SocialShare extends Template
         $type = $this->getType();
         if($type == 'float') {
             return 'a2a_floating_style mp_social_share_float';
-
         }
         if($type == 'inline') {
             return 'a2a_default_style';
@@ -325,7 +324,11 @@ class SocialShare extends Template
      * @return string|null
      */
     public function getContainerClass($displayType) {
+        $position = $this->getPosition();
         if($displayType == 'a2a_default_style') {
+            if($position == 'under_cart') {
+                return "mp_social_share_inline_under_cart";
+            }
             return "mp_social_share_inline";
         }
         return null;
