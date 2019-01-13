@@ -22,7 +22,7 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="header-wrapper">
+        <referenceContainer name="after.body.start">
             <block class="Mageplaza\SocialShare\Block\SocialShare" name="mp.SocialShare.Float" template="Mageplaza_SocialShare::socialshare.phtml" after="-">
                 <arguments>
                     <argument name="position" xsi:type="string">float_position</argument>

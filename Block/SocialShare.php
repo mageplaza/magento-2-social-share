@@ -24,6 +24,8 @@ namespace Mageplaza\SocialShare\Block;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\UrlInterface;
+use Magento\Cms\Block\Page;
+
 use Mageplaza\SocialShare\Helper\Data as HelperData;
 use Mageplaza\SocialShare\Model\System\Config\Source\DisplayMenu;
 use Mageplaza\SocialShare\Model\System\Config\Source\Style;
@@ -41,13 +43,26 @@ class SocialShare extends Template
      * @var HelperData
      */
     protected $_helperData;
+    /**
+     * @var \Magento\Cms\Block\Page
+     */
+    protected $_page;
 
+    /**
+     * SocialShare constructor.
+     * @param Context $context
+     * @param HelperData $helperData
+     * @param Page $page
+     * @param array $data
+     */
     public function __construct(
         Context $context,
         HelperData $helperData,
+        Page $page,
         array $data = [])
     {
         $this->_helperData = $helperData;
+        $this->_page = $page;
         parent::__construct($context, $data);
     }
 
@@ -304,7 +319,7 @@ class SocialShare extends Template
      * @return string
      */
     public function getDisplayType() {
-        $type = $this->getType();
+        $type = $this->getData('type');
         if($type == 'float') {
             return 'a2a_floating_style mp_social_share_float';
         }
@@ -318,7 +333,7 @@ class SocialShare extends Template
      * @return bool
      */
     public function isDisplayInline() {
-        $type = $this->getType();
+        $type = $this->getData('type');
         if($type == 'inline') {
             return true;
         }
@@ -330,7 +345,7 @@ class SocialShare extends Template
      * @return string|null
      */
     public function getContainerClass($displayType) {
-        $position = $this->getPosition();
+        $position = $this->getData('position');
         if($displayType == 'a2a_default_style') {
             if($position == 'under_cart') {
                 return "mp_social_share_inline_under_cart";
@@ -353,8 +368,8 @@ class SocialShare extends Template
     public function isThisPageEnable()
     {
         $storeId = $this->_storeManager->getStore()->getId();
-        $type = $this->getType();
-        $thisPage = $this->getPage();
+        $type = $this->getData('type');
+        $thisPage = $this->getData('page');
         $allowPages = null;
         if($type == 'inline') {
             $allowPages = explode(',', $this->_helperData->getInlineApplyPages($storeId));
@@ -371,12 +386,46 @@ class SocialShare extends Template
             }
             if($this->_helperData->getFloatApplyPages($storeId) == FloatApplyFor::SELECT_PAGES) {
                 $selectPages = explode(',', $this->_helperData->getFloatSelectPages($storeId));
+                if($thisPage == "cms_page") {
+                    $pageId = $this->_page->getPage()->getId();
+                    $pageName = $this->getPageName($pageId);
+                    if(in_array($pageName, $selectPages)) {
+                        return true;
+                    }
+                }
                 if (in_array($thisPage, $selectPages)) {
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    /**
+     * @param $pageId
+     * @return string
+     */
+    public function getPageName($pageId) {
+        switch ($pageId) {
+            case 1 :
+                return "not_found_page";
+                break;
+            case 2 :
+                return "home_page";
+                break;
+            case 3 :
+                return "no_cookie";
+                break;
+            case 4 :
+                return "privacy_policy";
+                break;
+            case 5 :
+                return "about_us";
+                break;
+            default :
+                return "customer_service";
+                break;
+        }
     }
 
     /**
@@ -398,7 +447,7 @@ class SocialShare extends Template
      */
     public function isThisPositionEnable()
     {
-        $thisPosition = $this->getPosition();
+        $thisPosition = $this->getData('position');
         $storeId = $this->_storeManager->getStore()->getId();
         $positionArray = [];
         if($thisPosition == "float_position") {
@@ -420,7 +469,7 @@ class SocialShare extends Template
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getButtonSize() {
-        $type = $this->getType();
+        $type = $this->getData('type');
         $storeId = $this->_storeManager->getStore()->getId();
         if($type == 'inline') {
             $inlineSize = $this->_helperData->getInlineButtonSize($storeId);
@@ -528,6 +577,4 @@ class SocialShare extends Template
         $floatMarginTop = $this->_helperData->getFloatMarginTop($storeId);
         return "top: " . $floatMarginTop ."px;";
     }
-
-
 }
