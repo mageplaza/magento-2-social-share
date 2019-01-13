@@ -29,6 +29,12 @@ use Mageplaza\SocialShare\Model\System\Config\Source\DisplayMenu;
 use Mageplaza\SocialShare\Model\System\Config\Source\Style;
 use Mageplaza\SocialShare\Model\System\Config\Source\FloatPosition;
 use Mageplaza\SocialShare\Model\System\Config\Source\ButtonSize;
+use Mageplaza\SocialShare\Model\System\Config\Source\FloatApplyFor;
+
+/**
+ * Class SocialShare
+ * @package Mageplaza\SocialShare\Block
+ */
 class SocialShare extends Template
 {
     /**
@@ -360,9 +366,14 @@ class SocialShare extends Template
             }
         }
         if($type == 'float') {
-            $allowPages = explode(',', $this->_helperData->getFloatApplyPages($storeId));
-            if (in_array($thisPage, $allowPages)) {
+            if($this->_helperData->getFloatApplyPages($storeId) == FloatApplyFor::ALL_PAGES) {
                 return true;
+            }
+            if($this->_helperData->getFloatApplyPages($storeId) == FloatApplyFor::SELECT_PAGES) {
+                $selectPages = explode(',', $this->_helperData->getFloatSelectPages($storeId));
+                if (in_array($thisPage, $selectPages)) {
+                    return true;
+                }
             }
         }
         return false;

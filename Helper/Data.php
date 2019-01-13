@@ -298,6 +298,14 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
+    public function getFloatSelectPages($storeId = null) {
+        return $this->getConfigValue(self::CONFIG_FLOAT . 'select_page', $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return array|mixed
+     */
     public function getFloatStyle($storeId = null)
     {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'style', $storeId);

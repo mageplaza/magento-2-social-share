@@ -54,13 +54,14 @@
                 </tumblr>
                 <add_more_share>
                     <enabled>1</enabled>
-                    <display_menu>hover</display_menu>
+                    <display_menu>click</display_menu>
                     <full_menu>0</full_menu>
                     <number_service>8</number_service>
                 </add_more_share>
             </general>
             <float>
-                <apply_for>home_page</apply_for>
+                <apply_for>all_pages</apply_for>
+                <select_page>home_page</select_page>
                 <style>vertical</style>
                 <position>left</position>
                 <margin_top>150</margin_top>

@@ -1,4 +1,9 @@
 <?php
+$block->isThisPageEnable();
+
+?>
+
+<?php
 /**
  * Mageplaza
  *
@@ -47,12 +52,9 @@
                 <?php endif;?>
                 <?=$block->getFloatPosition()?>
                 <?=$block->getBackgroundColor()?>
-                z-index: 4;
+                z-index: 10;
             }
             @media only screen and (min-width: 430px) {
-                .page-header {
-                    z-index: 1;
-                }
             }
             .footer-bottom .container .logo {
                 z-index: 0;
@@ -62,7 +64,6 @@
             <?php endif;?>
         <?php endif;?>
     </style>
-
     <?php if ($block->isThisPageEnable() && $block->isThisPositionEnable()):?>
         <div class="<?=$block->getContainerClass($block->getDisplayType())?>">
             <div class="a2a_kit <?=$block->getDisplayType()?> <?=$block->getButtonSize()?> <?=$block->getFloatStyle()?>">

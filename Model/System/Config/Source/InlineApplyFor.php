@@ -22,10 +22,10 @@
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
 /**
- * Class ApplyFor
+ * Class InlineApplyFor
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class ApplyFor extends OptionArray
+class InlineApplyFor extends OptionArray
 {
     const HOME_PAGE = "home_page";
     const CATEGORY_PAGE = "category_page";

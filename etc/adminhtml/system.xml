@@ -192,19 +192,26 @@
 
             <group id="float" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Floating Configuration</label>
-                <field id="apply_for" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="apply_for" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Apply For</label>
-                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\ApplyFor</source_model>
+                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\FloatApplyFor</source_model>
                 </field>
-                <field id="style" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="select_page" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\FloatSelectPages</source_model>
+                    <label>Select Page</label>
+                    <depends>
+                        <field id="apply_for">select_pages</field>
+                    </depends>
+                </field>
+                <field id="style" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Style</label>
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\Style</source_model>
                 </field>
-                <field id="position" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="position" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Position</label>
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\FloatPosition</source_model>
                 </field>
-                <field id="margin_top" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="margin_top" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Margin Top</label>
                     <comment>Specify the top margin of sharing button block. Default is 150px.</comment>
                     <validate>required-entry validate-digits validate-digits-range digits-range-0-1000</validate>
@@ -212,7 +219,7 @@
                         <field id="style">vertical</field>
                     </depends>
                 </field>
-                <field id="margin_bottom" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="margin_bottom" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Margin Bottom</label>
                     <comment>Specify the bottom margin of sharing button block. Default is 0px.</comment>
                     <validate>required-entry validate-digits validate-digits-range digits-range-0-1000</validate>
@@ -220,7 +227,7 @@
                         <field id="style">horizontal</field>
                     </depends>
                 </field>
-                <field id="button_size" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="button_size" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Button Size</label>
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\ButtonSize</source_model>
                     <comment>32x32 px button size is recommended.</comment>
@@ -231,7 +238,7 @@
                 <label>Inline Configuration</label>
                 <field id="apply_for" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Apply For</label>
-                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\ApplyFor</source_model>
+                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\InlineApplyFor</source_model>
                 </field>
                 <field id="position" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Position</label>
