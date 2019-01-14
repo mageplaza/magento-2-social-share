@@ -38,8 +38,8 @@ class InlineApplyFor extends OptionArray
     {
         return [
             self::HOME_PAGE  => __('Home Page'),
-            self::CATEGORY_PAGE => __('Category Page'),
-            self::PRODUCT_PAGE => __('Product Page'),
+            self::CATEGORY_PAGE => __('Categories Page'),
+            self::PRODUCT_PAGE => __('Products Page'),
         ];
     }
 }

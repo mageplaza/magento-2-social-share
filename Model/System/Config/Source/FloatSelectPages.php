@@ -37,8 +37,8 @@ class FloatSelectPages extends OptionArray
     public function getOptionHash()
     {
         return [
-            self::PRODUCT_PAGE => __('Product Page'),
-            self::CATEGORY_PAGE => __('Category Page'),
+            self::PRODUCT_PAGE => __('Products Page'),
+            self::CATEGORY_PAGE => __('Categories Page'),
             self::CONTACT_US => __('Contact Us')
         ];
     }
