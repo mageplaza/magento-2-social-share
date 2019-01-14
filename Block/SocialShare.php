@@ -43,6 +43,7 @@ class SocialShare extends Template
      * @var HelperData
      */
     protected $_helperData;
+
     /**
      * @var \Magento\Cms\Block\Page
      */
@@ -71,15 +72,13 @@ class SocialShare extends Template
      * General Configuration
      * ////////////////////////////////////////////////////////////
      */
-
+    
     /**
      * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function isEnable()
     {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if ($this->_helperData->isEnabled($storeId)) {
+        if ($this->_helperData->isEnabled()) {
             return true;
         }
         return false;
@@ -87,53 +86,53 @@ class SocialShare extends Template
 
     /**
      * @return mixed
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getIconColor()
     {
-        $storeId = $this->_storeManager->getStore()->getId();
-        return $this->_helperData->getIconColor($storeId);
+        return $this->_helperData->getIconColor();
     }
 
     /**
      * @return mixed
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getButtonColor()
     {
-        $storeId = $this->_storeManager->getStore()->getId();
-        return $this->_helperData->getButtonColor($storeId);
+        return $this->_helperData->getButtonColor();
     }
 
     /**
      * @return mixed
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getBackgroundColor()
     {
-        $storeId = $this->_storeManager->getStore()->getId();
-        $color = $this->_helperData->getBackgroundColor($storeId);
+        $color = $this->_helperData->getBackgroundColor();
         return "background: " . $color . ";";
     }
 
     /**
      * @return mixed
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getBorderRadius()
     {
-        $storeId = $this->_storeManager->getStore()->getId();
-        return $this->_helperData->getBorderRadius($storeId) . "%";
+        return $this->_helperData->getBorderRadius() . "%";
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAddMoreShare() {
+        if($this->_helperData->isAddMoreShare()) {
+            return true;
+        }
+        return false;
     }
 
     /**
      * @return string
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getShareCounter()
     {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if ($this->_helperData->isShareCounter($storeId)) {
+        if ($this->_helperData->isShareCounter()) {
             return "a2a_counter";
         }
         return "";
@@ -141,12 +140,10 @@ class SocialShare extends Template
 
     /**
      * @return string
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getThankYou()
     {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if ($this->_helperData->isThankYouPopup($storeId)) {
+        if ($this->_helperData->isThankYouPopup()) {
             return "true";
         }
         return "false";
@@ -154,50 +151,29 @@ class SocialShare extends Template
     }
 
     /**
-     * @param $service
-     * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @return array
      */
-    public function isEnableService($service) {
-        $storeId = $this->_storeManager->getStore()->getId();
-        switch ($service) {
-            case "facebook":
-                if($this->_helperData->isFacebook($storeId)) {
-                    return true;
-                }
-                break;
-            case 'twitter':
-                if($this->_helperData->isTwitter($storeId)) {
-                    return true;
-                }
-                break;
-            case 'google_plus':
-                if($this->_helperData->isGoogle($storeId)) {
-                    return true;
-                }
-                break;
-            case 'pinterest':
-                if($this->_helperData->isPinterest($storeId)) {
-                    return true;
-                }
-                break;
-            case 'linkedin':
-                if($this->_helperData->isLinkedIn($storeId)) {
-                    return true;
-                }
-                break;
-            case 'tumblr':
-                if($this->_helperData->isTumblr($storeId)) {
-                    return true;
-                }
-                break;
-            case 'add_more_share':
-                if($this->_helperData->isAddMoreShare($storeId)) {
-                    return true;
-                }
-                break;
+    public function getEnableService() {
+        $enableServices = [];
+        if($this->_helperData->isFacebook()) {
+            array_push($enableServices, 'facebook');
         }
-        return false;
+        if($this->_helperData->isTwitter()) {
+            array_push($enableServices, 'twitter');
+        }
+        if($this->_helperData->isGoogle()) {
+            array_push($enableServices, 'google_plus');
+        }
+        if($this->_helperData->isPinterest()) {
+            array_push($enableServices, 'pinterest');
+        }
+        if($this->_helperData->isLinkedIn()) {
+            array_push($enableServices, 'linkedin');
+        }
+        if($this->_helperData->isTumblr()) {
+            array_push($enableServices, 'tumblr');
+        }
+        return $enableServices;
     }
 
     /**
@@ -206,33 +182,32 @@ class SocialShare extends Template
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getImageUrl($service) {
-        $storeId = $this->_storeManager->getStore()->getId();
         $baseUrl = $this->_storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
         $modulePath = 'mageplaza/socialshare/';
         $imageUrl = null;
         switch ($service) {
             case 'twitter':
-                $imageUrl = $baseUrl . $modulePath .'twitter/'. $this->_helperData->getTwitterImage($storeId);
+                $imageUrl = $baseUrl . $modulePath .'twitter/'. $this->_helperData->getTwitterImage();
                 return $imageUrl;
                 break;
             case 'google_plus':
-                $imageUrl = $baseUrl . $modulePath .'google/'. $this->_helperData->getGoogleImage($storeId);
+                $imageUrl = $baseUrl . $modulePath .'google/'. $this->_helperData->getGoogleImage();
                 return $imageUrl;
                 break;
             case 'pinterest':
-                $imageUrl = $baseUrl . $modulePath .'pinterest/'. $this->_helperData->getPinterestImage($storeId);
+                $imageUrl = $baseUrl . $modulePath .'pinterest/'. $this->_helperData->getPinterestImage();
                 return $imageUrl;
                 break;
             case 'linkedin':
-                $imageUrl = $baseUrl . $modulePath .'linkedIn/'. $this->_helperData->getLinkedInImage($storeId);
+                $imageUrl = $baseUrl . $modulePath .'linkedIn/'. $this->_helperData->getLinkedInImage();
                 return $imageUrl;
                 break;
             case 'tumblr':
-                $imageUrl = $baseUrl . $modulePath .'tumblr/'. $this->_helperData->getTumblrImage($storeId);
+                $imageUrl = $baseUrl . $modulePath .'tumblr/'. $this->_helperData->getTumblrImage();
                 return $imageUrl;
                 break;
             default:
-                $imageUrl = $baseUrl . $modulePath .'facebook/'. $this->_helperData->getFacebookImage($storeId);
+                $imageUrl = $baseUrl . $modulePath .'facebook/'. $this->_helperData->getFacebookImage();
                 return $imageUrl;
                 break;
         }
@@ -241,38 +216,36 @@ class SocialShare extends Template
     /**
      * @param $service
      * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function isImageEnable($service) {
-        $storeId = $this->_storeManager->getStore()->getId();
         switch ($service) {
             case "facebook":
-                if($this->_helperData->getFacebookImage($storeId) != null) {
+                if($this->_helperData->getFacebookImage() != null) {
                     return true;
                 }
                 break;
             case 'twitter':
-                if($this->_helperData->getTwitterImage($storeId) != null) {
+                if($this->_helperData->getTwitterImage() != null) {
                     return true;
                 }
                 break;
             case 'google_plus':
-                if($this->_helperData->getGoogleImage($storeId) != null) {
+                if($this->_helperData->getGoogleImage() != null) {
                     return true;
                 }
                 break;
             case 'pinterest':
-                if($this->_helperData->getPinterestImage($storeId) != null) {
+                if($this->_helperData->getPinterestImage() != null) {
                     return true;
                 }
                 break;
             case 'linkedin':
-                if($this->_helperData->getLinkedInImage($storeId) != null) {
+                if($this->_helperData->getLinkedInImage() != null) {
                     return true;
                 }
                 break;
             case 'tumblr':
-                if($this->_helperData->getTumblrImage($storeId) != null) {
+                if($this->_helperData->getTumblrImage() != null) {
                     return true;
                 }
                 break;
@@ -282,32 +255,26 @@ class SocialShare extends Template
 
     /**
      * @return string
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getDisabledServices() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        $disabledServices = implode(",", $this->_helperData->getDisableService($storeId));
+        $disabledServices = implode(",", $this->_helperData->getDisableService());
         return '[' . $disabledServices . ']';
     }
 
     /**
      * @return array|mixed
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getNumberOfService() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        return $this->_helperData->getNumberOfServices($storeId);
+        return $this->_helperData->getNumberOfServices();
     }
 
     /**
      * @return string
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getMenuType() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        $menuType = $this->_helperData->getDisplayMenu($storeId);
+        $menuType = $this->_helperData->getDisplayMenu();
         if($menuType == DisplayMenu::ON_CLICK) {
-            if($this->_helperData->isFullMenuOnClick($storeId)) {
+            if($this->_helperData->isFullMenuOnClick()) {
                 return "2";
             }
             return "1";
@@ -363,16 +330,14 @@ class SocialShare extends Template
 
     /**
      * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function isThisPageEnable()
     {
-        $storeId = $this->_storeManager->getStore()->getId();
         $type = $this->getData('type');
         $thisPage = $this->getData('page');
         $allowPages = null;
         if($type == 'inline') {
-            $allowPages = explode(',', $this->_helperData->getInlineApplyPages($storeId));
+            $allowPages = explode(',', $this->_helperData->getInlineApplyPages());
             if ($this->isShowUnderCart()) {
                 array_push($allowPages, "under_cart");
             }
@@ -381,12 +346,12 @@ class SocialShare extends Template
             }
         }
         if($type == 'float') {
-            if($this->_helperData->getFloatApplyPages($storeId) == FloatApplyFor::ALL_PAGES) {
+            if($this->_helperData->getFloatApplyPages() == FloatApplyFor::ALL_PAGES) {
                 return true;
             }
-            if($this->_helperData->getFloatApplyPages($storeId) == FloatApplyFor::SELECT_PAGES) {
-                $selectPages = explode(',', $this->_helperData->getFloatSelectPages($storeId));
-                $cmsPages = explode(',', $this->_helperData->getFloatCmsPages($storeId));
+            if($this->_helperData->getFloatApplyPages() == FloatApplyFor::SELECT_PAGES) {
+                $selectPages = explode(',', $this->_helperData->getFloatSelectPages());
+                $cmsPages = explode(',', $this->_helperData->getFloatCmsPages());
                 if($thisPage == "cms_page") {
                     $pageId = $this->_page->getPage()->getId();
                     if(in_array($pageId, $cmsPages)) {
@@ -403,12 +368,10 @@ class SocialShare extends Template
 
     /**
      * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function isShowUnderCart()
     {
-        $storeId = $this->_storeManager->getStore()->getId();
-        if ($this->_helperData->isShowUnderCart($storeId)) {
+        if ($this->_helperData->isShowUnderCart()) {
             return true;
         }
         return false;
@@ -416,17 +379,15 @@ class SocialShare extends Template
 
     /**
      * @return bool
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function isThisPositionEnable()
     {
         $thisPosition = $this->getData('position');
-        $storeId = $this->_storeManager->getStore()->getId();
         $positionArray = [];
         if($thisPosition == "float_position") {
             return true;
         }else {
-            $selectPosition = $this->_helperData->getInlinePosition($storeId);
+            $selectPosition = $this->_helperData->getInlinePosition();
             array_push($positionArray, $selectPosition);
             if ($this->isShowUnderCart()) {
                 array_push($positionArray, "under_cart");
@@ -439,17 +400,16 @@ class SocialShare extends Template
     }
 
     /**
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @return string
      */
     public function getButtonSize() {
         $type = $this->getData('type');
-        $storeId = $this->_storeManager->getStore()->getId();
         if($type == 'inline') {
-            $inlineSize = $this->_helperData->getInlineButtonSize($storeId);
+            $inlineSize = $this->_helperData->getInlineButtonSize();
             return $this->setButtonSize($inlineSize);
         }
         if($type == 'float') {
-            $floatSize = $this->_helperData->getFloatButtonSize($storeId);
+            $floatSize = $this->_helperData->getFloatButtonSize();
             return $this->setButtonSize($floatSize);
         }
     }
@@ -498,12 +458,10 @@ class SocialShare extends Template
 
     /**
      * @return string
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getFloatStyle() {
         if(!$this->isDisplayInline()) {
-            $storeId = $this->_storeManager->getStore()->getId();
-            $floatStyle = $this->_helperData->getFloatStyle($storeId);
+            $floatStyle = $this->_helperData->getFloatStyle();
             if($floatStyle == Style::VERTICAL) {
                 return "a2a_vertical_style";
             }
@@ -525,11 +483,9 @@ class SocialShare extends Template
 
     /**
      * @return string
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getFloatPosition() {
-        $storeId = $this->_storeManager->getStore()->getId();
-        $floatPosition = $this->_helperData->getFloatPosition($storeId);
+        $floatPosition = $this->_helperData->getFloatPosition();
         if ($floatPosition == FloatPosition::LEFT) {
             return "left: 0px;";
         }
@@ -539,15 +495,13 @@ class SocialShare extends Template
     /**
      * @param $type
      * @return string
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getFloatMargin($type) {
-        $storeId = $this->_storeManager->getStore()->getId();
         if($type == "bottom") {
-            $floatMarginBottom = $this->_helperData->getFloatMarginBottom($storeId);
+            $floatMarginBottom = $this->_helperData->getFloatMarginBottom();
             return "bottom: " . $floatMarginBottom ."px;";
         }
-        $floatMarginTop = $this->_helperData->getFloatMarginTop($storeId);
+        $floatMarginTop = $this->_helperData->getFloatMarginTop();
         return "top: " . $floatMarginTop ."px;";
     }
 }

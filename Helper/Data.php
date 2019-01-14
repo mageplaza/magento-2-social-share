@@ -256,6 +256,10 @@ class Data extends AbstractData
         return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'full_menu', $storeId);
     }
 
+    /**
+     * @param null $storeId
+     * @return array
+     */
     public function getDisableService($storeId = null ) {
         $disableServices = [];
         if(!$this->isFacebook($storeId)) {
@@ -277,7 +281,6 @@ class Data extends AbstractData
             array_push($disableServices, '"tumblr"');
         }
         return $disableServices;
-
     }
 
     /*
