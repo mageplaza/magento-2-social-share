@@ -61,7 +61,6 @@
             </general>
             <float>
                 <apply_for>all_pages</apply_for>
-                <select_page>home_page</select_page>
                 <style>vertical</style>
                 <position>left</position>
                 <margin_top>150</margin_top>

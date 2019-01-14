@@ -198,7 +198,14 @@
                 </field>
                 <field id="select_page" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\FloatSelectPages</source_model>
-                    <label>Select Page</label>
+                    <label>Apply for Select Page</label>
+                    <depends>
+                        <field id="apply_for">select_pages</field>
+                    </depends>
+                </field>
+                <field id="cms_page" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <source_model>Mageplaza\SocialShare\Model\System\Config\Source\FloatCmsPages</source_model>
+                    <label>Apply for CMS Page</label>
                     <depends>
                         <field id="apply_for">select_pages</field>
                     </depends>

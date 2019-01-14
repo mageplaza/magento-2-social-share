@@ -386,10 +386,10 @@ class SocialShare extends Template
             }
             if($this->_helperData->getFloatApplyPages($storeId) == FloatApplyFor::SELECT_PAGES) {
                 $selectPages = explode(',', $this->_helperData->getFloatSelectPages($storeId));
+                $cmsPages = explode(',', $this->_helperData->getFloatCmsPages($storeId));
                 if($thisPage == "cms_page") {
                     $pageId = $this->_page->getPage()->getId();
-                    $pageName = $this->getPageName($pageId);
-                    if(in_array($pageName, $selectPages)) {
+                    if(in_array($pageId, $cmsPages)) {
                         return true;
                     }
                 }
@@ -399,33 +399,6 @@ class SocialShare extends Template
             }
         }
         return false;
-    }
-
-    /**
-     * @param $pageId
-     * @return string
-     */
-    public function getPageName($pageId) {
-        switch ($pageId) {
-            case 1 :
-                return "not_found_page";
-                break;
-            case 2 :
-                return "home_page";
-                break;
-            case 3 :
-                return "no_cookie";
-                break;
-            case 4 :
-                return "privacy_policy";
-                break;
-            case 5 :
-                return "about_us";
-                break;
-            default :
-                return "customer_service";
-                break;
-        }
     }
 
     /**

@@ -306,6 +306,14 @@ class Data extends AbstractData
      * @param null $storeId
      * @return array|mixed
      */
+    public function getFloatCmsPages($storeId = null) {
+        return $this->getConfigValue(self::CONFIG_FLOAT . 'cms_page', $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return array|mixed
+     */
     public function getFloatStyle($storeId = null)
     {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'style', $storeId);

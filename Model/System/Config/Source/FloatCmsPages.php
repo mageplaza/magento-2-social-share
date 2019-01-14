@@ -21,25 +21,40 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
+use \Magento\Cms\Model\PageFactory;
+
 /**
- * Class FloatSelectPages
+ * Class FloatCmsPages
  * @package Mageplaza\SocialShare\Model\System\Config\Source
  */
-class FloatSelectPages extends OptionArray
+class FloatCmsPages extends OptionArray
 {
-    const CATEGORY_PAGE = "category_page";
-    const PRODUCT_PAGE = "product_page";
-    CONST CONTACT_US = "contact_us";
+    /**
+     * @var \Magento\Cms\Model\PageFactory
+     */
+    protected $_pageFactory;
+
+    /**
+     * FloatCmsPages constructor.
+     * @param PageFactory $pageFactory
+     */
+    public function __construct(PageFactory $pageFactory)
+    {
+        $this->_pageFactory = $pageFactory;
+    }
 
     /**
      * @return array
      */
     public function getOptionHash()
     {
-        return [
-            self::PRODUCT_PAGE => __('Product Page'),
-            self::CATEGORY_PAGE => __('Category Page'),
-            self::CONTACT_US => __('Contact Us')
-        ];
+        $pages = $this->_pageFactory->create()->getCollection();
+        $cmsPages = [];
+
+        foreach($pages as $page)
+        {
+            $cmsPages[$page->getId()] = $page->getTitle();
+        }
+        return $cmsPages;
     }
 }
