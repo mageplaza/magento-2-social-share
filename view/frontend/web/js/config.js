@@ -11,7 +11,8 @@ define([
                 iconColor = config.iconColor,
                 onClick = config.click,
                 popUp = config.popUp,
-                noService = config.service;
+                noService = config.service,
+                disabled = config.disable;
 
             var a2a = $('.a2a_kit');
 
@@ -21,6 +22,7 @@ define([
             a2aJS += 'a2a_config.num_services = '+ noService +';';
             a2aJS += 'a2a_config.onclick = '+ onClick +';';
             a2aJS += 'a2a_config.thanks = {postShare: '+ popUp +',};';
+            a2aJS += 'a2a_config.exclude_services = ["' + disabled + '"];';
             a2aJS += '</script>';
             a2a.append(a2aJS);
         }

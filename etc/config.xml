@@ -22,7 +22,7 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <socialshare>
+        <mpsocialshare>
             <general>
                 <enabled>1</enabled>
                 <icon_color>#FFFFFF</icon_color>
@@ -73,6 +73,6 @@
                 <show_under_cart>1</show_under_cart>
                 <button_size>32x32</button_size>
             </inline>
-        </socialshare>
+        </mpsocialshare>
     </default>
 </config>

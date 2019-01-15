@@ -32,15 +32,9 @@ use Mageplaza\SocialShare\Model\System\Config\Source\BackgroundColor;
  */
 class Data extends AbstractData
 {
-    const CONFIG_MODULE_PATH = 'socialshare';
-    const CONFIG_FLOAT = 'socialshare/float/';
-    const CONFIG_INLINE = 'socialshare/inline/';
-    const CONFIG_FACEBOOK = '/general/facebook/';
-    const CONFIG_TWITTER = '/general/twitter/';
-    const CONFIG_GOOGLE = '/general/google/';
-    const CONFIG_PINTEREST = '/general/pinterest/';
-    const CONFIG_LINKEDIN = '/general/linkedIn/';
-    const CONFIG_TUMBLR = '/general/tumblr/';
+    const CONFIG_MODULE_PATH = 'mpsocialshare';
+    const CONFIG_FLOAT = 'mpsocialshare/float/';
+    const CONFIG_INLINE = 'mpsocialshare/inline/';
     const CONFIG_MORE = '/general/add_more_share/';
     /*
      * //////////////////////////////////////////////////
@@ -115,109 +109,21 @@ class Data extends AbstractData
     }
 
     /**
+     * @param $serviceCode
      * @param null $storeId
      * @return array|mixed
      */
-    public function isFacebook($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_FACEBOOK . 'enabled', $storeId);
+    public function isServiceEnable($serviceCode, $storeId = null) {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH.'/general/'.$serviceCode.'/enabled', $storeId);
     }
 
     /**
+     * @param $serviceCode
      * @param null $storeId
      * @return array|mixed
      */
-    public function getFacebookImage($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_FACEBOOK . 'image', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function isTwitter($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_TWITTER . 'enabled', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function getTwitterImage($storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_TWITTER . 'image', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function isGoogle($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_GOOGLE . 'enabled', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function getGoogleImage($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_GOOGLE . 'image', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function isPinterest($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_PINTEREST . 'enabled', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function getPinterestImage($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_PINTEREST . 'image', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function isLinkedIn($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_LINKEDIN . 'enabled', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function getLinkedInImage($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_LINKEDIN . 'image', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function isTumblr($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_TUMBLR . 'enabled', $storeId);
-    }
-
-    /**
-     * @param null $storeId
-     * @return array|mixed
-     */
-    public function getTumblrImage($storeId = null)
-    {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_TUMBLR . 'image', $storeId);
+    public function getServiceImage($serviceCode, $storeId = null) {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH.'/general/'.$serviceCode.'/image', $storeId);
     }
 
     /**
@@ -256,31 +162,12 @@ class Data extends AbstractData
         return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'full_menu', $storeId);
     }
 
-    /**
-     * @param null $storeId
-     * @return array
-     */
-    public function getDisableService($storeId = null ) {
-        $disableServices = [];
-        if(!$this->isFacebook($storeId)) {
-            array_push($disableServices, '"facebook"');
+
+    public function getDisableService($serviceCode, $storeId = null ) {
+        if(!$this->isServiceEnable($serviceCode, $storeId)) {
+            return $serviceCode;
         }
-        if(!$this->isTwitter($storeId)) {
-            array_push($disableServices, '"twitter"');
-        }
-        if(!$this->isGoogle($storeId)) {
-            array_push($disableServices, '"google_plus"');
-        }
-        if(!$this->isPinterest($storeId)) {
-            array_push($disableServices, '"pinterest"');
-        }
-        if(!$this->isLinkedIn($storeId)) {
-            array_push($disableServices, '"linkedin"');
-        }
-        if(!$this->isTumblr($storeId)) {
-            array_push($disableServices, '"tumblr"');
-        }
-        return $disableServices;
+        return null;
     }
 
     /*

@@ -39,6 +39,11 @@ use Mageplaza\SocialShare\Model\System\Config\Source\FloatApplyFor;
  */
 class SocialShare extends Template
 {
+    const SERVICES = ['facebook', 'twitter', 'google_plus', 'pinterest', 'linkedin', 'tumblr'];
+    const CLICK_FULL_MENU = '2';
+    const CLICK_MENU = '1';
+    const HOVER_MENU = '0';
+
     /**
      * @var HelperData
      */
@@ -78,10 +83,7 @@ class SocialShare extends Template
      */
     public function isEnable()
     {
-        if ($this->_helperData->isEnabled()) {
-            return true;
-        }
-        return false;
+        return $this->_helperData->isEnabled();
     }
 
     /**
@@ -121,10 +123,7 @@ class SocialShare extends Template
      * @return bool
      */
     public function isAddMoreShare() {
-        if($this->_helperData->isAddMoreShare()) {
-            return true;
-        }
-        return false;
+        return $this->_helperData->isAddMoreShare();
     }
 
     /**
@@ -155,23 +154,10 @@ class SocialShare extends Template
      */
     public function getEnableService() {
         $enableServices = [];
-        if($this->_helperData->isFacebook()) {
-            array_push($enableServices, 'facebook');
-        }
-        if($this->_helperData->isTwitter()) {
-            array_push($enableServices, 'twitter');
-        }
-        if($this->_helperData->isGoogle()) {
-            array_push($enableServices, 'google_plus');
-        }
-        if($this->_helperData->isPinterest()) {
-            array_push($enableServices, 'pinterest');
-        }
-        if($this->_helperData->isLinkedIn()) {
-            array_push($enableServices, 'linkedin');
-        }
-        if($this->_helperData->isTumblr()) {
-            array_push($enableServices, 'tumblr');
+        foreach (self::SERVICES as $service) {
+            if($this->_helperData->isServiceEnable($service)) {
+                array_push($enableServices, $service);
+            }
         }
         return $enableServices;
     }
@@ -185,32 +171,8 @@ class SocialShare extends Template
         $baseUrl = $this->_storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
         $modulePath = 'mageplaza/socialshare/';
         $imageUrl = null;
-        switch ($service) {
-            case 'twitter':
-                $imageUrl = $baseUrl . $modulePath .'twitter/'. $this->_helperData->getTwitterImage();
-                return $imageUrl;
-                break;
-            case 'google_plus':
-                $imageUrl = $baseUrl . $modulePath .'google/'. $this->_helperData->getGoogleImage();
-                return $imageUrl;
-                break;
-            case 'pinterest':
-                $imageUrl = $baseUrl . $modulePath .'pinterest/'. $this->_helperData->getPinterestImage();
-                return $imageUrl;
-                break;
-            case 'linkedin':
-                $imageUrl = $baseUrl . $modulePath .'linkedIn/'. $this->_helperData->getLinkedInImage();
-                return $imageUrl;
-                break;
-            case 'tumblr':
-                $imageUrl = $baseUrl . $modulePath .'tumblr/'. $this->_helperData->getTumblrImage();
-                return $imageUrl;
-                break;
-            default:
-                $imageUrl = $baseUrl . $modulePath .'facebook/'. $this->_helperData->getFacebookImage();
-                return $imageUrl;
-                break;
-        }
+        $imageUrl = $baseUrl . $modulePath . $service . '/' . $this->_helperData->getServiceImage($service);
+        return $imageUrl;
     }
 
     /**
@@ -218,47 +180,20 @@ class SocialShare extends Template
      * @return bool
      */
     public function isImageEnable($service) {
-        switch ($service) {
-            case "facebook":
-                if($this->_helperData->getFacebookImage() != null) {
-                    return true;
-                }
-                break;
-            case 'twitter':
-                if($this->_helperData->getTwitterImage() != null) {
-                    return true;
-                }
-                break;
-            case 'google_plus':
-                if($this->_helperData->getGoogleImage() != null) {
-                    return true;
-                }
-                break;
-            case 'pinterest':
-                if($this->_helperData->getPinterestImage() != null) {
-                    return true;
-                }
-                break;
-            case 'linkedin':
-                if($this->_helperData->getLinkedInImage() != null) {
-                    return true;
-                }
-                break;
-            case 'tumblr':
-                if($this->_helperData->getTumblrImage() != null) {
-                    return true;
-                }
-                break;
-        }
-        return false;
+        return $this->_helperData->getServiceImage($service) != null;
     }
 
     /**
      * @return string
      */
     public function getDisabledServices() {
-        $disabledServices = implode(",", $this->_helperData->getDisableService());
-        return '[' . $disabledServices . ']';
+        $disabledServices = [];
+        foreach (self::SERVICES as $service) {
+            if($this->_helperData->getDisableService($service) != null) {
+                array_push($disabledServices, $this->_helperData->getDisableService($service));
+            }
+        }
+        return implode(",", $disabledServices);
     }
 
     /**
@@ -275,11 +210,11 @@ class SocialShare extends Template
         $menuType = $this->_helperData->getDisplayMenu();
         if($menuType == DisplayMenu::ON_CLICK) {
             if($this->_helperData->isFullMenuOnClick()) {
-                return "2";
+                return self::CLICK_FULL_MENU;
             }
-            return "1";
+            return self::CLICK_MENU;
         }
-        return "0";
+        return self::HOVER_MENU;
     }
 
     /**
@@ -301,10 +236,7 @@ class SocialShare extends Template
      */
     public function isDisplayInline() {
         $type = $this->getData('type');
-        if($type == 'inline') {
-            return true;
-        }
-        return false;
+        return $type == 'inline';
     }
 
     /**
@@ -371,10 +303,7 @@ class SocialShare extends Template
      */
     public function isShowUnderCart()
     {
-        if ($this->_helperData->isShowUnderCart()) {
-            return true;
-        }
-        return false;
+        return $this->_helperData->isShowUnderCart();
     }
 
     /**
@@ -386,17 +315,16 @@ class SocialShare extends Template
         $positionArray = [];
         if($thisPosition == "float_position") {
             return true;
-        }else {
-            $selectPosition = $this->_helperData->getInlinePosition();
-            array_push($positionArray, $selectPosition);
-            if ($this->isShowUnderCart()) {
-                array_push($positionArray, "under_cart");
-            }
-            if (in_array($thisPosition, $positionArray)) {
-                return true;
-            }
-            return false;
         }
+        $selectPosition = $this->_helperData->getInlinePosition();
+        array_push($positionArray, $selectPosition);
+        if ($this->isShowUnderCart()) {
+            array_push($positionArray, "under_cart");
+        }
+        if (in_array($thisPosition, $positionArray)) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -408,10 +336,8 @@ class SocialShare extends Template
             $inlineSize = $this->_helperData->getInlineButtonSize();
             return $this->setButtonSize($inlineSize);
         }
-        if($type == 'float') {
-            $floatSize = $this->_helperData->getFloatButtonSize();
-            return $this->setButtonSize($floatSize);
-        }
+        $floatSize = $this->_helperData->getFloatButtonSize();
+        return $this->setButtonSize($floatSize);
     }
 
     /**
@@ -475,10 +401,7 @@ class SocialShare extends Template
      * @return bool
      */
     public function isVerticalStyle($floatStyle) {
-        if($floatStyle == "a2a_vertical_style") {
-            return true;
-        }
-        return false;
+        return $floatStyle == "a2a_vertical_style";
     }
 
     /**
