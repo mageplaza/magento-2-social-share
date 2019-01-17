@@ -43,6 +43,7 @@ abstract class OptionArray implements ArrayInterface
                 'label' => $label
             ];
         }
+
         return $options;
     }
 

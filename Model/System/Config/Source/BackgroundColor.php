@@ -28,10 +28,10 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
 class BackgroundColor extends OptionArray
 {
     const CUSTOM = "Custom";
-    const NONE = "transparent";
-    const WHITE = "#FFFFFF";
-    const GRAY = "#808080";
-    const BLACK = "#000000";
+    const NONE   = "transparent";
+    const WHITE  = "#FFFFFF";
+    const GRAY   = "#808080";
+    const BLACK  = "#000000";
 
     /**
      * @return array
@@ -39,11 +39,11 @@ class BackgroundColor extends OptionArray
     public function getOptionHash()
     {
         return [
-            self::CUSTOM  => __('Custom'),
-            self::WHITE => __('White'),
-            self::NONE => __('None'),
-            self::GRAY => __('Gray'),
-            self::BLACK => __('Black'),
+            self::CUSTOM => __('Custom'),
+            self::WHITE  => __('White'),
+            self::NONE   => __('None'),
+            self::GRAY   => __('Gray'),
+            self::BLACK  => __('Black'),
         ];
     }
 }

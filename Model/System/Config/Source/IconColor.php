@@ -28,9 +28,9 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
 class IconColor extends OptionArray
 {
     const CUSTOM = "Custom";
-    const WHITE = "#FFFFFF";
-    const GRAY = "#808080";
-    const BLACK = "#000000";
+    const WHITE  = "#FFFFFF";
+    const GRAY   = "#808080";
+    const BLACK  = "#000000";
 
     /**
      * @return array
@@ -38,10 +38,10 @@ class IconColor extends OptionArray
     public function getOptionHash()
     {
         return [
-            self::CUSTOM  => __('Custom'),
-            self::WHITE => __('White'),
-            self::GRAY => __('Gray'),
-            self::BLACK => __('Black'),
+            self::CUSTOM => __('Custom'),
+            self::WHITE  => __('White'),
+            self::GRAY   => __('Gray'),
+            self::BLACK  => __('Black'),
         ];
     }
 }

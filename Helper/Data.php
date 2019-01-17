@@ -22,9 +22,9 @@
 namespace Mageplaza\SocialShare\Helper;
 
 use Mageplaza\Core\Helper\AbstractData;
-use Mageplaza\SocialShare\Model\System\Config\Source\IconColor;
-use Mageplaza\SocialShare\Model\System\Config\Source\ButtonColor;
 use Mageplaza\SocialShare\Model\System\Config\Source\BackgroundColor;
+use Mageplaza\SocialShare\Model\System\Config\Source\ButtonColor;
+use Mageplaza\SocialShare\Model\System\Config\Source\IconColor;
 
 /**
  * Class Data
@@ -33,9 +33,9 @@ use Mageplaza\SocialShare\Model\System\Config\Source\BackgroundColor;
 class Data extends AbstractData
 {
     const CONFIG_MODULE_PATH = 'mpsocialshare';
-    const CONFIG_FLOAT = 'mpsocialshare/float/';
-    const CONFIG_INLINE = 'mpsocialshare/inline/';
-    const CONFIG_MORE = '/general/add_more_share/';
+    const CONFIG_FLOAT       = 'mpsocialshare/float/';
+    const CONFIG_INLINE      = 'mpsocialshare/inline/';
+    const CONFIG_MORE        = '/general/add_more_share/';
     /*
      * //////////////////////////////////////////////////
      * General Configuration
@@ -44,6 +44,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return mixed
      */
     public function getIconColor($storeId = null)
@@ -52,11 +53,13 @@ class Data extends AbstractData
         if ($selectColor == IconColor::CUSTOM) {
             return $this->getConfigGeneral('custom_icon_color', $storeId);
         }
+
         return $selectColor;
     }
 
     /**
      * @param null $storeId
+     *
      * @return mixed
      */
     public function getButtonColor($storeId = null)
@@ -65,11 +68,13 @@ class Data extends AbstractData
         if ($selectColor == ButtonColor::CUSTOM) {
             return $this->getConfigGeneral('custom_button_color', $storeId);
         }
+
         return $selectColor;
     }
 
     /**
      * @param null $storeId
+     *
      * @return mixed
      */
     public function getBackgroundColor($storeId = null)
@@ -78,11 +83,13 @@ class Data extends AbstractData
         if ($selectColor == BackgroundColor::CUSTOM) {
             return $this->getConfigGeneral('custom_background_color', $storeId);
         }
+
         return $selectColor;
     }
 
     /**
      * @param null $storeId
+     *
      * @return mixed
      */
     public function getBorderRadius($storeId = null)
@@ -92,6 +99,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return mixed
      */
     public function isShareCounter($storeId = null)
@@ -101,6 +109,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return mixed
      */
     public function isThankYouPopup($storeId = null)
@@ -111,23 +120,28 @@ class Data extends AbstractData
     /**
      * @param $serviceCode
      * @param null $storeId
+     *
      * @return array|mixed
      */
-    public function isServiceEnable($serviceCode, $storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH.'/general/'.$serviceCode.'/enabled', $storeId);
+    public function isServiceEnable($serviceCode, $storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/' . $serviceCode . '/enabled', $storeId);
     }
 
     /**
      * @param $serviceCode
      * @param null $storeId
+     *
      * @return array|mixed
      */
-    public function getServiceImage($serviceCode, $storeId = null) {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH.'/general/'.$serviceCode.'/image', $storeId);
+    public function getServiceImage($serviceCode, $storeId = null)
+    {
+        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/' . $serviceCode . '/image', $storeId);
     }
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function isAddMoreShare($storeId = null)
@@ -137,6 +151,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getDisplayMenu($storeId = null)
@@ -146,6 +161,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getNumberOfServices($storeId = null)
@@ -155,6 +171,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function isFullMenuOnClick($storeId = null)
@@ -163,10 +180,18 @@ class Data extends AbstractData
     }
 
 
-    public function getDisableService($serviceCode, $storeId = null ) {
-        if(!$this->isServiceEnable($serviceCode, $storeId)) {
+    /**
+     * @param $serviceCode
+     * @param null $storeId
+     *
+     * @return |null
+     */
+    public function getDisableService($serviceCode, $storeId = null)
+    {
+        if (!$this->isServiceEnable($serviceCode, $storeId)) {
             return $serviceCode;
         }
+
         return null;
     }
 
@@ -177,6 +202,7 @@ class Data extends AbstractData
      */
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getFloatApplyPages($storeId = null)
@@ -186,22 +212,27 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
-    public function getFloatSelectPages($storeId = null) {
+    public function getFloatSelectPages($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'select_page', $storeId);
     }
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
-    public function getFloatCmsPages($storeId = null) {
+    public function getFloatCmsPages($storeId = null)
+    {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'cms_page', $storeId);
     }
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getFloatStyle($storeId = null)
@@ -211,6 +242,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getFloatPosition($storeId = null)
@@ -220,14 +252,17 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getFloatMarginTop($storeId = null)
     {
         return $this->getConfigValue(self::CONFIG_FLOAT . 'margin_top', $storeId);
     }
+
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getFloatMarginBottom($storeId = null)
@@ -237,6 +272,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getFloatButtonSize($storeId = null)
@@ -251,6 +287,7 @@ class Data extends AbstractData
      */
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getInlineApplyPages($storeId = null)
@@ -260,6 +297,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getInlinePosition($storeId = null)
@@ -269,6 +307,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function isShowUnderCart($storeId = null)
@@ -278,6 +317,7 @@ class Data extends AbstractData
 
     /**
      * @param null $storeId
+     *
      * @return array|mixed
      */
     public function getInlineButtonSize($storeId = null)

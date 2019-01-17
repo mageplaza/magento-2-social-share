@@ -28,8 +28,8 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
 class FloatSelectPages extends OptionArray
 {
     const CATEGORY_PAGE = "category_page";
-    const PRODUCT_PAGE = "product_page";
-    CONST CONTACT_US = "contact_us";
+    const PRODUCT_PAGE  = "product_page";
+    CONST CONTACT_US    = "contact_us";
 
     /**
      * @return array
@@ -37,9 +37,9 @@ class FloatSelectPages extends OptionArray
     public function getOptionHash()
     {
         return [
-            self::PRODUCT_PAGE => __('Products Page'),
+            self::PRODUCT_PAGE  => __('Products Page'),
             self::CATEGORY_PAGE => __('Categories Page'),
-            self::CONTACT_US => __('Contact Us')
+            self::CONTACT_US    => __('Contact Us')
         ];
     }
 }

@@ -36,7 +36,7 @@ class DisplayMenu extends OptionArray
     public function getOptionHash()
     {
         return [
-            self::ON_HOVER  => __('Hover'),
+            self::ON_HOVER => __('Hover'),
             self::ON_CLICK => __('Click'),
         ];
     }

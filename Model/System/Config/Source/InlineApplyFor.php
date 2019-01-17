@@ -27,9 +27,9 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class InlineApplyFor extends OptionArray
 {
-    const HOME_PAGE = "home_page";
+    const HOME_PAGE     = "home_page";
     const CATEGORY_PAGE = "category_page";
-    const PRODUCT_PAGE = "product_page";
+    const PRODUCT_PAGE  = "product_page";
 
     /**
      * @return array
@@ -37,9 +37,9 @@ class InlineApplyFor extends OptionArray
     public function getOptionHash()
     {
         return [
-            self::HOME_PAGE  => __('Home Page'),
+            self::HOME_PAGE     => __('Home Page'),
             self::CATEGORY_PAGE => __('Categories Page'),
-            self::PRODUCT_PAGE => __('Products Page'),
+            self::PRODUCT_PAGE  => __('Products Page'),
         ];
     }
 }

@@ -27,7 +27,7 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class FloatApplyFor extends OptionArray
 {
-    const ALL_PAGES = "all_pages";
+    const ALL_PAGES    = "all_pages";
     const SELECT_PAGES = "select_pages";
 
     /**
@@ -36,7 +36,7 @@ class FloatApplyFor extends OptionArray
     public function getOptionHash()
     {
         return [
-            self::ALL_PAGES  => __('All Pages'),
+            self::ALL_PAGES    => __('All Pages'),
             self::SELECT_PAGES => __('Select Pages')
         ];
     }

@@ -28,7 +28,7 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
 class Style extends OptionArray
 {
     const HORIZONTAL = "horizontal";
-    const VERTICAL = "vertical";
+    const VERTICAL   = "vertical";
 
     /**
      * @return array
@@ -36,8 +36,8 @@ class Style extends OptionArray
     public function getOptionHash()
     {
         return [
-            self::HORIZONTAL  => __('Horizontal'),
-            self::VERTICAL => __('Vertical'),
+            self::HORIZONTAL => __('Horizontal'),
+            self::VERTICAL   => __('Vertical'),
         ];
     }
 }

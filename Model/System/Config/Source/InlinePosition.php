@@ -27,7 +27,7 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class InlinePosition extends OptionArray
 {
-    const TOP_CONTENT = "top_content";
+    const TOP_CONTENT    = "top_content";
     const BOTTOM_CONTENT = "bottom_content";
 
     /**
@@ -36,7 +36,7 @@ class InlinePosition extends OptionArray
     public function getOptionHash()
     {
         return [
-            self::TOP_CONTENT  => __('Top Content'),
+            self::TOP_CONTENT    => __('Top Content'),
             self::BOTTOM_CONTENT => __('Bottom Content'),
         ];
     }

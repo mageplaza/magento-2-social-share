@@ -21,7 +21,7 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
-use \Magento\Cms\Model\PageFactory;
+use Magento\Cms\Model\PageFactory;
 
 /**
  * Class FloatCmsPages
@@ -36,6 +36,7 @@ class FloatCmsPages extends OptionArray
 
     /**
      * FloatCmsPages constructor.
+     *
      * @param PageFactory $pageFactory
      */
     public function __construct(PageFactory $pageFactory)
@@ -48,13 +49,13 @@ class FloatCmsPages extends OptionArray
      */
     public function getOptionHash()
     {
-        $pages = $this->_pageFactory->create()->getCollection();
+        $pages    = $this->_pageFactory->create()->getCollection();
         $cmsPages = [];
 
-        foreach($pages as $page)
-        {
+        foreach ($pages as $page) {
             $cmsPages[$page->getId()] = $page->getTitle();
         }
+
         return $cmsPages;
     }
 }
