@@ -1,4 +1,4 @@
-# Magento 2 Social Share extension
+# Magento 2 Social Share Extension
 
 [Social Share by Mageplaza](http://www.mageplaza.com/magento-2-social-share/) is a helpful extension which supports customers to share their shopping experience quickly to their social channels right from the current shopping page. This is also a proper solution to increase traffic to a shopping site, promote store brand and improve site ranking effectively.   
 
@@ -15,7 +15,7 @@
 
 **Q: I got error: Mageplaza_Core has been already defined**
 
-A: Read solution: https://github.com/mageplaza/module-core/issues/3
+A: Read solution [here](https://github.com/mageplaza/module-core/issues/3)
 
 **Q: How many sharing button can I place on the page?**
 
@@ -58,12 +58,12 @@ Multiple social sharing buttons are placed vividly on shopping sites which motiv
 
 The popular icons of famous channels like Facebook, Twitter, Google+, LinkedIn will appear right on Home Page, Category Page and Product Page
 
-![Imgur](https://i.imgur.com/32TeRc4.png)
 
 #### Market your products easily via customers
 
 Your friends share a Tshirt with a link from a store on Facebook, and you and the others can instantly know about this product as well as the store site. This is an effective way in which Social Share is used to expose the brand as well as products indirectly via customers’ sharing. 
 
+![Imgur](https://i.imgur.com/32TeRc4.png)
 
 ### Floating and Inline display styles
 
@@ -71,7 +71,7 @@ The display style of sharing buttons can be selected with various choices includ
 
 In Floating styles, sharing buttons can be placed to the left or to the right of the selected pages. In Inline styles, sharing buttons will appear on the top/ at the bottom of the content, or under Add-to-Cart button. 
 
-![Imgur](https://i.imgur.com/32TeRc4.png)
+![Imgur](https://i.imgur.com/MQlBOjE.png)
 
 ### Beautify sharing buttons with ease
 
@@ -81,9 +81,9 @@ The appearance of sharing button can be beautifully customized with the selectio
 
 #### Easy to upload your own sharing button icon
 
-Also, with just one click, admins can upload an image to set as the icon for a sharing button easily. Sharing buttons now not only match store themes but also are attractive than ever! 
+Also, with just one click, admins can upload an image to set as the icon for a sharing button easily. Sharing buttons now not only match store themes but also are attractive than ever!
 
-![Imgur](https://i.imgur.com/MQlBOjE.png)
+![Imgur](https://i.imgur.com/9VE4T8r.gif)
 
 
 ### Display Share buttons on any pages (coming soon)
@@ -130,9 +130,9 @@ Be well responsive with mobiles, desktop, tablets, and other screen sizes.
 
 ### For customers
 
-- Share favorite pages or favored products quickly during on shopping site. 
-- Easy to know recommended shopping pages/ items via social channels.   
-- Be more trusted on products thanks to the other ’s social sharing. 
+- Share favorite pages or favored products quickly during on shopping site
+- Easy to know recommended shopping pages/ items via social channels   
+- Be more trusted on products thanks to the other ’s social sharing
 - Have better shopping experience
 
 ## 7. User Guide
@@ -147,7 +147,7 @@ Login to the **Magento Admin**, choose `Store > Configuration > Mageplaza > Soci
 
 **General configuration**
 
-- **Enable**: Select “Yes” to enable the module.
+- **Enable**: Select `Yes` to enable the module.
 - **Icon Color**: 
   - Select available colors for the icon of sharing button. Note that only apply for the default icon.
   - If select `Custom`,  the color table will appear for much more choices. 
@@ -155,7 +155,7 @@ Login to the **Magento Admin**, choose `Store > Configuration > Mageplaza > Soci
   - Select available colors for sharing button. Note that only apply for the default icon.
   - If select `Custom`,  the color table will appear for much more choices.  
 - **Background Color**: 
-  - Select color for background . Note that only apply for the default icon.
+  - Select color for background. Note that only apply for the default icon.
   - If select `Custom`,  the color table will appear for much more choices. 
 - **Border Radius**: Input value for Border Radius, ranging from 0% - 50% (0% for square, 50% for circle).
 - **Enable Share Counter**: Select `Yes` to display the number of shares 
@@ -174,8 +174,8 @@ Login to the **Magento Admin**, choose `Store > Configuration > Mageplaza > Soci
 
 - **Enable**: Select `Yes`  to allow displaying more services and display icon “+” to show services.
 - **Display Menu Type**: Select type to display sharing menu:
-- **Hover**: Move the mouse to the icon then the list will appear
-- **Click**:  Click on the icon then the list will appear.
+  - **Hover**: Move the mouse to the icon then the list will appear
+  - **Click**:  Click on the icon then the list will appear.
 - **Number Of Services**: 
   - Input the number of services which will appear after clicking on the icon “+”.
   - If leave blank, the default number of API will be around 230 services. 
