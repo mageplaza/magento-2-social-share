@@ -65,10 +65,11 @@ class SocialShare extends Template
         Context $context,
         HelperData $helperData,
         Page $page,
-        array $data = [])
+        array $data = []
+    )
     {
         $this->_helperData = $helperData;
-        $this->_page       = $page;
+        $this->_page = $page;
         parent::__construct($context, $data);
     }
 
@@ -150,7 +151,6 @@ class SocialShare extends Template
         }
 
         return "false";
-
     }
 
     /**
@@ -172,13 +172,14 @@ class SocialShare extends Template
      * @param $service
      *
      * @return string|null
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getImageUrl($service)
     {
-        $baseUrl    = $this->_storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
+        $baseUrl = $this->_storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
         $modulePath = 'mageplaza/socialshare/';
-        $imageUrl   = null;
-        $imageUrl   = $baseUrl . $modulePath . $service . '/' . $this->_helperData->getServiceImage($service);
+        $imageUrl = null;
+        $imageUrl = $baseUrl . $modulePath . $service . '/' . $this->_helperData->getServiceImage($service);
 
         return $imageUrl;
     }
@@ -289,8 +290,8 @@ class SocialShare extends Template
      */
     public function isThisPageEnable()
     {
-        $type       = $this->getData('type');
-        $thisPage   = $this->getData('page');
+        $type = $this->getData('type');
+        $thisPage = $this->getData('page');
         $allowPages = null;
 
         if ($type == 'inline') {
@@ -308,7 +309,7 @@ class SocialShare extends Template
             }
             if ($this->_helperData->getFloatApplyPages() == FloatApplyFor::SELECT_PAGES) {
                 $selectPages = explode(',', $this->_helperData->getFloatSelectPages());
-                $cmsPages    = explode(',', $this->_helperData->getFloatCmsPages());
+                $cmsPages = explode(',', $this->_helperData->getFloatCmsPages());
                 if ($thisPage == "cms_page") {
                     $pageId = $this->_page->getPage()->getId();
                     if (in_array($pageId, $cmsPages)) {
@@ -337,7 +338,7 @@ class SocialShare extends Template
      */
     public function isThisPositionEnable()
     {
-        $thisPosition  = $this->getData('position');
+        $thisPosition = $this->getData('position');
         $positionArray = [];
         if ($thisPosition == "float_position") {
             return true;
@@ -378,13 +379,13 @@ class SocialShare extends Template
     public function setImageSize($buttonSize)
     {
         switch ($buttonSize) {
-            case "a2a_kit_size_16" :
+            case "a2a_kit_size_16":
                 return 'width="16" height="16"';
                 break;
-            case "a2a_kit_size_32" :
+            case "a2a_kit_size_32":
                 return 'width="32" height="32"';
                 break;
-            case "a2a_kit_size_64" :
+            case "a2a_kit_size_64":
                 return 'width="64" height="64"';
                 break;
             default:
@@ -401,13 +402,13 @@ class SocialShare extends Template
     public function setButtonSize($buttonSize)
     {
         switch ($buttonSize) {
-            case ButtonSize::SMALL :
+            case ButtonSize::SMALL:
                 return "a2a_kit_size_16";
                 break;
-            case ButtonSize::MEDIUM :
+            case ButtonSize::MEDIUM:
                 return "a2a_kit_size_32";
                 break;
-            case ButtonSize::LARGE :
+            case ButtonSize::LARGE:
                 return "a2a_kit_size_64";
                 break;
             default:

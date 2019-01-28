@@ -1,18 +1,38 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialShare
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
 define([
     'jquery',
     'uiComponent'
-], function($, component) {
+], function ($, component) {
     'use strict';
     return component.extend({
-        initialize: function(config) {
+        initialize: function (config) {
             require(['https://static.addtoany.com/menu/page.js']);
 
             var buttonColor = config.buttonColor,
-                iconColor   = config.iconColor,
-                onClick     = config.click,
-                popUp       = config.popUp,
-                noService   = config.service,
-                disabled    = config.disable;
+                iconColor = config.iconColor,
+                onClick = config.click,
+                popUp = config.popUp,
+                noService = config.service,
+                disabled = config.disable;
 
             var a2a = $('.a2a_kit');
 

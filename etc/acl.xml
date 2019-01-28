@@ -27,7 +27,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Mageplaza_SocialShare::configuration" title="Mageplaza SocialShare"/>
+                            <resource id="Mageplaza_SocialShare::configuration" title="Mageplaza Social Share"/>
                         </resource>
                     </resource>
                 </resource>

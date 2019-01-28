@@ -23,6 +23,9 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <mpsocialshare>
+            <module>
+                <type>1</type>
+            </module>
             <general>
                 <enabled>1</enabled>
                 <icon_color>#FFFFFF</icon_color>
@@ -30,7 +33,7 @@
                 <button_color>unset</button_color>
                 <custom_button_color>#FFFFFF</custom_button_color>
                 <background_color>#FFFFFF</background_color>
-                <custom_background_color>#FFFFFF </custom_background_color>
+                <custom_background_color>#FFFFFF</custom_background_color>
                 <border_radius>0</border_radius>
                 <share_counter>1</share_counter>
                 <thank_you>1</thank_you>

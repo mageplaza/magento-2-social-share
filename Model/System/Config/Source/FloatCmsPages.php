@@ -49,7 +49,7 @@ class FloatCmsPages extends OptionArray
      */
     public function getOptionHash()
     {
-        $pages    = $this->_pageFactory->create()->getCollection();
+        $pages = $this->_pageFactory->create()->getCollection();
         $cmsPages = [];
 
         foreach ($pages as $page) {

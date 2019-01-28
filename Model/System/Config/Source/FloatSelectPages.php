@@ -29,7 +29,7 @@ class FloatSelectPages extends OptionArray
 {
     const CATEGORY_PAGE = "category_page";
     const PRODUCT_PAGE  = "product_page";
-    CONST CONTACT_US    = "contact_us";
+    const CONTACT_US    = "contact_us";
 
     /**
      * @return array

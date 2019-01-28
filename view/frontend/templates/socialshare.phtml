@@ -24,61 +24,66 @@
  */
 ?>
 
-<?php if($block->isEnable()):?>
-    <?php if ($block->isThisPageEnable() && $block->isThisPositionEnable()):?>
+<?php if ($block->isEnable()) : ?>
+    <?php if ($block->isThisPageEnable() && $block->isThisPositionEnable()) : ?>
         <style type="text/css">
             .a2a_svg, .a2a_count {
                 border-radius: <?=$block->getBorderRadius()?> !important;
             }
-            <?php if($block->isDisplayInline()):?>
-                .mp_social_share_inline, .mp_social_share_inline_under_cart {
-                    display: flex;
-                    padding-bottom: 15px;
-                }
-                .mp_social_share_inline {
-                    justify-content: flex-end;
-                }
-                .mp_social_share_inline_under_cart {
-                    justify-content: flex-start;
-                }
-            <?php else: ?>
-            .mp_social_share_float {
-            <?php if($block->isVerticalStyle($block->getFloatStyle())):?>
-                <?=$block->getFloatMargin("top")?>
-            <?php endif;?>
-            <?=$block->getFloatPosition()?>
-            <?=$block->getBackgroundColor()?>
-                z-index: 10;
+
+            <?php if ($block->isDisplayInline()) :?>
+            .mp_social_share_inline, .mp_social_share_inline_under_cart {
+                display: flex;
+                padding-bottom: 15px;
             }
+
+            .mp_social_share_inline {
+                justify-content: flex-end;
+            }
+
+            .mp_social_share_inline_under_cart {
+                justify-content: flex-start;
+            }
+
+            <?php else : ?>
+            .mp_social_share_float {
+            <?php if ($block->isVerticalStyle($block->getFloatStyle())) :?><?=$block->getFloatMargin("top")?><?php endif;?><?=$block->getFloatPosition()?><?=$block->getBackgroundColor()?> z-index: 10;
+            }
+
             @media only screen and (min-width: 430px) {
                 .navigation {
                     z-index: 1;
                 }
             }
+
             .footer-bottom .container .logo {
                 z-index: 0;
             }
-            <?php if(!$block->isVerticalStyle($block->getFloatStyle())):?>
-            .a2a_floating_style.a2a_default_style { <?=$block->getFloatMargin("bottom")?> }
+
+            <?php if (!$block->isVerticalStyle($block->getFloatStyle())) :?>
+            .a2a_floating_style.a2a_default_style {
+            <?=$block->getFloatMargin("bottom")?>
+            }
+
             <?php endif;?>
             <?php endif;?>
         </style>
 
-        <div class="<?=$block->getContainerClass($block->getDisplayType())?>">
-            <div class="a2a_kit <?=$block->getDisplayType()?> <?=$block->getButtonSize()?> <?=$block->getFloatStyle()?>">
-                <?php foreach ($block->getEnableService() as $enableService):?>
-                    <?php if ($block->isImageEnable($enableService)): ?>
-                        <a class="a2a_button_<?=$enableService?> <?=$block->getShareCounter()?>">
-                            <img src="<?=$block->getImageUrl($enableService)?>" <?= $block->setImageSize($block->getButtonSize())?>
-                                 alt="<?=$enableService?>">
+        <div class="<?= $block->getContainerClass($block->getDisplayType()) ?>">
+            <div class="a2a_kit <?= $block->getDisplayType() ?> <?= $block->getButtonSize() ?> <?= $block->getFloatStyle() ?>">
+                <?php foreach ($block->getEnableService() as $enableService) : ?>
+                    <?php if ($block->isImageEnable($enableService)) : ?>
+                        <a class="a2a_button_<?= $enableService ?> <?= $block->getShareCounter() ?>">
+                            <img src="<?= $block->getImageUrl($enableService) ?>" <?= $block->setImageSize($block->getButtonSize()) ?>
+                                 alt="<?= $enableService ?>">
                         </a>
-                    <?php else: ?>
-                        <a class="a2a_button_<?=$enableService?> <?=$block->getShareCounter()?>"></a>
+                    <?php else : ?>
+                        <a class="a2a_button_<?= $enableService ?> <?= $block->getShareCounter() ?>"></a>
                     <?php endif; ?>
-                <?php endforeach;?>
+                <?php endforeach; ?>
 
-                <?php if ($block->isAddMoreShare()):?>
-                    <a class="a2a_dd <?=$block->getShareCounter()?>" href="https://www.addtoany.com/share"></a>
+                <?php if ($block->isAddMoreShare()) : ?>
+                    <a class="a2a_dd <?= $block->getShareCounter() ?>" href="https://www.addtoany.com/share"></a>
                 <?php endif; ?>
             </div>
         </div>
@@ -87,12 +92,12 @@
         {
             "*": {
                 "Mageplaza_SocialShare/js/config": {
-                    "buttonColor": "<?=$block->getButtonColor()?>",
-                    "iconColor": "<?=$block->getIconColor()?>",
-                    "click": "<?=$block->getMenuType()?>",
-                    "popUp": "<?=$block->getThankYou()?>",
-                    "service": "<?=$block->getNumberOfService()?>",
-                    "disable": "<?=$block->getDisabledServices()?>"
+                    "buttonColor": "<?= $block->getButtonColor() ?>",
+                    "iconColor": "<?= $block->getIconColor() ?>",
+                    "click": "<?= $block->getMenuType() ?>",
+                    "popUp": "<?= $block->getThankYou() ?>",
+                    "service": "<?= $block->getNumberOfService() ?>",
+                    "disable": "<?= $block->getDisabledServices() ?>"
                 }
             }
         }

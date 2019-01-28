@@ -1,0 +1,62 @@
+Custom,Custom
+White,White
+None,None
+Gray,Gray
+Black,Black
+Default,Default
+16x16,16x16
+32x32,32x32
+64x64,64x64
+Hover,Hover
+Click,Click
+"All Pages","All Pages"
+"Select Pages","Select Pages"
+Left,Left
+Right,Right
+"Products Page","Products Page"
+"Categories Page","Categories Page"
+"Contact Us","Contact Us"
+"Home Page","Home Page"
+"Top Content","Top Content"
+"Bottom Content","Bottom Content"
+Horizontal,Horizontal
+Vertical,Vertical
+"Social Share","Social Share"
+"General Configuration","General Configuration"
+Enable,Enable
+"Select <strong>Yes</strong> to enable this module","Select <strong>Yes</strong> to enable this module"
+"Icon Color","Icon Color"
+"Only apply for default icon","Only apply for default icon"
+"Button Color","Button Color"
+"Background Color","Background Color"
+"Border Radius","Border Radius"
+"The unit is %, ranging from 0% to 50%.","The unit is %, ranging from 0% to 50%."
+"Enable Share Counter","Enable Share Counter"
+"Enable Thank You Popup","Enable Thank You Popup"
+"Display after customers' sharing action.","Display after customers' sharing action."
+Facebook,Facebook
+Image,Image
+"If empty, the default icon will be used.","If empty, the default icon will be used."
+Twitter,Twitter
+Google+,Google+
+Pinterest,Pinterest
+LinkedIn,LinkedIn
+Tumblr,Tumblr
+"Add More Share","Add More Share"
+"Display Menu Type","Display Menu Type"
+"Display Full Menu","Display Full Menu"
+"Number of Services","Number of Services"
+"Floating Configuration","Floating Configuration"
+"Apply For","Apply For"
+"Apply for Select Page","Apply for Select Page"
+"Apply for CMS Page","Apply for CMS Page"
+Style,Style
+Position,Position
+"Margin Top","Margin Top"
+"Specify the top margin of sharing button block. Default is 150px.","Specify the top margin of sharing button block. Default is 150px."
+"Margin Bottom","Margin Bottom"
+"Specify the bottom margin of sharing button block. Default is 0px.","Specify the bottom margin of sharing button block. Default is 0px."
+"Button Size","Button Size"
+"32x32 px button size is recommended.","32x32 px button size is recommended."
+"Inline Configuration","Inline Configuration"
+"Show Under Add To Cart on Product Detail Page","Show Under Add To Cart on Product Detail Page"

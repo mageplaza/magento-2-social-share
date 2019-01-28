@@ -33,9 +33,9 @@ use Mageplaza\SocialShare\Model\System\Config\Source\IconColor;
 class Data extends AbstractData
 {
     const CONFIG_MODULE_PATH = 'mpsocialshare';
-    const CONFIG_FLOAT       = 'mpsocialshare/float/';
-    const CONFIG_INLINE      = 'mpsocialshare/inline/';
-    const CONFIG_MORE        = '/general/add_more_share/';
+    const CONFIG_FLOAT       = 'float/';
+    const CONFIG_INLINE      = 'inline/';
+    const CONFIG_MORE        = 'add_more_share/';
     /*
      * //////////////////////////////////////////////////
      * General Configuration
@@ -125,7 +125,7 @@ class Data extends AbstractData
      */
     public function isServiceEnable($serviceCode, $storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/' . $serviceCode . '/enabled', $storeId);
+        return $this->getConfigGeneral($serviceCode . '/enabled', $storeId);
     }
 
     /**
@@ -136,7 +136,7 @@ class Data extends AbstractData
      */
     public function getServiceImage($serviceCode, $storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . '/general/' . $serviceCode . '/image', $storeId);
+        return $this->getConfigGeneral($serviceCode . '/image', $storeId);
     }
 
     /**
@@ -146,7 +146,7 @@ class Data extends AbstractData
      */
     public function isAddMoreShare($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'enabled', $storeId);
+        return $this->getConfigGeneral(self::CONFIG_MORE . 'enabled', $storeId);
     }
 
     /**
@@ -156,7 +156,7 @@ class Data extends AbstractData
      */
     public function getDisplayMenu($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'display_menu', $storeId);
+        return $this->getConfigGeneral(self::CONFIG_MORE . 'display_menu', $storeId);
     }
 
     /**
@@ -166,7 +166,7 @@ class Data extends AbstractData
      */
     public function getNumberOfServices($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'number_service', $storeId);
+        return $this->getConfigGeneral(self::CONFIG_MORE . 'number_service', $storeId);
     }
 
     /**
@@ -176,15 +176,14 @@ class Data extends AbstractData
      */
     public function isFullMenuOnClick($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_MODULE_PATH . self::CONFIG_MORE . 'full_menu', $storeId);
+        return $this->getConfigGeneral(self::CONFIG_MORE . 'full_menu', $storeId);
     }
-
 
     /**
      * @param $serviceCode
      * @param null $storeId
      *
-     * @return |null
+     * @return null |null
      */
     public function getDisableService($serviceCode, $storeId = null)
     {
@@ -207,7 +206,7 @@ class Data extends AbstractData
      */
     public function getFloatApplyPages($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_FLOAT . 'apply_for', $storeId);
+        return $this->getModuleConfig(self::CONFIG_FLOAT . 'apply_for', $storeId);
     }
 
     /**
@@ -217,7 +216,7 @@ class Data extends AbstractData
      */
     public function getFloatSelectPages($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_FLOAT . 'select_page', $storeId);
+        return $this->getModuleConfig(self::CONFIG_FLOAT . 'select_page', $storeId);
     }
 
     /**
@@ -227,7 +226,7 @@ class Data extends AbstractData
      */
     public function getFloatCmsPages($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_FLOAT . 'cms_page', $storeId);
+        return $this->getModuleConfig(self::CONFIG_FLOAT . 'cms_page', $storeId);
     }
 
     /**
@@ -237,7 +236,7 @@ class Data extends AbstractData
      */
     public function getFloatStyle($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_FLOAT . 'style', $storeId);
+        return $this->getModuleConfig(self::CONFIG_FLOAT . 'style', $storeId);
     }
 
     /**
@@ -247,7 +246,7 @@ class Data extends AbstractData
      */
     public function getFloatPosition($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_FLOAT . 'position', $storeId);
+        return $this->getModuleConfig(self::CONFIG_FLOAT . 'position', $storeId);
     }
 
     /**
@@ -257,7 +256,7 @@ class Data extends AbstractData
      */
     public function getFloatMarginTop($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_FLOAT . 'margin_top', $storeId);
+        return $this->getModuleConfig(self::CONFIG_FLOAT . 'margin_top', $storeId);
     }
 
     /**
@@ -267,7 +266,7 @@ class Data extends AbstractData
      */
     public function getFloatMarginBottom($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_FLOAT . 'margin_bottom', $storeId);
+        return $this->getModuleConfig(self::CONFIG_FLOAT . 'margin_bottom', $storeId);
     }
 
     /**
@@ -277,7 +276,7 @@ class Data extends AbstractData
      */
     public function getFloatButtonSize($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_FLOAT . 'button_size', $storeId);
+        return $this->getModuleConfig(self::CONFIG_FLOAT . 'button_size', $storeId);
     }
 
     /*
@@ -292,7 +291,7 @@ class Data extends AbstractData
      */
     public function getInlineApplyPages($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_INLINE . 'apply_for', $storeId);
+        return $this->getModuleConfig(self::CONFIG_INLINE . 'apply_for', $storeId);
     }
 
     /**
@@ -302,7 +301,7 @@ class Data extends AbstractData
      */
     public function getInlinePosition($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_INLINE . 'position', $storeId);
+        return $this->getModuleConfig(self::CONFIG_INLINE . 'position', $storeId);
     }
 
     /**
@@ -312,7 +311,7 @@ class Data extends AbstractData
      */
     public function isShowUnderCart($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_INLINE . 'show_under_cart', $storeId);
+        return $this->getModuleConfig(self::CONFIG_INLINE . 'show_under_cart', $storeId);
     }
 
     /**
@@ -322,6 +321,6 @@ class Data extends AbstractData
      */
     public function getInlineButtonSize($storeId = null)
     {
-        return $this->getConfigValue(self::CONFIG_INLINE . 'button_size', $storeId);
+        return $this->getModuleConfig(self::CONFIG_INLINE . 'button_size', $storeId);
     }
 }

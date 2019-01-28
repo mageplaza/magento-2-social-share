@@ -26,7 +26,7 @@
             <label>Social Share</label>
             <tab>mageplaza</tab>
             <resource>Mageplaza_SocialShare::configuration</resource>
-            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="general" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General Configuration</label>
                 <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enable</label>
@@ -38,7 +38,7 @@
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\IconColor</source_model>
                     <comment>Only apply for default icon</comment>
                 </field>
-                <field id="custom_icon_color"  type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="custom_icon_color" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <validate>jscolor {hash:true,refine:false}</validate>
                     <depends>
                         <field id="icon_color">Custom</field>
@@ -49,7 +49,7 @@
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\ButtonColor</source_model>
                     <comment>Only apply for default icon</comment>
                 </field>
-                <field id="custom_button_color"  type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="custom_button_color" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <validate>jscolor {hash:true,refine:false}</validate>
                     <depends>
                         <field id="button_color">Custom</field>
@@ -59,7 +59,7 @@
                     <label>Background Color</label>
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\BackgroundColor</source_model>
                 </field>
-                <field id="custom_background_color"  type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="custom_background_color" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <validate>jscolor {hash:true,refine:false}</validate>
                     <depends>
                         <field id="background_color">Custom</field>
@@ -85,7 +85,7 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/facebook</upload_dir>
@@ -99,7 +99,7 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/twitter</upload_dir>
@@ -113,7 +113,7 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/google_plus</upload_dir>
@@ -127,7 +127,7 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/pinterest</upload_dir>
@@ -141,7 +141,7 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/linkedin</upload_dir>
@@ -155,7 +155,7 @@
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     </field>
-                    <field id="image" translate="label" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <field id="image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/tumblr</upload_dir>
@@ -163,7 +163,7 @@
                         <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>
-                <group id="add_more_share" translate="label" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <group id="add_more_share" translate="label" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Add More Share</label>
                     <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Enable</label>
@@ -189,7 +189,6 @@
                     </field>
                 </group>
             </group>
-
             <group id="float" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Floating Configuration</label>
                 <field id="apply_for" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
@@ -240,7 +239,6 @@
                     <comment>32x32 px button size is recommended.</comment>
                 </field>
             </group>
-
             <group id="inline" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Inline Configuration</label>
                 <field id="apply_for" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
