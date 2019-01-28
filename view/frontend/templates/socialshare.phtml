@@ -47,7 +47,9 @@
 
             <?php else : ?>
             .mp_social_share_float {
-            <?php if ($block->isVerticalStyle($block->getFloatStyle())) :?><?=$block->getFloatMargin("top")?><?php endif;?><?=$block->getFloatPosition()?><?=$block->getBackgroundColor()?> z-index: 10;
+            <?php if ($block->isVerticalStyle($block->getFloatStyle())) :
+?><?=$block->getFloatMargin("top")?><?php
+            endif;?><?=$block->getFloatPosition()?><?=$block->getBackgroundColor()?> z-index: 10;
             }
 
             @media only screen and (min-width: 430px) {

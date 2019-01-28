@@ -66,8 +66,7 @@ class SocialShare extends Template
         HelperData $helperData,
         Page $page,
         array $data = []
-    )
-    {
+    ) {
         $this->_helperData = $helperData;
         $this->_page = $page;
         parent::__construct($context, $data);
