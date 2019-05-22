@@ -1,9 +1,9 @@
 # Magento 2 Social Share Extension
 
-[Social Share by Mageplaza](http://www.mageplaza.com/magento-2-social-share/) is a helpful extension which supports customers to share their shopping experience quickly to their social channels right from the current shopping page. This is also a proper solution to increase traffic to a shopping site, promote store brand and improve site ranking effectively.   
+[Magento 2 Social Share by Mageplaza](http://www.mageplaza.com/magento-2-social-share/) is a helpful extension which supports customers to share their shopping experience quickly to their social channels right from the current shopping page. This is also a proper solution to increase traffic to a shopping site, promote store brand and improve site ranking effectively.   
 
 
-## 1. Documentation
+## 1. Social Share Documentation
 - [Installation guide](https://www.mageplaza.com/install-magento-2-extension/)
 - [User guide](https://docs.mageplaza.com/social-share/index.html)
 - [Introduction page](http://www.mageplaza.com/magento-2-social-share/)
@@ -38,7 +38,7 @@ A: Kindly enable the share counter from admin backend. The number of shares will
 A: Kindly enable Thank-you popup from the admin backend. 
  
 
-## 3. How to install Social Share extension for Magento 2
+## 3. How to install Magento 2 Social Share extension 
 
 Install via composer (recommend): Run the following command in Magento 2 root folder:
 
@@ -54,16 +54,16 @@ php bin/magento setup:static-content:deploy
 
 #### Encourage customers to share on unlimited social channels
 
-Multiple social sharing buttons are placed vividly on shopping sites which motivate customers to click for sharing their shopping experience with friends anytime. 
+**Multiple social sharing buttons** are placed vividly on shopping sites which motivate customers to click for sharing their shopping experience with friends anytime. 
 
-The popular icons of famous channels like Facebook, Twitter, Google+, LinkedIn will appear right on Home Page, Category Page and Product Page
+The popular icons of famous channels like **Facebook, Twitter, Google+, LinkedIn** will appear right on Home Page, Category Page and Product Page
 
 
 #### Market your products easily via customers
 
 Your friends share a Tshirt with a link from a store on Facebook, and you and the others can instantly know about this product as well as the store site. This is an effective way in which Social Share is used to expose the brand as well as products indirectly via customers’ sharing. 
 
-![Imgur](https://i.imgur.com/32TeRc4.png)
+![Magento 2 Social Share](https://i.imgur.com/32TeRc4.png)
 
 ### Floating and Inline display styles
 
@@ -71,19 +71,19 @@ The display style of sharing buttons can be selected with various choices includ
 
 In Floating styles, sharing buttons can be placed to the left or to the right of the selected pages. In Inline styles, sharing buttons will appear on the top/ at the bottom of the content, or under Add-to-Cart button. 
 
-![Imgur](https://i.imgur.com/MQlBOjE.png)
+![magento 2 social share extension free](https://i.imgur.com/MQlBOjE.png)
 
 ### Beautify sharing buttons with ease
 
-#### Customizable sharing buttons
+#### Customizable social sharing buttons
 
-The appearance of sharing button can be beautifully customized with the selection of icon color, button color, background color, button size and border radius. Let’s make sharing buttons eye-catching to appeal to customers with ease! 
+The appearance of social sharing button can be beautifully customized with the selection of icon color, button color, background color, button size and border radius. Let’s make sharing buttons eye-catching to appeal to customers with ease! 
 
 #### Easy to upload your own sharing button icon
 
 Also, with just one click, admins can upload an image to set as the icon for a sharing button easily. Sharing buttons now not only match store themes but also are attractive than ever!
 
-![Imgur](https://i.imgur.com/9VE4T8r.gif)
+![magento 2 social share module free](https://i.imgur.com/9VE4T8r.gif)
 
 
 ### Display Share buttons on any pages (coming soon)
@@ -103,7 +103,7 @@ Display the thank-you message after customers’ sharing
 
 Be well responsive with mobiles, desktop, tablets, and other screen sizes.
 
-## 6. Full Feature Lists
+## 6. Full Magento 2 Social Share Feature
 
 ### For admins
 
@@ -135,15 +135,15 @@ Be well responsive with mobiles, desktop, tablets, and other screen sizes.
 - Be more trusted on products thanks to the other ’s social sharing
 - Have better shopping experience
 
-## 7. User Guide
+## 7. Social Share User Guide
 
-### How to configure
+### How to configure Social Share in Magento 2
 
 #### 7.1. Configuration
 
 Login to the **Magento Admin**, choose `Store > Configuration > Mageplaza > Social Share`.
 
-![Imgur](https://i.imgur.com/mN1BqA9.gif)
+![How to configure Social Share in Magento 2](https://i.imgur.com/mN1BqA9.gif)
 
 **General configuration**
 
@@ -161,16 +161,16 @@ Login to the **Magento Admin**, choose `Store > Configuration > Mageplaza > Soci
 - **Enable Share Counter**: Select `Yes` to display the number of shares 
 - **Enable Thank You Popup**: Select `Yes` to display Thank You popup after sharing.
  
-![Imgur](https://i.imgur.com/NJ7mjHf.png)
+![Social Share in Magento 2](https://i.imgur.com/NJ7mjHf.png)
 
-![Imgur](https://i.imgur.com/xP4A77K.png)
+![Configure Social Share in Magento 2](https://i.imgur.com/xP4A77K.png)
 
-![Imgur](https://i.imgur.com/4VpFVuN.png)
+![magento 2 share buttons](https://i.imgur.com/4VpFVuN.png)
 
 - **Enable**: Select `Yes` to turn on this sharing service.
 - **Image**: Click `Choose File` button to upload file image.
 
-![Imgur](https://i.imgur.com/fOEIGcx.png)
+![magento 2 add share buttons](https://i.imgur.com/fOEIGcx.png)
 
 - **Enable**: Select `Yes`  to allow displaying more services and display icon “+” to show services.
 - **Display Menu Type**: Select type to display sharing menu:
@@ -182,7 +182,7 @@ Login to the **Magento Admin**, choose `Store > Configuration > Mageplaza > Soci
 
 #### 7.2. Floating Configuration
 
-![Imgur](https://i.imgur.com/29V2keg.png)
+![magento 2 share buttons configuration](https://i.imgur.com/29V2keg.png)
 
 - **Apply For**: 
   - Select the page to apply Floating type
@@ -198,11 +198,11 @@ Login to the **Magento Admin**, choose `Store > Configuration > Mageplaza > Soci
   - If leave blank, default is 150px
 - **Button Size**: Select size for sharing icon in pixel:
 
-![Imgur](https://i.imgur.com/swrqLjo.png)
+![magento 2 social media share buttons](https://i.imgur.com/swrqLjo.png)
 
 #### 7.3. Inline Configuration
 
-![Imgur](https://i.imgur.com/tOJafMD.png)
+![magento 2 social media share buttons](https://i.imgur.com/tOJafMD.png)
 
 - **Apply For**: 
   - Select the page to apply Inline type
@@ -214,4 +214,24 @@ Login to the **Magento Admin**, choose `Store > Configuration > Mageplaza > Soci
 - **Button Size**: Select size for icon in pixel:
 
 
-![Imgur](https://i.imgur.com/t8StQsu.png)
+![magento 2 social share buttons](https://i.imgur.com/t8StQsu.png)
+
+**People also search:**
+- magento 2 social media share buttons
+- magento 2 social share
+- magento 2 social share button
+- magento 2 social share extension free
+- magento 2 share buttons
+- magento 2 social share buttons
+- magento 2 social buttons
+
+
+**Other free Magento 2 extensions on Github**
+- [Magento 2 SEO module](https://github.com/mageplaza/magento-2-seo)
+- [Magento 2 security](https://github.com/mageplaza/magento-2-security)
+- [Magento 2 popup module](https://github.com/mageplaza/magento-2-better-popup)
+- [Magento 2 layered navigation free(https://github.com/mageplaza/magento-2-ajax-layered-navigation)
+- [Magento 2 Flat Rates Shipping](https://github.com/mageplaza/magento-2-multi-flat-rates)
+- [Magento 2 Social login](https://github.com/mageplaza/magento-2-social-login)
+- [Magento 2 reporting extension](https://github.com/mageplaza/magento-2-reports)
+- [Magento 2 Blog module](https://github.com/mageplaza/magento-2-blog)
