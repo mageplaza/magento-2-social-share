@@ -25,8 +25,6 @@ define([
     'use strict';
     return component.extend({
         initialize: function (config) {
-            require(['https://static.addtoany.com/menu/page.js']);
-
             var buttonColor = config.buttonColor,
                 iconColor = config.iconColor,
                 onClick = config.click,
