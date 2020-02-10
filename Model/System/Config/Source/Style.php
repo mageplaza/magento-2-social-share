@@ -27,8 +27,8 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class Style extends OptionArray
 {
-    const HORIZONTAL = "horizontal";
-    const VERTICAL   = "vertical";
+    const HORIZONTAL = 'horizontal';
+    const VERTICAL   = 'vertical';
 
     /**
      * @return array

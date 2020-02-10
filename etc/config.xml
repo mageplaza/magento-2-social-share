@@ -43,15 +43,15 @@
                 <twitter>
                     <enabled>1</enabled>
                 </twitter>
-                <google>
+                <facebook_messenger>
                     <enabled>1</enabled>
-                </google>
+                </facebook_messenger>
                 <pinterest>
                     <enabled>1</enabled>
                 </pinterest>
-                <linkedIn>
+                <linkedin>
                     <enabled>1</enabled>
-                </linkedIn>
+                </linkedin>
                 <tumblr>
                     <enabled>1</enabled>
                 </tumblr>

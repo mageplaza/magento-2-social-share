@@ -27,9 +27,9 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class FloatSelectPages extends OptionArray
 {
-    const CATEGORY_PAGE = "category_page";
-    const PRODUCT_PAGE  = "product_page";
-    const CONTACT_US    = "contact_us";
+    const CATEGORY_PAGE = 'category_page';
+    const PRODUCT_PAGE  = 'product_page';
+    const CONTACT_US    = 'contact_us';
 
     /**
      * @return array

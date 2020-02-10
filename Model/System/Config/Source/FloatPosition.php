@@ -27,8 +27,8 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class FloatPosition extends OptionArray
 {
-    const LEFT  = "left";
-    const RIGHT = "right";
+    const LEFT  = 'left';
+    const RIGHT = 'right';
 
     /**
      * @return array

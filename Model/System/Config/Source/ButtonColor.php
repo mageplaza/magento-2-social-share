@@ -27,11 +27,11 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class ButtonColor extends OptionArray
 {
-    const CUSTOM   = "Custom";
-    const WHITE    = "#FFFFFF";
-    const ORIGINAL = "unset";
-    const GRAY     = "#808080";
-    const BLACK    = "#000000";
+    const CUSTOM   = 'Custom';
+    const WHITE    = '#FFFFFF';
+    const ORIGINAL = 'unset';
+    const GRAY     = '#808080';
+    const BLACK    = '#000000';
 
     /**
      * @return array

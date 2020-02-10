@@ -27,8 +27,8 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class DisplayMenu extends OptionArray
 {
-    const ON_HOVER = "hover";
-    const ON_CLICK = "click";
+    const ON_HOVER = 'hover';
+    const ON_CLICK = 'click';
 
     /**
      * @return array

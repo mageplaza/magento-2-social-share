@@ -38,7 +38,8 @@
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\IconColor</source_model>
                     <comment>Only apply for default icon</comment>
                 </field>
-                <field id="custom_icon_color" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="custom_icon_color" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom Icon Color</label>
                     <validate>jscolor {hash:true,refine:false}</validate>
                     <depends>
                         <field id="icon_color">Custom</field>
@@ -49,7 +50,8 @@
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\ButtonColor</source_model>
                     <comment>Only apply for default icon</comment>
                 </field>
-                <field id="custom_button_color" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="custom_button_color" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom Button Color</label>
                     <validate>jscolor {hash:true,refine:false}</validate>
                     <depends>
                         <field id="button_color">Custom</field>
@@ -59,7 +61,8 @@
                     <label>Background Color</label>
                     <source_model>Mageplaza\SocialShare\Model\System\Config\Source\BackgroundColor</source_model>
                 </field>
-                <field id="custom_background_color" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="custom_background_color" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Custom Background Color</label>
                     <validate>jscolor {hash:true,refine:false}</validate>
                     <depends>
                         <field id="background_color">Custom</field>
@@ -107,8 +110,8 @@
                         <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>
-                <group id="google_plus" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Google+</label>
+                <group id="facebook_messenger" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook Messenger</label>
                     <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -116,8 +119,8 @@
                     <field id="image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
-                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/google_plus</upload_dir>
-                        <base_url type="media" scope_info="1">mageplaza/socialshare/google</base_url>
+                        <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/facebook_messenger</upload_dir>
+                        <base_url type="media" scope_info="1">mageplaza/socialshare/facebook_messenger</base_url>
                         <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>
@@ -145,7 +148,7 @@
                         <label>Image</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
                         <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/socialshare/linkedin</upload_dir>
-                        <base_url type="media" scope_info="1">mageplaza/socialshare/linkedIn</base_url>
+                        <base_url type="media" scope_info="1">mageplaza/socialshare/linkedin</base_url>
                         <comment>If empty, the default icon will be used.</comment>
                     </field>
                 </group>

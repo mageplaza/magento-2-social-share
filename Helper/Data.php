@@ -50,7 +50,7 @@ class Data extends AbstractData
     public function getIconColor($storeId = null)
     {
         $selectColor = $this->getConfigGeneral('icon_color', $storeId);
-        if ($selectColor == IconColor::CUSTOM) {
+        if ($selectColor === IconColor::CUSTOM) {
             return $this->getConfigGeneral('custom_icon_color', $storeId);
         }
 
@@ -65,7 +65,7 @@ class Data extends AbstractData
     public function getButtonColor($storeId = null)
     {
         $selectColor = $this->getConfigGeneral('button_color', $storeId);
-        if ($selectColor == ButtonColor::CUSTOM) {
+        if ($selectColor === ButtonColor::CUSTOM) {
             return $this->getConfigGeneral('custom_button_color', $storeId);
         }
 
@@ -80,7 +80,7 @@ class Data extends AbstractData
     public function getBackgroundColor($storeId = null)
     {
         $selectColor = $this->getConfigGeneral('background_color', $storeId);
-        if ($selectColor == BackgroundColor::CUSTOM) {
+        if ($selectColor === BackgroundColor::CUSTOM) {
             return $this->getConfigGeneral('custom_background_color', $storeId);
         }
 

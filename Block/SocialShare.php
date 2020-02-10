@@ -22,6 +22,7 @@
 namespace Mageplaza\SocialShare\Block;
 
 use Magento\Cms\Block\Page;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
@@ -38,10 +39,10 @@ use Mageplaza\SocialShare\Model\System\Config\Source\Style;
  */
 class SocialShare extends Template
 {
-    const SERVICES        = ['facebook', 'twitter', 'google_plus', 'pinterest', 'linkedin', 'tumblr'];
-    const CLICK_FULL_MENU = '2';
-    const CLICK_MENU      = '1';
-    const HOVER_MENU      = '0';
+    const SERVICES        = ['facebook', 'twitter', 'facebook_messenger', 'pinterest', 'linkedin', 'tumblr'];
+    const CLICK_FULL_MENU = 2;
+    const CLICK_MENU      = 1;
+    const HOVER_MENU      = 0;
 
     /**
      * @var HelperData
@@ -49,7 +50,7 @@ class SocialShare extends Template
     protected $_helperData;
 
     /**
-     * @var \Magento\Cms\Block\Page
+     * @var Page
      */
     protected $_page;
 
@@ -91,15 +92,7 @@ class SocialShare extends Template
      */
     public function getIconColor()
     {
-        return $this->_helperData->getIconColor();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getButtonColor()
-    {
-        return $this->_helperData->getButtonColor();
+        return $this->_helperData->getButtonColor() .','. $this->_helperData->getIconColor();
     }
 
     /**
@@ -109,7 +102,7 @@ class SocialShare extends Template
     {
         $color = $this->_helperData->getBackgroundColor();
 
-        return "background: " . $color . ";";
+        return 'background: ' . $color . ';';
     }
 
     /**
@@ -117,7 +110,7 @@ class SocialShare extends Template
      */
     public function getBorderRadius()
     {
-        return $this->_helperData->getBorderRadius() . "%";
+        return $this->_helperData->getBorderRadius() . '%';
     }
 
     /**
@@ -127,17 +120,19 @@ class SocialShare extends Template
     {
         return $this->_helperData->isAddMoreShare();
     }
-
+    
     /**
+     * @param string $service
      * @return string
      */
-    public function getShareCounter()
+    public function getShareCounter($service)
     {
-        if ($this->_helperData->isShareCounter()) {
-            return "a2a_counter";
+        $supportServices = ['facebook', 'pinterest', 'tumblr', 'a2a_dd'];
+        if ($this->_helperData->isShareCounter() && in_array($service, $supportServices, true)) {
+            return 'a2a_counter';
         }
 
-        return "";
+        return '';
     }
 
     /**
@@ -146,10 +141,10 @@ class SocialShare extends Template
     public function getThankYou()
     {
         if ($this->_helperData->isThankYouPopup()) {
-            return "true";
+            return 'true';
         }
 
-        return "false";
+        return 'false';
     }
 
     /**
@@ -160,7 +155,7 @@ class SocialShare extends Template
         $enableServices = [];
         foreach (self::SERVICES as $service) {
             if ($this->_helperData->isServiceEnable($service)) {
-                array_push($enableServices, $service);
+                $enableServices[] = $service;
             }
         }
 
@@ -168,29 +163,28 @@ class SocialShare extends Template
     }
 
     /**
-     * @param $service
+     * @param string $service
      *
-     * @return string|null
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @return string
+     * @throws NoSuchEntityException
      */
     public function getImageUrl($service)
     {
         $baseUrl = $this->_storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
         $modulePath = 'mageplaza/socialshare/';
-        $imageUrl = null;
         $imageUrl = $baseUrl . $modulePath . $service . '/' . $this->_helperData->getServiceImage($service);
 
         return $imageUrl;
     }
 
     /**
-     * @param $service
+     * @param string $service
      *
      * @return bool
      */
     public function isImageEnable($service)
     {
-        return $this->_helperData->getServiceImage($service) != null;
+        return $this->_helperData->getServiceImage($service) !== null;
     }
 
     /**
@@ -200,20 +194,20 @@ class SocialShare extends Template
     {
         $disabledServices = [];
         foreach (self::SERVICES as $service) {
-            if ($this->_helperData->getDisableService($service) != null) {
-                array_push($disabledServices, $this->_helperData->getDisableService($service));
+            if ($this->_helperData->getDisableService($service) !== null) {
+                $disabledServices[] = '"'. $this->_helperData->getDisableService($service) .'"';
             }
         }
 
-        return implode(",", $disabledServices);
+        return implode(',', $disabledServices);
     }
-
+    
     /**
-     * @return array|mixed
+     * @return int
      */
     public function getNumberOfService()
     {
-        return $this->_helperData->getNumberOfServices();
+        return (int) $this->_helperData->getNumberOfServices();
     }
 
     /**
@@ -222,7 +216,7 @@ class SocialShare extends Template
     public function getMenuType()
     {
         $menuType = $this->_helperData->getDisplayMenu();
-        if ($menuType == DisplayMenu::ON_CLICK) {
+        if ($menuType === DisplayMenu::ON_CLICK) {
             if ($this->_helperData->isFullMenuOnClick()) {
                 return self::CLICK_FULL_MENU;
             }
@@ -239,10 +233,10 @@ class SocialShare extends Template
     public function getDisplayType()
     {
         $type = $this->getData('type');
-        if ($type == 'float') {
+        if ($type === 'float') {
             return 'a2a_floating_style mp_social_share_float';
         }
-        if ($type == 'inline') {
+        if ($type === 'inline') {
             return 'a2a_default_style';
         }
 
@@ -256,7 +250,7 @@ class SocialShare extends Template
     {
         $type = $this->getData('type');
 
-        return $type == 'inline';
+        return $type === 'inline';
     }
 
     /**
@@ -267,12 +261,8 @@ class SocialShare extends Template
     public function getContainerClass($displayType)
     {
         $position = $this->getData('position');
-        if ($displayType == 'a2a_default_style') {
-            if ($position == 'under_cart') {
-                return "mp_social_share_inline_under_cart";
-            }
-
-            return "mp_social_share_inline";
+        if ($displayType === 'a2a_default_style') {
+            return $position === 'under_cart' ? 'mp_social_share_inline_under_cart' : 'mp_social_share_inline';
         }
 
         return null;
@@ -293,29 +283,29 @@ class SocialShare extends Template
         $thisPage = $this->getData('page');
         $allowPages = null;
 
-        if ($type == 'inline') {
+        if ($type === 'inline') {
             $allowPages = explode(',', $this->_helperData->getInlineApplyPages());
             if ($this->isShowUnderCart()) {
-                array_push($allowPages, "under_cart");
+                $allowPages[] = 'under_cart';
             }
-            if (in_array($thisPage, $allowPages)) {
+            if (in_array($thisPage, $allowPages, true)) {
                 return true;
             }
         }
-        if ($type == 'float') {
-            if ($this->_helperData->getFloatApplyPages() == FloatApplyFor::ALL_PAGES) {
+        if ($type === 'float') {
+            if ($this->_helperData->getFloatApplyPages() === FloatApplyFor::ALL_PAGES) {
                 return true;
             }
-            if ($this->_helperData->getFloatApplyPages() == FloatApplyFor::SELECT_PAGES) {
+            if ($this->_helperData->getFloatApplyPages() === FloatApplyFor::SELECT_PAGES) {
                 $selectPages = explode(',', $this->_helperData->getFloatSelectPages());
                 $cmsPages = explode(',', $this->_helperData->getFloatCmsPages());
-                if ($thisPage == "cms_page") {
+                if ($thisPage === 'cms_page') {
                     $pageId = $this->_page->getPage()->getId();
-                    if (in_array($pageId, $cmsPages)) {
+                    if (in_array($pageId, $cmsPages, true)) {
                         return true;
                     }
                 }
-                if (in_array($thisPage, $selectPages)) {
+                if (in_array($thisPage, $selectPages, true)) {
                     return true;
                 }
             }
@@ -339,15 +329,15 @@ class SocialShare extends Template
     {
         $thisPosition = $this->getData('position');
         $positionArray = [];
-        if ($thisPosition == "float_position") {
+        if ($thisPosition === 'float_position') {
             return true;
         }
         $selectPosition = $this->_helperData->getInlinePosition();
-        array_push($positionArray, $selectPosition);
+        $positionArray[] = $selectPosition;
         if ($this->isShowUnderCart()) {
-            array_push($positionArray, "under_cart");
+            $positionArray[] = 'under_cart';
         }
-        if (in_array($thisPosition, $positionArray)) {
+        if (in_array($thisPosition, $positionArray, true)) {
             return true;
         }
 
@@ -360,7 +350,7 @@ class SocialShare extends Template
     public function getButtonSize()
     {
         $type = $this->getData('type');
-        if ($type == 'inline') {
+        if ($type === 'inline') {
             $inlineSize = $this->_helperData->getInlineButtonSize();
 
             return $this->setButtonSize($inlineSize);
@@ -371,30 +361,29 @@ class SocialShare extends Template
     }
 
     /**
-     * @param $buttonSize
+     * @param string $buttonSize
      *
      * @return string
      */
     public function setImageSize($buttonSize)
     {
         switch ($buttonSize) {
-            case "a2a_kit_size_16":
-                return 'width="16" height="16"';
+            case 'a2a_kit_size_16':
+                $imageSize = 'width="16" height="16"';
                 break;
-            case "a2a_kit_size_32":
-                return 'width="32" height="32"';
-                break;
-            case "a2a_kit_size_64":
-                return 'width="64" height="64"';
+            case 'a2a_kit_size_64':
+                $imageSize = 'width="64" height="64"';
                 break;
             default:
-                return 'width="32" height="32"';
+                $imageSize = 'width="32" height="32"';
                 break;
         }
+        
+        return $imageSize;
     }
 
     /**
-     * @param $buttonSize
+     * @param string $buttonSize
      *
      * @return string
      */
@@ -402,18 +391,16 @@ class SocialShare extends Template
     {
         switch ($buttonSize) {
             case ButtonSize::SMALL:
-                return "a2a_kit_size_16";
-                break;
-            case ButtonSize::MEDIUM:
-                return "a2a_kit_size_32";
+                $buttonSizeStr = 'a2a_kit_size_16';
                 break;
             case ButtonSize::LARGE:
-                return "a2a_kit_size_64";
+                $buttonSizeStr = 'a2a_kit_size_64';
                 break;
             default:
-                return "a2a_kit_size_32";
+                $buttonSizeStr = 'a2a_kit_size_32';
                 break;
         }
+        return $buttonSizeStr;
     }
 
     /**
@@ -423,24 +410,20 @@ class SocialShare extends Template
     {
         if (!$this->isDisplayInline()) {
             $floatStyle = $this->_helperData->getFloatStyle();
-            if ($floatStyle == Style::VERTICAL) {
-                return "a2a_vertical_style";
-            }
-
-            return "a2a_default_style";
+            return $floatStyle === Style::VERTICAL ? 'a2a_vertical_style' : 'a2a_default_style';
         }
 
         return null;
     }
 
     /**
-     * @param $floatStyle
+     * @param string $floatStyle
      *
      * @return bool
      */
     public function isVerticalStyle($floatStyle)
     {
-        return $floatStyle == "a2a_vertical_style";
+        return $floatStyle === 'a2a_vertical_style';
     }
 
     /**
@@ -448,28 +431,19 @@ class SocialShare extends Template
      */
     public function getFloatPosition()
     {
-        $floatPosition = $this->_helperData->getFloatPosition();
-        if ($floatPosition == FloatPosition::LEFT) {
-            return "left: 0px;";
-        }
-
-        return "right: 0px;";
+        return $this->_helperData->getFloatPosition() === FloatPosition::LEFT ? 'left: 0px;' : 'right: 0px;';
     }
 
     /**
-     * @param $type
+     * @param string $type
      *
      * @return string
      */
     public function getFloatMargin($type)
     {
-        if ($type == "bottom") {
-            $floatMarginBottom = $this->_helperData->getFloatMarginBottom();
-
-            return "bottom: " . $floatMarginBottom . "px;";
-        }
         $floatMarginTop = $this->_helperData->getFloatMarginTop();
-
-        return "top: " . $floatMarginTop . "px;";
+        $floatMarginBottom = $this->_helperData->getFloatMarginBottom();
+        
+        return $type === 'bottom' ? "bottom: {$floatMarginBottom}px;" : "top: {$floatMarginTop}px;";
     }
 }

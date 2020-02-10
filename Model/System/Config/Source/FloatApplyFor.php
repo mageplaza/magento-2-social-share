@@ -27,8 +27,8 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class FloatApplyFor extends OptionArray
 {
-    const ALL_PAGES    = "all_pages";
-    const SELECT_PAGES = "select_pages";
+    const ALL_PAGES    = 'all_pages';
+    const SELECT_PAGES = 'select_pages';
 
     /**
      * @return array
