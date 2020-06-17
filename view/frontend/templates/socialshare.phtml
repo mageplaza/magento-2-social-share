@@ -18,91 +18,86 @@
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
-
-/**
- * @var \Mageplaza\SocialShare\Block\SocialShare $block
- */
 ?>
+
+<?php /** @var \Mageplaza\SocialShare\Block\SocialShare $block */ ?>
 
 <?php if ($block->isEnable()) : ?>
     <?php if ($block->isThisPageEnable() && $block->isThisPositionEnable()) : ?>
         <style type="text/css">
             .a2a_svg, .a2a_count {
-                border-radius: <?=$block->getBorderRadius()?> !important;
+                border-radius: <?= /* @noEscape */ $block->getBorderRadius()?> !important;
             }
 
             <?php if ($block->isDisplayInline()) :?>
-            .mp_social_share_inline, .mp_social_share_inline_under_cart {
-                display: flex;
-                padding-bottom: 15px;
-            }
-
-            .mp_social_share_inline {
-                justify-content: flex-end;
-            }
-
-            .mp_social_share_inline_under_cart {
-                justify-content: flex-start;
-            }
-
-            <?php else : ?>
-            .mp_social_share_float {
-            <?php if ($block->isVerticalStyle($block->getFloatStyle())) :
-?><?=$block->getFloatMargin("top")?><?php
-            endif;?><?=$block->getFloatPosition()?><?=$block->getBackgroundColor()?> z-index: 10;
-            }
-
-            @media only screen and (min-width: 430px) {
-                .navigation {
-                    z-index: 1;
+                .mp_social_share_inline, .mp_social_share_inline_under_cart {
+                    display: flex;
+                    padding-bottom: 15px;
                 }
-            }
-
-            .footer-bottom .container .logo {
-                z-index: 0;
-            }
-
-            <?php if (!$block->isVerticalStyle($block->getFloatStyle())) :?>
-            .a2a_floating_style.a2a_default_style {
-            <?=$block->getFloatMargin("bottom")?>
-            }
-
-            <?php endif;?>
+    
+                .mp_social_share_inline {
+                    justify-content: flex-end;
+                }
+    
+                .mp_social_share_inline_under_cart {
+                    justify-content: flex-start;
+                }
+            <?php else : ?>
+                .mp_social_share_float {
+                    <?php if ($block->isVerticalStyle($block->getFloatStyle())) : ?>
+                        <?= /* @noEscape */ $block->getFloatMargin('top')?>
+                    <?php endif;?>
+                    <?= /* @noEscape */ $block->getFloatPosition()?>
+                    <?= /* @noEscape */ $block->getBackgroundColor()?>
+                    z-index: 10;
+                }
+                
+                <?php if (!$block->isVerticalStyle($block->getFloatStyle())) :?>
+                    .a2a_floating_style.a2a_default_style {
+                        <?= /* @noEscape */ $block->getFloatMargin('bottom')?>
+                    }
+                <?php endif;?>
+            
+                @media only screen and (min-width: 430px) {.navigation { z-index: 1; }}
+    
+                .footer-bottom .container .logo { z-index: 0;}
             <?php endif;?>
         </style>
 
-        <div class="<?= $block->getContainerClass($block->getDisplayType()) ?>">
-            <div class="a2a_kit <?= $block->getDisplayType() ?> <?= $block->getButtonSize() ?> <?= $block->getFloatStyle() ?>">
+        <div class="<?= /* @noEscape */ $block->getContainerClass($block->getDisplayType()) ?>">
+            <div class="a2a_kit <?= /* @noEscape */ $block->getDisplayType() ?>
+            <?= /* @noEscape */ $block->getButtonSize() ?>
+            <?= /* @noEscape */ $block->getFloatStyle() ?>">
+                
                 <?php foreach ($block->getEnableService() as $enableService) : ?>
                     <?php if ($block->isImageEnable($enableService)) : ?>
-                        <a class="a2a_button_<?= $enableService ?> <?= $block->getShareCounter() ?>">
-                            <img src="<?= $block->getImageUrl($enableService) ?>" <?= $block->setImageSize($block->getButtonSize()) ?>
-                                 alt="<?= $enableService ?>">
+                        <a class="a2a_button_<?= /* @noEscape */ $enableService ?>
+                        <?= /* @noEscape */ $block->getShareCounter($enableService) ?>">
+                            <img src="<?= /* @noEscape */ $block->getImageUrl($enableService) ?>"
+                                 <?= /* @noEscape */ $block->setImageSize($block->getButtonSize()) ?>
+                                 alt="<?= /* @noEscape */ $enableService ?>">
                         </a>
                     <?php else : ?>
-                        <a class="a2a_button_<?= $enableService ?> <?= $block->getShareCounter() ?>"></a>
+                        <a class="a2a_button_<?= /* @noEscape */ $enableService ?>
+                        <?= /* @noEscape */ $block->getShareCounter($enableService) ?>"></a>
                     <?php endif; ?>
                 <?php endforeach; ?>
 
                 <?php if ($block->isAddMoreShare()) : ?>
-                    <a class="a2a_dd <?= $block->getShareCounter() ?>" href="https://www.addtoany.com/share"></a>
+                    <a class="a2a_dd <?= /* @noEscape */ $block->getShareCounter('a2a_dd') ?>"
+                       href="https://www.addtoany.com/share"></a>
                 <?php endif; ?>
             </div>
         </div>
-
-        <script type="text/x-magento-init">
-        {
-            "*": {
-                "Mageplaza_SocialShare/js/config": {
-                    "buttonColor": "<?= $block->getButtonColor() ?>",
-                    "iconColor": "<?= $block->getIconColor() ?>",
-                    "click": "<?= $block->getMenuType() ?>",
-                    "popUp": "<?= $block->getThankYou() ?>",
-                    "service": "<?= $block->getNumberOfService() ?>",
-                    "disable": "<?= $block->getDisabledServices() ?>"
-                }
-            }
-        }
+        
+        <script type="text/javascript">
+            var a2a_config = a2a_config || {};
+            
+            a2a_config.icon_color ="<?= /* @noEscape */ $block->getIconColor() ?>";
+            a2a_config.num_services = <?= /* @noEscape */ $block->getNumberOfService() ?>;
+            a2a_config.onclick = <?= /* @noEscape */ $block->getMenuType() ?>;
+            a2a_config.thanks = {postShare: <?= /* @noEscape */ $block->getThankYou() ?>,};
+            a2a_config.exclude_services = [<?= /* @noEscape */ $block->getDisabledServices() ?>];
         </script>
     <?php endif; ?>
 <?php endif; ?>

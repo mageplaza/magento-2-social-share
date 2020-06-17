@@ -27,11 +27,11 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class BackgroundColor extends OptionArray
 {
-    const CUSTOM = "Custom";
-    const NONE   = "transparent";
-    const WHITE  = "#FFFFFF";
-    const GRAY   = "#808080";
-    const BLACK  = "#000000";
+    const CUSTOM = 'Custom';
+    const NONE   = 'transparent';
+    const WHITE  = '#FFFFFF';
+    const GRAY   = '#808080';
+    const BLACK  = '#000000';
 
     /**
      * @return array

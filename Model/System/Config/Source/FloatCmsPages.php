@@ -30,7 +30,7 @@ use Magento\Cms\Model\PageFactory;
 class FloatCmsPages extends OptionArray
 {
     /**
-     * @var \Magento\Cms\Model\PageFactory
+     * @var PageFactory
      */
     protected $_pageFactory;
 
@@ -49,7 +49,7 @@ class FloatCmsPages extends OptionArray
      */
     public function getOptionHash()
     {
-        $pages = $this->_pageFactory->create()->getCollection();
+        $pages    = $this->_pageFactory->create()->getCollection();
         $cmsPages = [];
 
         foreach ($pages as $page) {

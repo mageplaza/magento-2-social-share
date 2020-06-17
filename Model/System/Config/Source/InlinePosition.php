@@ -27,8 +27,8 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class InlinePosition extends OptionArray
 {
-    const TOP_CONTENT    = "top_content";
-    const BOTTOM_CONTENT = "bottom_content";
+    const TOP_CONTENT    = 'top_content';
+    const BOTTOM_CONTENT = 'bottom_content';
 
     /**
      * @return array

@@ -27,9 +27,9 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class ButtonSize extends OptionArray
 {
-    const SMALL  = "16x16";
-    const MEDIUM = "32x32";
-    const LARGE  = "64x64";
+    const SMALL  = '16x16';
+    const MEDIUM = '32x32';
+    const LARGE  = '64x64';
 
     /**
      * @return array

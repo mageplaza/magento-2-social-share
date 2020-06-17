@@ -27,10 +27,10 @@ namespace Mageplaza\SocialShare\Model\System\Config\Source;
  */
 class IconColor extends OptionArray
 {
-    const CUSTOM = "Custom";
-    const WHITE  = "#FFFFFF";
-    const GRAY   = "#808080";
-    const BLACK  = "#000000";
+    const CUSTOM = 'Custom';
+    const WHITE  = '#FFFFFF';
+    const GRAY   = '#808080';
+    const BLACK  = '#000000';
 
     /**
      * @return array

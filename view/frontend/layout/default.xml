@@ -21,6 +21,9 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="https://static.addtoany.com/menu/page.js" src_type="url"/>
+    </head>
     <body>
         <referenceContainer name="after.body.start">
             <block class="Mageplaza\SocialShare\Block\SocialShare" name="mp.SocialShare.Float" template="Mageplaza_SocialShare::socialshare.phtml" after="-">
