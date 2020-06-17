@@ -69,7 +69,7 @@ class SocialShare extends Template
         array $data = []
     ) {
         $this->_helperData = $helperData;
-        $this->_page = $page;
+        $this->_page       = $page;
         parent::__construct($context, $data);
     }
 
@@ -92,7 +92,7 @@ class SocialShare extends Template
      */
     public function getIconColor()
     {
-        return $this->_helperData->getButtonColor() .','. $this->_helperData->getIconColor();
+        return $this->_helperData->getButtonColor() . ',' . $this->_helperData->getIconColor();
     }
 
     /**
@@ -120,9 +120,10 @@ class SocialShare extends Template
     {
         return $this->_helperData->isAddMoreShare();
     }
-    
+
     /**
      * @param string $service
+     *
      * @return string
      */
     public function getShareCounter($service)
@@ -170,9 +171,9 @@ class SocialShare extends Template
      */
     public function getImageUrl($service)
     {
-        $baseUrl = $this->_storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
+        $baseUrl    = $this->_storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
         $modulePath = 'mageplaza/socialshare/';
-        $imageUrl = $baseUrl . $modulePath . $service . '/' . $this->_helperData->getServiceImage($service);
+        $imageUrl   = $baseUrl . $modulePath . $service . '/' . $this->_helperData->getServiceImage($service);
 
         return $imageUrl;
     }
@@ -195,13 +196,13 @@ class SocialShare extends Template
         $disabledServices = [];
         foreach (self::SERVICES as $service) {
             if ($this->_helperData->getDisableService($service) !== null) {
-                $disabledServices[] = '"'. $this->_helperData->getDisableService($service) .'"';
+                $disabledServices[] = '"' . $this->_helperData->getDisableService($service) . '"';
             }
         }
 
         return implode(',', $disabledServices);
     }
-    
+
     /**
      * @return int
      */
@@ -279,8 +280,8 @@ class SocialShare extends Template
      */
     public function isThisPageEnable()
     {
-        $type = $this->getData('type');
-        $thisPage = $this->getData('page');
+        $type       = $this->getData('type');
+        $thisPage   = $this->getData('page');
         $allowPages = null;
 
         if ($type === 'inline') {
@@ -298,7 +299,7 @@ class SocialShare extends Template
             }
             if ($this->_helperData->getFloatApplyPages() === FloatApplyFor::SELECT_PAGES) {
                 $selectPages = explode(',', $this->_helperData->getFloatSelectPages());
-                $cmsPages = explode(',', $this->_helperData->getFloatCmsPages());
+                $cmsPages    = explode(',', $this->_helperData->getFloatCmsPages());
                 if ($thisPage === 'cms_page') {
                     $pageId = $this->_page->getPage()->getId();
                     if (in_array($pageId, $cmsPages, true)) {
@@ -327,12 +328,12 @@ class SocialShare extends Template
      */
     public function isThisPositionEnable()
     {
-        $thisPosition = $this->getData('position');
+        $thisPosition  = $this->getData('position');
         $positionArray = [];
         if ($thisPosition === 'float_position') {
             return true;
         }
-        $selectPosition = $this->_helperData->getInlinePosition();
+        $selectPosition  = $this->_helperData->getInlinePosition();
         $positionArray[] = $selectPosition;
         if ($this->isShowUnderCart()) {
             $positionArray[] = 'under_cart';
@@ -378,7 +379,7 @@ class SocialShare extends Template
                 $imageSize = 'width="32" height="32"';
                 break;
         }
-        
+
         return $imageSize;
     }
 
@@ -400,6 +401,7 @@ class SocialShare extends Template
                 $buttonSizeStr = 'a2a_kit_size_32';
                 break;
         }
+
         return $buttonSizeStr;
     }
 
@@ -410,6 +412,7 @@ class SocialShare extends Template
     {
         if (!$this->isDisplayInline()) {
             $floatStyle = $this->_helperData->getFloatStyle();
+
             return $floatStyle === Style::VERTICAL ? 'a2a_vertical_style' : 'a2a_default_style';
         }
 
@@ -441,9 +444,9 @@ class SocialShare extends Template
      */
     public function getFloatMargin($type)
     {
-        $floatMarginTop = $this->_helperData->getFloatMarginTop();
+        $floatMarginTop    = $this->_helperData->getFloatMarginTop();
         $floatMarginBottom = $this->_helperData->getFloatMarginBottom();
-        
+
         return $type === 'bottom' ? "bottom: {$floatMarginBottom}px;" : "top: {$floatMarginTop}px;";
     }
 }
