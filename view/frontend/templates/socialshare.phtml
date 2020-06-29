@@ -43,7 +43,11 @@
             .mp_social_share_inline {
                 width: fit-content;
                 justify-content: flex-end;
+            <?php if($block->getPosition() === 'bottom_content'): ?>
                 float: right;
+            <?php else: ?>
+                float: left;
+            <?php endif; ?>
             }
 
             .mp_social_share_inline_under_cart {
