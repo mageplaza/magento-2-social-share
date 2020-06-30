@@ -32,22 +32,15 @@
             <?php if ($block->isDisplayInline()) :?>
             .mp_social_share_inline, .mp_social_share_inline_under_cart {
                 display: flex;
-                padding-bottom: 7px;
-                padding-top: 7px;
-                padding-right: 7px;
                 border-radius: 7px;
-                padding-left: 5px;
+                padding: 7px 7px 7px 5px;
                 <?= /* @noEscape */ $block->getBackgroundColor()?>
             }
 
             .mp_social_share_inline {
                 width: fit-content;
                 justify-content: flex-end;
-            <?php if($block->getPosition() === 'bottom_content'): ?>
-                float: right;
-            <?php else: ?>
-                float: left;
-            <?php endif; ?>
+                <?= $block->getPosition() === 'bottom_content' ? 'float: right;' : 'float: left;' ?>
             }
 
             .mp_social_share_inline_under_cart {
@@ -57,18 +50,18 @@
             <?php else : ?>
             .mp_social_share_float {
                 <?php if ($block->isVerticalStyle($block->getFloatStyle())) : ?>
-                <?= /* @noEscape */ $block->getFloatMargin('top')?>
+                    <?= /* @noEscape */ $block->getFloatMargin('top')?>
                 <?php endif;?>
                 <?= /* @noEscape */ $block->getFloatPosition()?>
                 <?= /* @noEscape */ $block->getBackgroundColor()?>
                 z-index: 10;
             }
 
-            <?php if (!$block->isVerticalStyle($block->getFloatStyle())) :?>
+                <?php if (!$block->isVerticalStyle($block->getFloatStyle())) :?>
             .a2a_floating_style.a2a_default_style {
-                <?= /* @noEscape */ $block->getFloatMargin('bottom')?>
+                    <?= /* @noEscape */ $block->getFloatMargin('bottom')?>
             }
-            <?php endif;?>
+                <?php endif;?>
 
             @media only screen and (min-width: 430px) {.navigation { z-index: 1; }}
 
@@ -113,5 +106,3 @@
         </script>
     <?php endif; ?>
 <?php endif; ?>
-
-
