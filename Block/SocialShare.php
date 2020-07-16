@@ -255,6 +255,16 @@ class SocialShare extends Template
     }
 
     /**
+     * @return string
+     */
+    public function getPosition()
+    {
+        $position = $this->getData('position');
+
+        return $position;
+    }
+
+    /**
      * @param $displayType
      *
      * @return string|null

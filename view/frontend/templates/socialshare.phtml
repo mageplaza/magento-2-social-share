@@ -30,37 +30,42 @@
             }
 
             <?php if ($block->isDisplayInline()) :?>
-                .mp_social_share_inline, .mp_social_share_inline_under_cart {
-                    display: flex;
-                    padding-bottom: 15px;
-                }
-    
-                .mp_social_share_inline {
-                    justify-content: flex-end;
-                }
-    
-                .mp_social_share_inline_under_cart {
-                    justify-content: flex-start;
-                }
+            .mp_social_share_inline, .mp_social_share_inline_under_cart {
+                display: flex;
+                border-radius: 7px;
+                padding: 7px 7px 7px 5px;
+                <?= /* @noEscape */ $block->getBackgroundColor()?>
+            }
+
+            .mp_social_share_inline {
+                width: fit-content;
+                justify-content: flex-end;
+                <?= $block->getPosition() === 'bottom_content' ? 'float: right;' : 'float: left;' ?>
+            }
+
+            .mp_social_share_inline_under_cart {
+                justify-content: flex-start;
+                float: left;
+            }
             <?php else : ?>
-                .mp_social_share_float {
-                    <?php if ($block->isVerticalStyle($block->getFloatStyle())) : ?>
-                        <?= /* @noEscape */ $block->getFloatMargin('top')?>
-                    <?php endif;?>
-                    <?= /* @noEscape */ $block->getFloatPosition()?>
-                    <?= /* @noEscape */ $block->getBackgroundColor()?>
-                    z-index: 10;
-                }
-                
-                <?php if (!$block->isVerticalStyle($block->getFloatStyle())) :?>
-                    .a2a_floating_style.a2a_default_style {
-                        <?= /* @noEscape */ $block->getFloatMargin('bottom')?>
-                    }
+            .mp_social_share_float {
+                <?php if ($block->isVerticalStyle($block->getFloatStyle())) : ?>
+                    <?= /* @noEscape */ $block->getFloatMargin('top')?>
                 <?php endif;?>
-            
-                @media only screen and (min-width: 430px) {.navigation { z-index: 1; }}
-    
-                .footer-bottom .container .logo { z-index: 0;}
+                <?= /* @noEscape */ $block->getFloatPosition()?>
+                <?= /* @noEscape */ $block->getBackgroundColor()?>
+                z-index: 10;
+            }
+
+                <?php if (!$block->isVerticalStyle($block->getFloatStyle())) :?>
+            .a2a_floating_style.a2a_default_style {
+                    <?= /* @noEscape */ $block->getFloatMargin('bottom')?>
+            }
+                <?php endif;?>
+
+            @media only screen and (min-width: 430px) {.navigation { z-index: 1; }}
+
+            .footer-bottom .container .logo { z-index: 0;}
             <?php endif;?>
         </style>
 
@@ -68,13 +73,13 @@
             <div class="a2a_kit <?= /* @noEscape */ $block->getDisplayType() ?>
             <?= /* @noEscape */ $block->getButtonSize() ?>
             <?= /* @noEscape */ $block->getFloatStyle() ?>">
-                
+
                 <?php foreach ($block->getEnableService() as $enableService) : ?>
                     <?php if ($block->isImageEnable($enableService)) : ?>
                         <a class="a2a_button_<?= /* @noEscape */ $enableService ?>
                         <?= /* @noEscape */ $block->getShareCounter($enableService) ?>">
                             <img src="<?= /* @noEscape */ $block->getImageUrl($enableService) ?>"
-                                 <?= /* @noEscape */ $block->setImageSize($block->getButtonSize()) ?>
+                                <?= /* @noEscape */ $block->setImageSize($block->getButtonSize()) ?>
                                  alt="<?= /* @noEscape */ $enableService ?>">
                         </a>
                     <?php else : ?>
@@ -89,10 +94,10 @@
                 <?php endif; ?>
             </div>
         </div>
-        
+
         <script type="text/javascript">
             var a2a_config = a2a_config || {};
-            
+
             a2a_config.icon_color ="<?= /* @noEscape */ $block->getIconColor() ?>";
             a2a_config.num_services = <?= /* @noEscape */ $block->getNumberOfService() ?>;
             a2a_config.onclick = <?= /* @noEscape */ $block->getMenuType() ?>;
@@ -101,5 +106,3 @@
         </script>
     <?php endif; ?>
 <?php endif; ?>
-
-
