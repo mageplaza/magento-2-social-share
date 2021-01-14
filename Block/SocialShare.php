@@ -128,7 +128,7 @@ class SocialShare extends Template
      */
     public function getShareCounter($service)
     {
-        $supportServices = ['facebook', 'pinterest', 'tumblr', 'a2a_dd'];
+        $supportServices = ['pinterest', 'tumblr', 'a2a_dd'];
         if ($this->_helperData->isShareCounter() && in_array($service, $supportServices, true)) {
             return 'a2a_counter';
         }
