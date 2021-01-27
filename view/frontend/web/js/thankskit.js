@@ -21,8 +21,6 @@
 require([
     'jquery',
 ], function ($) {
-    var a2a_tkit = $('#a2a_thanks_kit');
-
     $(document).ready(function () {
 
         var existCondition = setInterval(
