@@ -230,8 +230,30 @@ Login to the **Magento Admin**, choose `Store > Configuration > Mageplaza > Soci
 - [Magento 2 SEO module](https://github.com/mageplaza/magento-2-seo)
 - [Magento 2 security](https://github.com/mageplaza/magento-2-security)
 - [Magento 2 popup module](https://github.com/mageplaza/magento-2-better-popup)
-- [Magento 2 layered navigation free(https://github.com/mageplaza/magento-2-ajax-layered-navigation)
+- [Magento 2 layered navigation free](https://github.com/mageplaza/magento-2-ajax-layered-navigation)
 - [Magento 2 Flat Rates Shipping](https://github.com/mageplaza/magento-2-multi-flat-rates)
 - [Magento 2 Social login](https://github.com/mageplaza/magento-2-social-login)
 - [Magento 2 reporting extension](https://github.com/mageplaza/magento-2-reports)
 - [Magento 2 Blog module](https://github.com/mageplaza/magento-2-blog)
+
+
+**Explore more Magento 2 extensions from Mageplaza**
+☞ [Mageplaza Login as Customer](https://www.mageplaza.com/magento-2-login-as-customer/)
+
+☞ [Magento 2 Image Optimizer](https://marketplace.magento.com/mageplaza-module-image-optimizer.html)
+
+☞ [Mageplaza Customer Attributes](https://www.mageplaza.com/magento-2-customer-attributes/)
+
+☞ [Mageplaza Layered Navitaion Ultimate](https://www.mageplaza.com/magento-2-layered-navigation-extension/)
+
+☞ [Mageplaza Google Tag Manager](https://www.mageplaza.com/magento-2-google-tag-manager/)
+
+☞ [Mageplaza Ajax Cart](https://www.mageplaza.com/magento-2-quick-view/)
+
+☞ [Mageplaza Store Pickup](https://www.mageplaza.com/magento-2-store-pickup-extension/)
+
+☞ [Mageplaza Product Options](https://www.mageplaza.com/magento-2-product-options/)
+
+☞ [Mageplaza SMS Notification](https://www.mageplaza.com/magento-2-sms-notification/)
+
+☞ [Mageplaza Follow Up Email](https://www.mageplaza.com/magento-2-follow-up-email/)
