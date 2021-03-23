@@ -22,14 +22,14 @@
 
 <?php /** @var \Mageplaza\SocialShare\Block\SocialShare $block */ ?>
 
-<?php if ($block->isEnable()) : ?>
-    <?php if ($block->isThisPageEnable() && $block->isThisPositionEnable()) : ?>
+<?php if ($block->isEnable()): ?>
+    <?php if ($block->isThisPageEnable() && $block->isThisPositionEnable()): ?>
         <style type="text/css">
             .a2a_svg, .a2a_count {
                 border-radius: <?= /* @noEscape */ $block->getBorderRadius()?> !important;
             }
 
-            <?php if ($block->isDisplayInline()) :?>
+            <?php if ($block->isDisplayInline()):?>
             .mp_social_share_inline, .mp_social_share_inline_under_cart {
                 display: flex;
                 border-radius: 7px;
@@ -49,9 +49,9 @@
                 justify-content: flex-start;
                 float: left;
             }
-            <?php else : ?>
+            <?php else: ?>
             .mp_social_share_float {
-                <?php if ($block->isVerticalStyle($block->getFloatStyle())) : ?>
+                <?php if ($block->isVerticalStyle($block->getFloatStyle())): ?>
                     <?= /* @noEscape */ $block->getFloatMargin('top')?>
                 <?php endif;?>
                 <?= /* @noEscape */ $block->getFloatPosition()?>
@@ -59,7 +59,7 @@
                 z-index: 10;
             }
 
-                <?php if (!$block->isVerticalStyle($block->getFloatStyle())) :?>
+                <?php if (!$block->isVerticalStyle($block->getFloatStyle())):?>
             .a2a_floating_style.a2a_default_style {
                     <?= /* @noEscape */ $block->getFloatMargin('bottom')?>
             }
@@ -76,21 +76,21 @@
             <?= /* @noEscape */ $block->getButtonSize() ?>
             <?= /* @noEscape */ $block->getFloatStyle() ?>">
 
-                <?php foreach ($block->getEnableService() as $enableService) : ?>
-                    <?php if ($block->isImageEnable($enableService)) : ?>
+                <?php foreach ($block->getEnableService() as $enableService): ?>
+                    <?php if ($block->isImageEnable($enableService)): ?>
                         <a class="a2a_button_<?= /* @noEscape */ $enableService ?>
                         <?= /* @noEscape */ $block->getShareCounter($enableService) ?>">
                             <img src="<?= /* @noEscape */ $block->getImageUrl($enableService) ?>"
                                 <?= /* @noEscape */ $block->setImageSize($block->getButtonSize()) ?>
                                  alt="<?= /* @noEscape */ $enableService ?>">
                         </a>
-                    <?php else : ?>
+                    <?php else: ?>
                         <a class="a2a_button_<?= /* @noEscape */ $enableService ?>
                         <?= /* @noEscape */ $block->getShareCounter($enableService) ?>"></a>
                     <?php endif; ?>
                 <?php endforeach; ?>
 
-                <?php if ($block->isAddMoreShare()) : ?>
+                <?php if ($block->isAddMoreShare()): ?>
                     <a class="a2a_dd <?= /* @noEscape */ $block->getShareCounter('a2a_dd') ?>"
                        href="https://www.addtoany.com/share"></a>
                 <?php endif; ?>
