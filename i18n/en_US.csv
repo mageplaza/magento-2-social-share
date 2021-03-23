@@ -24,7 +24,11 @@ Vertical,Vertical
 "Social Share","Social Share"
 "General Configuration","General Configuration"
 Enable,Enable
-"Select <strong>Yes</strong> to enable this module","Select <strong>Yes</strong> to enable this module"
+"Select <b>Yes</b> to enable this module.<br />
+                        1. It helps to reduce abandonment cart with <a href=""https://www.mageplaza.com/magento-2-one-step-checkout-extension/"" target=""_blank"">One Step Checkout</a>. <br />
+                        2. <a href=""https://pages.mageplaza.com/abandoned-cart-email-templates-for-magento/?utm_source=configuration&utm_campaign=m2-bannerslider"" target=""_blank"">How to setup abandoned cart email series</a>","Select <b>Yes</b> to enable this module.<br />
+                        1. It helps to reduce abandonment cart with <a href=""https://www.mageplaza.com/magento-2-one-step-checkout-extension/"" target=""_blank"">One Step Checkout</a>. <br />
+                        2. <a href=""https://pages.mageplaza.com/abandoned-cart-email-templates-for-magento/?utm_source=configuration&utm_campaign=m2-bannerslider"" target=""_blank"">How to setup abandoned cart email series</a>"
 "Icon Color","Icon Color"
 "Only apply for default icon","Only apply for default icon"
 "Custom Icon Color","Custom Icon Color"
