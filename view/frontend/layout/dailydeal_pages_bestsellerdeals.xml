@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialShare
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="columns.top">
+            <block class="Mageplaza\SocialShare\Block\SocialShare" name="mp.SocialShare.InlineTop" template="Mageplaza_SocialShare::socialshare.phtml">
+                <arguments>
+                    <argument name="page" xsi:type="string">dailydeal_bestsellerdeals</argument>
+                    <argument name="position" xsi:type="string">top_content</argument>
+                    <argument name="type" xsi:type="string">inline</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Mageplaza\SocialShare\Block\SocialShare" name="mp.SocialShare.Float" template="Mageplaza_SocialShare::socialshare.phtml">
+                <arguments>
+                    <argument name="page" xsi:type="string">dailydeal_bestsellerdeals</argument>
+                    <argument name="type" xsi:type="string">float</argument>
+                    <argument name="position" xsi:type="string">float_position</argument>
+                </arguments>
+            </block>
+            <block class="Mageplaza\SocialShare\Block\SocialShare" name="mp.SocialShare.InlineBottom" template="Mageplaza_SocialShare::socialshare.phtml">
+                <arguments>
+                    <argument name="page" xsi:type="string">dailydeal_bestsellerdeals</argument>
+                    <argument name="position" xsi:type="string">bottom_content</argument>
+                    <argument name="type" xsi:type="string">inline</argument>
+                </arguments>
+
+            </block>
+        </referenceContainer>
+    </body>
+</page>
