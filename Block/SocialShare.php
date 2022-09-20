@@ -295,7 +295,7 @@ class SocialShare extends Template
         $allowPages = null;
 
         if ($type === 'inline') {
-            $allowPages = explode(',', $this->_helperData->getInlineApplyPages());
+            $allowPages = explode(',', $this->_helperData->getInlineApplyPages()?:'');
             if ($this->isShowUnderCart()) {
                 $allowPages[] = 'under_cart';
             }
@@ -308,8 +308,8 @@ class SocialShare extends Template
                 return true;
             }
             if ($this->_helperData->getFloatApplyPages() === FloatApplyFor::SELECT_PAGES) {
-                $selectPages = explode(',', $this->_helperData->getFloatSelectPages());
-                $cmsPages    = explode(',', $this->_helperData->getFloatCmsPages());
+                $selectPages = explode(',', $this->_helperData->getFloatSelectPages()?:'');
+                $cmsPages    = explode(',', $this->_helperData->getFloatCmsPages()?:'');
                 if ($thisPage === 'cms_page') {
                     $pageId = $this->_page->getPage()->getId();
                     if (in_array($pageId, $cmsPages, true)) {
