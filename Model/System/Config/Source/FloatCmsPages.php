@@ -53,7 +53,9 @@ class FloatCmsPages extends OptionArray
         $cmsPages = [];
 
         foreach ($pages as $page) {
-            $cmsPages[$page->getId()] = $page->getTitle();
+            if ($page->isActive()){
+                $cmsPages[$page->getId()] = $page->getTitle();
+            }
         }
 
         return $cmsPages;
