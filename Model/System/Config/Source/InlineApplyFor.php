@@ -21,6 +21,8 @@
 
 namespace Mageplaza\SocialShare\Model\System\Config\Source;
 
+use Mageplaza\SocialShare\Helper\Data as HelperData;
+
 /**
  * Class InlineApplyFor
  * @package Mageplaza\SocialShare\Model\System\Config\Source
@@ -36,18 +38,37 @@ class InlineApplyFor extends OptionArray
     const DAILYDEAL_NEWDEALS  = 'dailydeal_newdeals';
 
     /**
+     * @var HelperData
+     */
+    protected $_helperData;
+
+    public function __construct(HelperData $helperData)
+    {
+        $this->_helperData = $helperData;
+    }
+
+    /**
      * @return array
      */
     public function getOptionHash()
     {
-        return [
-            self::HOME_PAGE     => __('Home Page'),
-            self::CATEGORY_PAGE => __('Categories Page'),
-            self::PRODUCT_PAGE  => __('Products Page'),
-            self::DAILYDEAL_ALLDEALS  => __('Daily Deal All Deals Page'),
-            self::DAILYDEAL_BESTSELLERDEALS  => __('Daily Deal Bestseller Deals Page'),
-            self::DAILYDEAL_FEATUREDDEALS  => __('Daily Deal Featured Deals Page'),
-            self::DAILYDEAL_NEWDEALS  => __('Daily Deal New Deals Page'),
-        ];
+        if (!$this->_helperData->checkDailyDealEnable()) {
+            $pages = [
+                self::HOME_PAGE     => __('Home Page'),
+                self::CATEGORY_PAGE => __('Categories Page'),
+                self::PRODUCT_PAGE  => __('Products Page')
+            ];
+        } else {
+            $pages = [
+                self::HOME_PAGE     => __('Home Page'),
+                self::CATEGORY_PAGE => __('Categories Page'),
+                self::PRODUCT_PAGE  => __('Products Page'),
+                self::DAILYDEAL_ALLDEALS  => __('Daily Deal All Deals Page'),
+                self::DAILYDEAL_BESTSELLERDEALS  => __('Daily Deal Bestseller Deals Page'),
+                self::DAILYDEAL_FEATUREDDEALS  => __('Daily Deal Featured Deals Page'),
+                self::DAILYDEAL_NEWDEALS  => __('Daily Deal New Deals Page'),
+            ];
+        }
+        return $pages;
     }
 }
