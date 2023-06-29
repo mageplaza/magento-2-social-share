@@ -323,4 +323,12 @@ class Data extends AbstractData
     {
         return $this->getModuleConfig(self::CONFIG_INLINE . 'button_size', $storeId);
     }
+
+    /**
+     * @return bool
+     */
+    public function checkDailyDealEnable()
+    {
+        return $this->_moduleManager->isOutputEnabled('Mageplaza_DailyDeal');
+    }
 }
