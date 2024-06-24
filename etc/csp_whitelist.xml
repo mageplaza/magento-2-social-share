@@ -39,5 +39,16 @@
                 <value id="fue-connect" type="host">http://dpm.demdex.net</value>
             </values>
         </policy>
+        <policy id="script-src">
+            <values>
+                <value id="addtoany-page-script" type="host">https://static.addtoany.com/menu/page.js</value>
+                <value id="addtoany-module" type="host">https://static.addtoany.com/menu/modules/core.BRQnzO8v.js</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="addtoany-frame" type="host">https://static.addtoany.com/</value>
+            </values>
+        </policy>
     </policies>
 </csp_whitelist>
