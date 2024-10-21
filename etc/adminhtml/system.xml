@@ -42,7 +42,7 @@
                 </field>
                 <field id="custom_icon_color" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Custom Icon Color</label>
-                    <validate>jscolor {hash:true,refine:false}</validate>
+                    <frontend_model>Mageplaza\Core\Block\Adminhtml\System\Config\ColorPicker</frontend_model>
                     <depends>
                         <field id="icon_color">Custom</field>
                     </depends>
@@ -54,7 +54,7 @@
                 </field>
                 <field id="custom_button_color" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Custom Button Color</label>
-                    <validate>jscolor {hash:true,refine:false}</validate>
+                    <frontend_model>Mageplaza\Core\Block\Adminhtml\System\Config\ColorPicker</frontend_model>
                     <depends>
                         <field id="button_color">Custom</field>
                     </depends>
@@ -65,7 +65,7 @@
                 </field>
                 <field id="custom_background_color" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Custom Background Color</label>
-                    <validate>jscolor {hash:true,refine:false}</validate>
+                    <frontend_model>Mageplaza\Core\Block\Adminhtml\System\Config\ColorPicker</frontend_model>
                     <depends>
                         <field id="background_color">Custom</field>
                     </depends>
