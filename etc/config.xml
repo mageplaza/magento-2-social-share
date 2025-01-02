@@ -25,6 +25,7 @@
         <mpsocialshare>
             <module>
                 <type>1</type>
+                <user_guide>magento/module-social-share</user_guide>
             </module>
             <general>
                 <enabled>1</enabled>
