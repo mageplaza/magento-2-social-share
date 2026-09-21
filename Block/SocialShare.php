@@ -273,7 +273,15 @@ class SocialShare extends Template
     {
         $position = $this->getData('position');
         if ($displayType === 'a2a_default_style') {
-            return $position === 'under_cart' ? 'mp_social_share_inline_under_cart' : 'mp_social_share_inline';
+            if ($position !== 'under_cart') {
+                return 'mp_social_share_inline';
+            }
+            $class = 'mp_social_share_inline_under_cart';
+            if ($this->getData('is_additional_actions_row')) {
+                $class .= ' mp_social_share_actions_row';
+            }
+
+            return $class;
         }
 
         return null;
