@@ -155,7 +155,7 @@
         <script type="text/javascript">
             var a2a_config = a2a_config || {};
 
-            a2a_config.icon_color ="<?= /* @noEscape */ $block->getIconColor() ?>";
+            a2a_config.icon_color ="<?= $escaper->escapeJs($block->getIconColor()) ?>";
             a2a_config.num_services = <?= /* @noEscape */ $block->getNumberOfService() ?>;
             a2a_config.onclick = <?= /* @noEscape */ $block->getMenuType() ?>;
             a2a_config.thanks = {postShare: <?= /* @noEscape */ $block->getThankYou() ?>,};

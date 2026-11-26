@@ -92,7 +92,8 @@ class SocialShare extends Template
      */
     public function getIconColor()
     {
-        return $this->_helperData->getButtonColor() . ',' . $this->_helperData->getIconColor();
+        return $this->sanitizeColor($this->_helperData->getButtonColor(), 'unset') . ','
+            . $this->sanitizeColor($this->_helperData->getIconColor(), '#FFFFFF');
     }
 
     /**
@@ -100,9 +101,23 @@ class SocialShare extends Template
      */
     public function getBackgroundColor()
     {
-        $color = $this->_helperData->getBackgroundColor();
+        $color = $this->sanitizeColor($this->_helperData->getBackgroundColor(), '#FFFFFF');
 
         return 'background: ' . $color . ';';
+    }
+
+    /**
+     * @param mixed $color
+     * @param string $default
+     *
+     * @return string
+     */
+    private function sanitizeColor($color, $default)
+    {
+        $color = trim((string) $color);
+        $valid = '/^(#[0-9a-f]{3,8}|[a-z]+|(rgb|hsl)a?\(\s*[0-9.]+%?(\s*[,\/\s]\s*[0-9.]+%?){2,3}\s*\))\z/i';
+
+        return preg_match($valid, $color) ? $color : $default;
     }
 
     /**
@@ -110,7 +125,7 @@ class SocialShare extends Template
      */
     public function getBorderRadius()
     {
-        return $this->_helperData->getBorderRadius() . '%';
+        return (int) $this->_helperData->getBorderRadius() . '%';
     }
 
     /**
@@ -462,8 +477,8 @@ class SocialShare extends Template
      */
     public function getFloatMargin($type)
     {
-        $floatMarginTop    = $this->_helperData->getFloatMarginTop();
-        $floatMarginBottom = $this->_helperData->getFloatMarginBottom();
+        $floatMarginTop    = (int) $this->_helperData->getFloatMarginTop();
+        $floatMarginBottom = (int) $this->_helperData->getFloatMarginBottom();
 
         return $type === 'bottom' ? "bottom: {$floatMarginBottom}px;" : "top: {$floatMarginTop}px;";
     }
